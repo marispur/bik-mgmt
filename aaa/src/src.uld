@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:CollaborationDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="src" metadata="uml2-1.0" initialized="true" tag="1000" key="32303036313030362061312F6D707572696E73">
+  <children xsi:type="editmodel:CollaborationActorEditModel" location="55,72" size="70,128" stereotype="User" itemName="BIK user">
+    <sourceConnections xsi:type="editmodel:CollaborationMessageEditModel" source="//@children.0" target="//@children.1" targetEnd="//@children.0/@sourceConnections.0/@children.1" label="//@children.0/@sourceConnections.0/@children.2" sourceEnd="//@children.0/@sourceConnections.0/@children.0" connectionRouterKind="Manual" associatedMethod="LineClicked" associatedSequenceNumber="" synchronization="Asynchronous">
+      <children xsi:type="editmodel:CollaborationEndEditModel" location="70,64" attachSource="true"/>
+      <children xsi:type="editmodel:CollaborationEndEditModel" location="-1,16"/>
+      <children xsi:type="editmodel:WireLabelEditModel" name="LineClicked()" size="82,17" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+    </sourceConnections>
+  </children>
+  <children xsi:type="editmodel:CollaborationInstanceEditModel" targetConnections="//@children.0/@sourceConnections.0" location="239,120" size="53,34" itemName="UIForm" role=""/>
+  <diagramOptions xsi:type="options:CollaborationDiagramOptions" level="0" autoName="false"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="10,10" gridOrigin="0,0" rulerUnit="pixel">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+</editmodel:CollaborationDiagramEditModel>
