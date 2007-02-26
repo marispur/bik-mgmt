@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/2.0.0/UML" xmi:id="_B9wQoMWlEdux4NvuFng-Fg" name="src">
+  <packagedElement xmi:type="uml:Package" xmi:id="_oCGm8MWkEdux4NvuFng-Fg" name="com.kl">
+    <packagedElement xmi:type="uml:Class" xmi:id="_oD4voMWkEdux4NvuFng-Fg" name="Asas">
+      <ownedOperation xmi:id="_tiWjcMWkEdux4NvuFng-Fg" name="Asas" visibility="public" concurrency="concurrent">
+        <ownedParameter xmi:id="_1CTt4MWkEdux4NvuFng-Fg" name="extendableVal">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_otKWIcWkEdux4NvuFng-Fg" name="IMessage"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_otUHIMWkEdux4NvuFng-Fg" name="Test2" clientDependency="_ovGP0MWkEdux4NvuFng-Fg">
+      <ownedOperation xmi:id="_ot59AMWkEdux4NvuFng-Fg" name="main" visibility="public" isStatic="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_ouzU48WkEdux4NvuFng-Fg" name="args" type="_ouzU4sWkEdux4NvuFng-Fg"/>
+      </ownedOperation>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_oD4voMWkEdux4NvuFng-Fg" name="Asas">
+    <ownedOperation xmi:id="_tiWjcMWkEdux4NvuFng-Fg" name="Asas" visibility="public" concurrency="concurrent">
+      <ownedParameter xmi:id="_1CTt4MWkEdux4NvuFng-Fg" name="extendableVal">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_otKWIMWkEdux4NvuFng-Fg" name="com.messages"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_otKWIcWkEdux4NvuFng-Fg" name="IMessage"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_otUHIMWkEdux4NvuFng-Fg" name="Test2" clientDependency="_ovGP0MWkEdux4NvuFng-Fg">
+    <ownedOperation xmi:id="_ot59AMWkEdux4NvuFng-Fg" name="main" visibility="public" isStatic="true" concurrency="concurrent">
+      <ownedParameter xmi:id="_ouzU48WkEdux4NvuFng-Fg" name="args" type="_ouzU4sWkEdux4NvuFng-Fg"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_ouzU4MWkEdux4NvuFng-Fg" name="java.lang">
+    <packagedElement xmi:type="uml:Class" xmi:id="_ouzU4sWkEdux4NvuFng-Fg" name="String" isLeaf="true"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_ovGP0MWkEdux4NvuFng-Fg" supplier="_ouzU4sWkEdux4NvuFng-Fg" client="_otUHIMWkEdux4NvuFng-Fg _otUHIMWkEdux4NvuFng-Fg"/>
+</uml:Model>

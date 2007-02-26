@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<SQLPage encodedConnection="Undefined_1.0:::">
+<Statement><![CDATA[SELECT * FROM sys_section;
+
+SELECT * FROM sys_subsection WHERE id=2;]]></Statement>
+</SQLPage>
