@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ASCII"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/2.0.0/UML" xmi:id="_UR0soMgQEduLfcKRYOfzMA" name="designer">
+  <packagedElement xmi:type="uml:Interface" xmi:id="_pursQMgPEduLfcKRYOfzMA" name="IController"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_rhRrQMgPEduLfcKRYOfzMA" name="IDataProvider"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_tiUV8MgPEduLfcKRYOfzMA" name="IUIProvider"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_0Z5RwMgPEduLfcKRYOfzMA" name="AppStart" clientDependency="_0b1LcMgPEduLfcKRYOfzMA">
+    <ownedOperation xmi:id="_0Z5RwcgPEduLfcKRYOfzMA" name="main" visibility="public" isStatic="true" concurrency="concurrent">
+      <ownedParameter xmi:id="_0eEAEMgPEduLfcKRYOfzMA" name="args" type="_0a7zksgPEduLfcKRYOfzMA"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_3ghEcMgPEduLfcKRYOfzMA" name="."/>
+  <packagedElement xmi:type="uml:Package" xmi:id="_QY-LwMgQEduLfcKRYOfzMA" name="com.mvproject.bik.designer.ctrl">
+    <packagedElement xmi:type="uml:Interface" xmi:id="_pursQMgPEduLfcKRYOfzMA" name="IController"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_0a7zkMgPEduLfcKRYOfzMA" name="java.lang">
+    <packagedElement xmi:type="uml:Class" xmi:id="_0a7zksgPEduLfcKRYOfzMA" name="String" isLeaf="true"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_0b1LcMgPEduLfcKRYOfzMA" supplier="_0a7zksgPEduLfcKRYOfzMA" client="_0Z5RwMgPEduLfcKRYOfzMA"/>
+</uml:Model>
