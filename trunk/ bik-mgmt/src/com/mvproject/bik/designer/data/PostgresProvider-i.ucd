@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="PostgresProvider-i" foregroundRGB="255,255,255" description="" id="com.mvproject.bik.designer.data" titleLabel="//@children.0" metadata="uml2-1.0" initialized="true" tag="1000" key="32303036313030362062696B2D64657369676E65722F41646D696E">
+  <children xsi:type="editmodel:LabelObjectEditModel" name="com.mvproject.bik.designer.data.PostgresProvider - Class diagram" location="20,10" size="319,14" fontInfo="Arial-8-0"/>
+  <children xsi:type="editmodel:ClassEditModel" name="PostgresProvider" location="20,40" size="399,853" id="com.mvproject.bik.designer.data/PostgresProvider" runTimeClassModel="getSectionIdList(),rsSections,rsDepreciation,getMaterialIdList(I),getController(),updateSection(Lcom.mvproject.bik.designer.data.Section;),getPriceList(),getHistoryEvents(Lcom.mvproject.bik.designer.data.IBikItem;),getDepreciationIdList(I),getWorkItemIdList(I),resetRecordsets(),rsHistoryEvents,getSubsection(I),rsPriceList,getDepreciation(I),connectionString,getSubsectionIdList(I),updateLabour(Lcom.mvproject.bik.designer.data.Labour;),getDepreciationPercent(I),getSection(I),setController(Lcom.mvproject.bik.designer.ctrl.IController;),rsSubsections,PostgresProvider(Lcom.mvproject.bik.designer.ctrl.IController;),getLabourIdList(I),getCommentIdList(II),rsComments,updateSubsection(Lcom.mvproject.bik.designer.data.Subsection;),getWorkItem(I),getDepreciationPercentIdList(I),updateDepreciationPercent(Lcom.mvproject.bik.designer.data.DepreciationPercent;),rsMaterials,establishConnection(Ljava.lang.String;),getLabour(I),updateDepreciation(Lcom.mvproject.bik.designer.data.Depreciation;),getHistoryEvents(Lcom.mvproject.bik.designer.data.IBikItem;I),rsWorkItems,connectionSql,getMaterials(I),updateWorkItem(Lcom.mvproject.bik.designer.data.WorkItem;),rsLabour,rsDepreciationPercent,controller,updateMaterials(Lcom.mvproject.bik.designer.data.Materials;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="178,234">
+      <children xsi:type="editmodel:AttributeEditModel" name="connectionSql" id="com.mvproject.bik.designer.data/PostgresProvider#connectionSql"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="connectionString" id="com.mvproject.bik.designer.data/PostgresProvider#connectionString"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="controller" id="com.mvproject.bik.designer.data/PostgresProvider#controller"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="rsComments" id="com.mvproject.bik.designer.data/PostgresProvider#rsComments"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="rsDepreciation" id="com.mvproject.bik.designer.data/PostgresProvider#rsDepreciation"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="rsDepreciationPercent" id="com.mvproject.bik.designer.data/PostgresProvider#rsDepreciationPercent"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="rsHistoryEvents" id="com.mvproject.bik.designer.data/PostgresProvider#rsHistoryEvents"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="rsLabour" id="com.mvproject.bik.designer.data/PostgresProvider#rsLabour"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="rsMaterials" id="com.mvproject.bik.designer.data/PostgresProvider#rsMaterials"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="rsPriceList" id="com.mvproject.bik.designer.data/PostgresProvider#rsPriceList"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="rsSections" id="com.mvproject.bik.designer.data/PostgresProvider#rsSections"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="rsSubsections" id="com.mvproject.bik.designer.data/PostgresProvider#rsSubsections"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="rsWorkItems" id="com.mvproject.bik.designer.data/PostgresProvider#rsWorkItems"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="376,540">
+      <children xsi:type="editmodel:MethodEditModel" name="PostgresProvider" id="com.mvproject.bik.designer.data/PostgresProvider#PostgresProvider(Lcom.mvproject.bik.designer.ctrl.IController;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="establishConnection" id="com.mvproject.bik.designer.data/PostgresProvider#establishConnection(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getCommentIdList" id="com.mvproject.bik.designer.data/PostgresProvider#getCommentIdList(II)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getController" id="com.mvproject.bik.designer.data/PostgresProvider#getController()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getDepreciation" id="com.mvproject.bik.designer.data/PostgresProvider#getDepreciation(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getDepreciationIdList" id="com.mvproject.bik.designer.data/PostgresProvider#getDepreciationIdList(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getDepreciationPercent" id="com.mvproject.bik.designer.data/PostgresProvider#getDepreciationPercent(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getDepreciationPercentIdList" id="com.mvproject.bik.designer.data/PostgresProvider#getDepreciationPercentIdList(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getHistoryEvents" id="com.mvproject.bik.designer.data/PostgresProvider#getHistoryEvents(Lcom.mvproject.bik.designer.data.IBikItem;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getHistoryEvents" id="com.mvproject.bik.designer.data/PostgresProvider#getHistoryEvents(Lcom.mvproject.bik.designer.data.IBikItem;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getLabour" id="com.mvproject.bik.designer.data/PostgresProvider#getLabour(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getLabourIdList" id="com.mvproject.bik.designer.data/PostgresProvider#getLabourIdList(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getMaterialIdList" id="com.mvproject.bik.designer.data/PostgresProvider#getMaterialIdList(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getMaterials" id="com.mvproject.bik.designer.data/PostgresProvider#getMaterials(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getPriceList" id="com.mvproject.bik.designer.data/PostgresProvider#getPriceList()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getSection" id="com.mvproject.bik.designer.data/PostgresProvider#getSection(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getSectionIdList" id="com.mvproject.bik.designer.data/PostgresProvider#getSectionIdList()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getSubsection" id="com.mvproject.bik.designer.data/PostgresProvider#getSubsection(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getSubsectionIdList" id="com.mvproject.bik.designer.data/PostgresProvider#getSubsectionIdList(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getWorkItem" id="com.mvproject.bik.designer.data/PostgresProvider#getWorkItem(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getWorkItemIdList" id="com.mvproject.bik.designer.data/PostgresProvider#getWorkItemIdList(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="resetRecordsets" id="com.mvproject.bik.designer.data/PostgresProvider#resetRecordsets()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setController" id="com.mvproject.bik.designer.data/PostgresProvider#setController(Lcom.mvproject.bik.designer.ctrl.IController;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="updateDepreciation" id="com.mvproject.bik.designer.data/PostgresProvider#updateDepreciation(Lcom.mvproject.bik.designer.data.Depreciation;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="updateDepreciationPercent" id="com.mvproject.bik.designer.data/PostgresProvider#updateDepreciationPercent(Lcom.mvproject.bik.designer.data.DepreciationPercent;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="updateLabour" id="com.mvproject.bik.designer.data/PostgresProvider#updateLabour(Lcom.mvproject.bik.designer.data.Labour;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="updateMaterials" id="com.mvproject.bik.designer.data/PostgresProvider#updateMaterials(Lcom.mvproject.bik.designer.data.Materials;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="updateSection" id="com.mvproject.bik.designer.data/PostgresProvider#updateSection(Lcom.mvproject.bik.designer.data.Section;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="updateSubsection" id="com.mvproject.bik.designer.data/PostgresProvider#updateSubsection(Lcom.mvproject.bik.designer.data.Subsection;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="updateWorkItem" id="com.mvproject.bik.designer.data/PostgresProvider#updateWorkItem(Lcom.mvproject.bik.designer.data.WorkItem;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="com.mvproject.bik.designer.data/IProvider&lt;-com.mvproject.bik.designer.data/PostgresProvider" source="//@children.1" target="//@children.2" targetEnd="//@children.1/@sourceConnections.0/@children.1" sourceEnd="//@children.1/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="399,298" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,298"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showAssociationMember="true" showMethods="true" showAttributes="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.1/@sourceConnections.0" name="IProvider" location="510,40" size="399,597" id="com.mvproject.bik.designer.data/IProvider">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="376,504">
+      <children xsi:type="editmodel:MethodEditModel" name="establishConnection" id="com.mvproject.bik.designer.data/IProvider#establishConnection(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getCommentIdList" id="com.mvproject.bik.designer.data/IProvider#getCommentIdList(II)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getController" id="com.mvproject.bik.designer.data/IProvider#getController()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getDepreciation" id="com.mvproject.bik.designer.data/IProvider#getDepreciation(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getDepreciationIdList" id="com.mvproject.bik.designer.data/IProvider#getDepreciationIdList(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getDepreciationPercent" id="com.mvproject.bik.designer.data/IProvider#getDepreciationPercent(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getDepreciationPercentIdList" id="com.mvproject.bik.designer.data/IProvider#getDepreciationPercentIdList(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getHistoryEvents" id="com.mvproject.bik.designer.data/IProvider#getHistoryEvents(Lcom.mvproject.bik.designer.data.IBikItem;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getHistoryEvents" id="com.mvproject.bik.designer.data/IProvider#getHistoryEvents(Lcom.mvproject.bik.designer.data.IBikItem;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getLabour" id="com.mvproject.bik.designer.data/IProvider#getLabour(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getLabourIdList" id="com.mvproject.bik.designer.data/IProvider#getLabourIdList(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getMaterialIdList" id="com.mvproject.bik.designer.data/IProvider#getMaterialIdList(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getMaterials" id="com.mvproject.bik.designer.data/IProvider#getMaterials(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getPriceList" id="com.mvproject.bik.designer.data/IProvider#getPriceList()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getSection" id="com.mvproject.bik.designer.data/IProvider#getSection(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getSectionIdList" id="com.mvproject.bik.designer.data/IProvider#getSectionIdList()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getSubsection" id="com.mvproject.bik.designer.data/IProvider#getSubsection(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getSubsectionIdList" id="com.mvproject.bik.designer.data/IProvider#getSubsectionIdList(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getWorkItem" id="com.mvproject.bik.designer.data/IProvider#getWorkItem(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getWorkItemIdList" id="com.mvproject.bik.designer.data/IProvider#getWorkItemIdList(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setController" id="com.mvproject.bik.designer.data/IProvider#setController(Lcom.mvproject.bik.designer.ctrl.IController;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="updateDepreciation" id="com.mvproject.bik.designer.data/IProvider#updateDepreciation(Lcom.mvproject.bik.designer.data.Depreciation;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="updateDepreciationPercent" id="com.mvproject.bik.designer.data/IProvider#updateDepreciationPercent(Lcom.mvproject.bik.designer.data.DepreciationPercent;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="updateLabour" id="com.mvproject.bik.designer.data/IProvider#updateLabour(Lcom.mvproject.bik.designer.data.Labour;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="updateMaterials" id="com.mvproject.bik.designer.data/IProvider#updateMaterials(Lcom.mvproject.bik.designer.data.Materials;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="updateSection" id="com.mvproject.bik.designer.data/IProvider#updateSection(Lcom.mvproject.bik.designer.data.Section;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="updateSubsection" id="com.mvproject.bik.designer.data/IProvider#updateSubsection(Lcom.mvproject.bik.designer.data.Subsection;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="updateWorkItem" id="com.mvproject.bik.designer.data/IProvider#updateWorkItem(Lcom.mvproject.bik.designer.data.WorkItem;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showAssociationMember="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" properties="open=com.mvproject.bik.designer.data/Provider;wireOptions=0"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="10,10" gridOrigin="0,0" rulerUnit="cm">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showInterfaceStereotype="true" showAssociationMember="true" showMethods="true" showAttributes="true" showLiterlas="true"/>
+</editmodel:ClassDiagramEditModel>

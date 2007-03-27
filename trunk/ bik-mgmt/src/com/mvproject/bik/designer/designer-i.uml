@@ -1,0 +1,703 @@
+<?xml version="1.0" encoding="ASCII"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/2.0.0/UML" xmi:id="_HFY_oNZKEdu_5PZppul3_A" name="designer">
+  <packagedElement xmi:type="uml:Package" xmi:id="_Sjp24NZDEdu_5PZppul3_A" name="com.mvproject.bik.designer">
+    <packagedElement xmi:type="uml:Class" xmi:id="_SokMENZDEdu_5PZppul3_A" name="AppStart" clientDependency="_TN9_MNZDEdu_5PZppul3_A">
+      <ownedOperation xmi:id="_TFCFoNZDEdu_5PZppul3_A" name="main" visibility="public" isStatic="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_TMexc9ZDEdu_5PZppul3_A" name="args" type="_TMexctZDEdu_5PZppul3_A"/>
+      </ownedOperation>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_SokMENZDEdu_5PZppul3_A" name="AppStart" clientDependency="_TN9_MNZDEdu_5PZppul3_A">
+    <ownedOperation xmi:id="_TFCFoNZDEdu_5PZppul3_A" name="main" visibility="public" isStatic="true" concurrency="concurrent">
+      <ownedParameter xmi:id="_TMexc9ZDEdu_5PZppul3_A" name="args" type="_TMexctZDEdu_5PZppul3_A"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_TPKSANZDEdu_5PZppul3_A" name="com.mvproject.bik.designer.data" clientDependency="_TQqG0NZDEdu_5PZppul3_A">
+    <packagedElement xmi:type="uml:Interface" xmi:id="_TPd0ANZDEdu_5PZppul3_A" name="IProvider" clientDependency="_TQNa49ZDEdu_5PZppul3_A _TQWk0tZDEdu_5PZppul3_A _TQgV0tZDEdu_5PZppul3_A">
+      <ownedOperation xmi:id="_TQDp4NZDEdu_5PZppul3_A" name="getController" visibility="public" isAbstract="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_TQDp49ZDEdu_5PZppul3_A" type="_TQDp4tZDEdu_5PZppul3_A" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_TQDp5NZDEdu_5PZppul3_A" name="setController" visibility="public" isAbstract="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_TQDp5dZDEdu_5PZppul3_A" name="ctrlVal" type="_TQDp4tZDEdu_5PZppul3_A"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_TQDp5tZDEdu_5PZppul3_A" name="establishConnection" visibility="public" isAbstract="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_TQDp59ZDEdu_5PZppul3_A" name="urlVal" type="_TMexctZDEdu_5PZppul3_A"/>
+        <ownedParameter xmi:id="_TQDp6NZDEdu_5PZppul3_A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_TQDp6dZDEdu_5PZppul3_A" name="getSectionList" visibility="public" isAbstract="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_TQDp7NZDEdu_5PZppul3_A" type="_TQDp69ZDEdu_5PZppul3_A" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_TQNa4NZDEdu_5PZppul3_A" name="getSection" visibility="public" isAbstract="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_TQNa4dZDEdu_5PZppul3_A" name="idVal">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_TQNa4tZDEdu_5PZppul3_A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_TPd0ANZDEdu_5PZppul3_A" name="IProvider" clientDependency="_TQNa49ZDEdu_5PZppul3_A _TQWk0tZDEdu_5PZppul3_A _TQgV0tZDEdu_5PZppul3_A">
+    <ownedOperation xmi:id="_TQDp4NZDEdu_5PZppul3_A" name="getController" visibility="public" isAbstract="true" concurrency="concurrent">
+      <ownedParameter xmi:id="_TQDp49ZDEdu_5PZppul3_A" type="_TQDp4tZDEdu_5PZppul3_A" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_TQDp5NZDEdu_5PZppul3_A" name="setController" visibility="public" isAbstract="true" concurrency="concurrent">
+      <ownedParameter xmi:id="_TQDp5dZDEdu_5PZppul3_A" name="ctrlVal" type="_TQDp4tZDEdu_5PZppul3_A"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_TQDp5tZDEdu_5PZppul3_A" name="establishConnection" visibility="public" isAbstract="true" concurrency="concurrent">
+      <ownedParameter xmi:id="_TQDp59ZDEdu_5PZppul3_A" name="urlVal" type="_TMexctZDEdu_5PZppul3_A"/>
+      <ownedParameter xmi:id="_TQDp6NZDEdu_5PZppul3_A" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_TQDp6dZDEdu_5PZppul3_A" name="getSectionList" visibility="public" isAbstract="true" concurrency="concurrent">
+      <ownedParameter xmi:id="_TQDp7NZDEdu_5PZppul3_A" type="_TQDp69ZDEdu_5PZppul3_A" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_TQNa4NZDEdu_5PZppul3_A" name="getSection" visibility="public" isAbstract="true" concurrency="concurrent">
+      <ownedParameter xmi:id="_TQNa4dZDEdu_5PZppul3_A" name="idVal">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_TQNa4tZDEdu_5PZppul3_A" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_TQDp4dZDEdu_5PZppul3_A" name="com.mvproject.bik.designer.ctrl" clientDependency="_TTexUNZDEdu_5PZppul3_A _TTexU9ZDEdu_5PZppul3_A _TToiUtZDEdu_5PZppul3_A">
+    <packagedElement xmi:type="uml:Interface" xmi:id="_TQDp4tZDEdu_5PZppul3_A" name="IController" clientDependency="_TSJUkNZDEdu_5PZppul3_A _TSSegtZDEdu_5PZppul3_A _ByF6ANZKEdu_5PZppul3_A">
+      <ownedAttribute xmi:id="_TRsooNZDEdu_5PZppul3_A" name="dataProvider" visibility="public" type="_TPd0ANZDEdu_5PZppul3_A">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_TRsootZDEdu_5PZppul3_A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TRsoodZDEdu_5PZppul3_A"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_TRsoo9ZDEdu_5PZppul3_A" name="uiProvider" visibility="public" type="_TQqG1NZDEdu_5PZppul3_A">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_TRsopdZDEdu_5PZppul3_A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TRsopNZDEdu_5PZppul3_A"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_TRsoptZDEdu_5PZppul3_A" name="getSelectedItemIndex" visibility="public" isAbstract="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_BrrwBNZKEdu_5PZppul3_A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_TRsoqNZDEdu_5PZppul3_A" name="addMessage" visibility="public" isAbstract="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_BrrwAtZKEdu_5PZppul3_A" name="msgVal" type="_TRsoqtZDEdu_5PZppul3_A"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_TRsorNZDEdu_5PZppul3_A" name="getDataProvider" visibility="public" isAbstract="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_BrrwA9ZKEdu_5PZppul3_A" type="_TPd0ANZDEdu_5PZppul3_A" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_TRsortZDEdu_5PZppul3_A" name="setDataProvider" visibility="public" isAbstract="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_Br1hANZKEdu_5PZppul3_A" name="dataProviderVal" type="_TPd0ANZDEdu_5PZppul3_A"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_TRsosNZDEdu_5PZppul3_A" name="setUiProvider" visibility="public" isAbstract="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_BrrwAdZKEdu_5PZppul3_A" name="uiProviderVal" type="_TQqG1NZDEdu_5PZppul3_A"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_TR2ZodZDEdu_5PZppul3_A" name="getUiProvider" visibility="public" isAbstract="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_BrrwANZKEdu_5PZppul3_A" type="_TQqG1NZDEdu_5PZppul3_A" direction="return"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_LI98ENZFEdu_5PZppul3_A" name="Controller" clientDependency="_LLymkNZFEdu_5PZppul3_A _LL8XkdZFEdu_5PZppul3_A _LL8XlNZFEdu_5PZppul3_A _LL8Xl9ZFEdu_5PZppul3_A _LL8XmtZFEdu_5PZppul3_A _9_8eFtZJEdu_5PZppul3_A _-YF4VdZJEdu_5PZppul3_A _-n4n0NZJEdu_5PZppul3_A _Bf6k5NZKEdu_5PZppul3_A _BrimENZKEdu_5PZppul3_A _Bx8JANZKEdu_5PZppul3_A">
+      <generalization xmi:id="_LJHGAdZFEdu_5PZppul3_A" general="_LJHGANZFEdu_5PZppul3_A"/>
+      <generalization xmi:id="_LJQ3ANZFEdu_5PZppul3_A" general="_TQDp4tZDEdu_5PZppul3_A"/>
+      <ownedAttribute xmi:id="_LKKO4NZFEdu_5PZppul3_A" name="dataProvider" visibility="private" type="_TPd0ANZDEdu_5PZppul3_A">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LKwEwtZFEdu_5PZppul3_A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LKwEwdZFEdu_5PZppul3_A"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LKKO4dZFEdu_5PZppul3_A" name="uiProvider" visibility="private" type="_TQqG1NZDEdu_5PZppul3_A">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LKwExNZFEdu_5PZppul3_A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LKwEw9ZFEdu_5PZppul3_A"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LKKO4tZFEdu_5PZppul3_A" name="msgQ" visibility="private" type="_TRsoqtZDEdu_5PZppul3_A" association="_LLfrqNZFEdu_5PZppul3_A">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LKwExtZFEdu_5PZppul3_A" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LKwExdZFEdu_5PZppul3_A"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_LKKO49ZFEdu_5PZppul3_A" name="Controller" visibility="public" concurrency="concurrent"/>
+      <ownedOperation xmi:id="_LKKO5NZFEdu_5PZppul3_A" name="getSelectedItemIndex" visibility="public" concurrency="concurrent">
+        <ownedParameter xmi:id="_BrY1FNZKEdu_5PZppul3_A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LKdJ0dZFEdu_5PZppul3_A" name="getDataProvider" visibility="public" concurrency="concurrent">
+        <ownedParameter xmi:id="_BrY1E9ZKEdu_5PZppul3_A" type="_TPd0ANZDEdu_5PZppul3_A" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LKdJ09ZFEdu_5PZppul3_A" name="addMessage" visibility="public" concurrency="concurrent">
+        <ownedParameter xmi:id="_BrY1FdZKEdu_5PZppul3_A" name="msgVal" type="_TRsoqtZDEdu_5PZppul3_A"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LKdJ1dZFEdu_5PZppul3_A" name="setUiProvider" visibility="public" concurrency="concurrent">
+        <ownedParameter xmi:id="_BrY1ENZKEdu_5PZppul3_A" name="uiProvider" type="_TQqG1NZDEdu_5PZppul3_A"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LKdJ19ZFEdu_5PZppul3_A" name="getUiProvider" visibility="public" concurrency="concurrent">
+        <ownedParameter xmi:id="_BrY1EdZKEdu_5PZppul3_A" type="_TQqG1NZDEdu_5PZppul3_A" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LKdJ2dZFEdu_5PZppul3_A" name="setDataProvider" visibility="public" concurrency="concurrent">
+        <ownedParameter xmi:id="_BrY1EtZKEdu_5PZppul3_A" name="dataProvider" type="_TPd0ANZDEdu_5PZppul3_A"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_LLfrqNZFEdu_5PZppul3_A" memberEnd="_LKKO4tZFEdu_5PZppul3_A _LLfrqdZFEdu_5PZppul3_A">
+      <name xsi:nil="true"/>
+      <ownedEnd xmi:id="_LLfrqdZFEdu_5PZppul3_A" name="" type="_LI98ENZFEdu_5PZppul3_A" association="_LLfrqNZFEdu_5PZppul3_A">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LLfrqtZFEdu_5PZppul3_A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LLfrq9ZFEdu_5PZppul3_A"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_NjfdwNZFEdu_5PZppul3_A" name="IBikItem" clientDependency="_NkPEvNZFEdu_5PZppul3_A">
+      <ownedAttribute xmi:id="_Nj8JsNZFEdu_5PZppul3_A" name="BIK_OBJTYPE_MATERIALS" visibility="public" isLeaf="true" isStatic="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NkPEo9ZFEdu_5PZppul3_A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NkPEotZFEdu_5PZppul3_A"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_Nj8JsdZFEdu_5PZppul3_A" name="BIK_OBJTYPE_LABOR_COMPANY" visibility="public" isLeaf="true" isStatic="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NkPEpdZFEdu_5PZppul3_A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NkPEpNZFEdu_5PZppul3_A"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_Nj8JstZFEdu_5PZppul3_A" name="BIK_OBJTYPE_WORK_ITEM_COMMENT" visibility="public" isLeaf="true" isStatic="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NkPEp9ZFEdu_5PZppul3_A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NkPEptZFEdu_5PZppul3_A"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_Nj8Js9ZFEdu_5PZppul3_A" name="BIK_OBJTYPE_LABOR" visibility="public" isLeaf="true" isStatic="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NkPEqdZFEdu_5PZppul3_A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NkPEqNZFEdu_5PZppul3_A"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_Nj8JtNZFEdu_5PZppul3_A" name="BIK_OBJTYPE_PRICE_DEF" visibility="public" isLeaf="true" isStatic="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NkPEq9ZFEdu_5PZppul3_A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NkPEqtZFEdu_5PZppul3_A"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_NkFToNZFEdu_5PZppul3_A" name="BIK_OBJTYPE_SUBSECTION" visibility="public" isLeaf="true" isStatic="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NkPErdZFEdu_5PZppul3_A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NkPErNZFEdu_5PZppul3_A"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_NkFTodZFEdu_5PZppul3_A" name="BIK_OBJTYPE_DEPRECIATION" visibility="public" isLeaf="true" isStatic="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NkPEr9ZFEdu_5PZppul3_A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NkPErtZFEdu_5PZppul3_A"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_NkFTotZFEdu_5PZppul3_A" name="BIK_OBJTYPE_DEPRECIATION_PERCENT" visibility="public" isLeaf="true" isStatic="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NkPEsdZFEdu_5PZppul3_A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NkPEsNZFEdu_5PZppul3_A"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_NkFTo9ZFEdu_5PZppul3_A" name="BIK_OBJTYPE_WORK_ITEM" visibility="public" isLeaf="true" isStatic="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NkPEs9ZFEdu_5PZppul3_A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NkPEstZFEdu_5PZppul3_A"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_NkFTpNZFEdu_5PZppul3_A" name="BIK_OBJTYPE_SECTION_COMMENT" visibility="public" isLeaf="true" isStatic="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NkPEtdZFEdu_5PZppul3_A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NkPEtNZFEdu_5PZppul3_A"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_NkFTpdZFEdu_5PZppul3_A" name="BIK_OBJTYPE_SUBSECTION_COMPANY_ASSIGNMENT" visibility="public" isLeaf="true" isStatic="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NkPEt9ZFEdu_5PZppul3_A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NkPEttZFEdu_5PZppul3_A"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_NkFTptZFEdu_5PZppul3_A" name="BIK_OBJTYPE_SECTION" visibility="public" isLeaf="true" isStatic="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NkPEudZFEdu_5PZppul3_A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NkPEuNZFEdu_5PZppul3_A"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_NkFTp9ZFEdu_5PZppul3_A" name="BIK_OBJTYPE_SUBSECTION_COMMENT" visibility="public" isLeaf="true" isStatic="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NkPEu9ZFEdu_5PZppul3_A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NkPEutZFEdu_5PZppul3_A"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_NkFTqNZFEdu_5PZppul3_A" name="isSelected" visibility="public" isAbstract="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_FpTcKdZKEdu_5PZppul3_A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_NkFTqtZFEdu_5PZppul3_A" name="isExpanded" visibility="public" isAbstract="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_FpTcI9ZKEdu_5PZppul3_A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_NkFTrNZFEdu_5PZppul3_A" name="setExpanded" visibility="public" isAbstract="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_FpTcJtZKEdu_5PZppul3_A" name="expandedVal">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_NkFTrtZFEdu_5PZppul3_A" name="clone" visibility="public" isAbstract="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_FpTcJdZKEdu_5PZppul3_A" type="_NjfdwNZFEdu_5PZppul3_A" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_NkFTsNZFEdu_5PZppul3_A" name="isExpandable" visibility="public" isAbstract="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_FpJrINZKEdu_5PZppul3_A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_NkFTstZFEdu_5PZppul3_A" name="getName" visibility="public" isAbstract="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_FpTcKNZKEdu_5PZppul3_A" type="_TMexctZDEdu_5PZppul3_A" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_NkFTtNZFEdu_5PZppul3_A" name="setListViewIndex" visibility="public" isAbstract="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_FpTcINZKEdu_5PZppul3_A" name="indexVal">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_NkFTttZFEdu_5PZppul3_A" name="getListViewIndex" visibility="public" isAbstract="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_FpTcJ9ZKEdu_5PZppul3_A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_NkFTuNZFEdu_5PZppul3_A" name="getBikObjType" visibility="public" isAbstract="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_FpTcIdZKEdu_5PZppul3_A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_NkFTutZFEdu_5PZppul3_A" name="setSelected" visibility="public" isAbstract="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_FpTcItZKEdu_5PZppul3_A" name="selectedVal">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_NkPEoNZFEdu_5PZppul3_A" name="getID" visibility="public" isAbstract="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_FpTcJNZKEdu_5PZppul3_A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_TQDp4tZDEdu_5PZppul3_A" name="IController" clientDependency="_TSJUkNZDEdu_5PZppul3_A _TSSegtZDEdu_5PZppul3_A _ByF6ANZKEdu_5PZppul3_A">
+    <ownedAttribute xmi:id="_TRsooNZDEdu_5PZppul3_A" name="dataProvider" visibility="public" type="_TPd0ANZDEdu_5PZppul3_A">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_TRsootZDEdu_5PZppul3_A" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TRsoodZDEdu_5PZppul3_A"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_TRsoo9ZDEdu_5PZppul3_A" name="uiProvider" visibility="public" type="_TQqG1NZDEdu_5PZppul3_A">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_TRsopdZDEdu_5PZppul3_A" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TRsopNZDEdu_5PZppul3_A"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_TRsoptZDEdu_5PZppul3_A" name="getSelectedItemIndex" visibility="public" isAbstract="true" concurrency="concurrent">
+      <ownedParameter xmi:id="_BrrwBNZKEdu_5PZppul3_A" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_TRsoqNZDEdu_5PZppul3_A" name="addMessage" visibility="public" isAbstract="true" concurrency="concurrent">
+      <ownedParameter xmi:id="_BrrwAtZKEdu_5PZppul3_A" name="msgVal" type="_TRsoqtZDEdu_5PZppul3_A"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_TRsorNZDEdu_5PZppul3_A" name="getDataProvider" visibility="public" isAbstract="true" concurrency="concurrent">
+      <ownedParameter xmi:id="_BrrwA9ZKEdu_5PZppul3_A" type="_TPd0ANZDEdu_5PZppul3_A" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_TRsortZDEdu_5PZppul3_A" name="setDataProvider" visibility="public" isAbstract="true" concurrency="concurrent">
+      <ownedParameter xmi:id="_Br1hANZKEdu_5PZppul3_A" name="dataProviderVal" type="_TPd0ANZDEdu_5PZppul3_A"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_TRsosNZDEdu_5PZppul3_A" name="setUiProvider" visibility="public" isAbstract="true" concurrency="concurrent">
+      <ownedParameter xmi:id="_BrrwAdZKEdu_5PZppul3_A" name="uiProviderVal" type="_TQqG1NZDEdu_5PZppul3_A"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_TR2ZodZDEdu_5PZppul3_A" name="getUiProvider" visibility="public" isAbstract="true" concurrency="concurrent">
+      <ownedParameter xmi:id="_BrrwANZKEdu_5PZppul3_A" type="_TQqG1NZDEdu_5PZppul3_A" direction="return"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_TQqG09ZDEdu_5PZppul3_A" name="com.mvproject.bik.designer.ui">
+    <packagedElement xmi:type="uml:Interface" xmi:id="_TQqG1NZDEdu_5PZppul3_A" name="IUIProvider"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_TQqG1NZDEdu_5PZppul3_A" name="IUIProvider"/>
+  <packagedElement xmi:type="uml:Package" xmi:id="_TRsoqdZDEdu_5PZppul3_A" name="com.mvproject.bik.designer.ctrl.messages" clientDependency="_LLWhuNZFEdu_5PZppul3_A _LLfrotZFEdu_5PZppul3_A _LLfrpdZFEdu_5PZppul3_A">
+    <packagedElement xmi:type="uml:Interface" xmi:id="_TRsoqtZDEdu_5PZppul3_A" name="IControllerMessage" clientDependency="_LLMwsNZFEdu_5PZppul3_A _LLMws9ZFEdu_5PZppul3_A _LLWhstZFEdu_5PZppul3_A _LLWhtdZFEdu_5PZppul3_A">
+      <ownedOperation xmi:id="_LKwEyNZFEdu_5PZppul3_A" name="process" visibility="public" isAbstract="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_Br-q8tZKEdu_5PZppul3_A" name="uiVal" type="_TQqG1NZDEdu_5PZppul3_A"/>
+        <ownedParameter xmi:id="_Br-q89ZKEdu_5PZppul3_A" name="ctrlVal" type="_TQDp4tZDEdu_5PZppul3_A"/>
+        <ownedParameter xmi:id="_Br-q9NZKEdu_5PZppul3_A" name="dpVal" type="_TPd0ANZDEdu_5PZppul3_A"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LK51w9ZFEdu_5PZppul3_A" name="getMessageName" visibility="public" isAbstract="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_Br-q8NZKEdu_5PZppul3_A" type="_TMexctZDEdu_5PZppul3_A" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LK51xdZFEdu_5PZppul3_A" name="getMessageType" visibility="public" isAbstract="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_Br-q8dZKEdu_5PZppul3_A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_TRsoqtZDEdu_5PZppul3_A" name="IControllerMessage" clientDependency="_LLMwsNZFEdu_5PZppul3_A _LLMws9ZFEdu_5PZppul3_A _LLWhstZFEdu_5PZppul3_A _LLWhtdZFEdu_5PZppul3_A">
+    <ownedOperation xmi:id="_LKwEyNZFEdu_5PZppul3_A" name="process" visibility="public" isAbstract="true" concurrency="concurrent">
+      <ownedParameter xmi:id="_Br-q8tZKEdu_5PZppul3_A" name="uiVal" type="_TQqG1NZDEdu_5PZppul3_A"/>
+      <ownedParameter xmi:id="_Br-q89ZKEdu_5PZppul3_A" name="ctrlVal" type="_TQDp4tZDEdu_5PZppul3_A"/>
+      <ownedParameter xmi:id="_Br-q9NZKEdu_5PZppul3_A" name="dpVal" type="_TPd0ANZDEdu_5PZppul3_A"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_LK51w9ZFEdu_5PZppul3_A" name="getMessageName" visibility="public" isAbstract="true" concurrency="concurrent">
+      <ownedParameter xmi:id="_Br-q8NZKEdu_5PZppul3_A" type="_TMexctZDEdu_5PZppul3_A" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_LK51xdZFEdu_5PZppul3_A" name="getMessageType" visibility="public" isAbstract="true" concurrency="concurrent">
+      <ownedParameter xmi:id="_Br-q8dZKEdu_5PZppul3_A" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_TMexcNZDEdu_5PZppul3_A" name="java.lang">
+    <packagedElement xmi:type="uml:Class" xmi:id="_TMexctZDEdu_5PZppul3_A" name="String" isLeaf="true"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_LJHGANZFEdu_5PZppul3_A" name="Thread">
+      <generalization xmi:id="_LMr-cdZFEdu_5PZppul3_A" general="_LMr-cNZFEdu_5PZppul3_A"/>
+      <generalization xmi:id="_LMr-c9ZFEdu_5PZppul3_A" general="_LMr-ctZFEdu_5PZppul3_A"/>
+      <ownedAttribute xmi:id="_LPrBANZFEdu_5PZppul3_A" name="uncaughtExceptionHandler" visibility="private" type="_LPrBAtZFEdu_5PZppul3_A"/>
+      <ownedAttribute xmi:id="_LPrBA9ZFEdu_5PZppul3_A" name="inheritableThreadLocals" visibility="package" type="_LPrBBdZFEdu_5PZppul3_A"/>
+      <ownedAttribute xmi:id="_LPrBBtZFEdu_5PZppul3_A" name="stopBeforeStart" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LP0K8NZFEdu_5PZppul3_A" name="blockerLock" visibility="private" type="_LMr-cNZFEdu_5PZppul3_A"/>
+      <ownedAttribute xmi:id="_LP0K8dZFEdu_5PZppul3_A" name="threadSeqNumber" visibility="private" isStatic="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LP0K8tZFEdu_5PZppul3_A" name="nORM_PRIORITY" visibility="public" isLeaf="true" isStatic="true" isReadOnly="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LP0K89ZFEdu_5PZppul3_A" name="throwableFromStop" visibility="private" type="_LP0K9NZFEdu_5PZppul3_A"/>
+      <ownedAttribute xmi:id="_LP0K9dZFEdu_5PZppul3_A" name="blocker" visibility="private">
+        <type xmi:type="uml:Interface" href="platform:/resource/bik-designer/.repository.uml2#_LP0K-NZFEdu_5PZppul3_A"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LP0K-dZFEdu_5PZppul3_A" name="threadLocals" visibility="package" type="_LPrBBdZFEdu_5PZppul3_A"/>
+      <ownedAttribute xmi:id="_LP0K-tZFEdu_5PZppul3_A" name="threadInitNumber" visibility="private" isStatic="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LP0K-9ZFEdu_5PZppul3_A" name="nativeParkEventPointer" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LP0K_NZFEdu_5PZppul3_A" name="priority" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LP978NZFEdu_5PZppul3_A" name="single_step" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LP978dZFEdu_5PZppul3_A" name="name" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#char"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LP9789ZFEdu_5PZppul3_A" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LP979NZFEdu_5PZppul3_A" name="stackSize" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LP979dZFEdu_5PZppul3_A" name="subclassAudits" visibility="private" isLeaf="true" isStatic="true" isReadOnly="true">
+        <type xmi:type="uml:Class" href="platform:/resource/bik-designer/.repository.uml2#_LP9799ZFEdu_5PZppul3_A"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LP97-NZFEdu_5PZppul3_A" name="tid" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LP97-dZFEdu_5PZppul3_A" name="contextClassLoader" visibility="private" type="_LP97-tZFEdu_5PZppul3_A"/>
+      <ownedAttribute xmi:id="_LP97-9ZFEdu_5PZppul3_A" name="mAX_PRIORITY" visibility="public" isLeaf="true" isStatic="true" isReadOnly="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LP97_NZFEdu_5PZppul3_A" name="defaultUncaughtExceptionHandler" visibility="private" isStatic="true" type="_LPrBAtZFEdu_5PZppul3_A"/>
+      <ownedAttribute xmi:id="_LP97_tZFEdu_5PZppul3_A" name="parkBlocker" visibility="package" type="_LMr-cNZFEdu_5PZppul3_A"/>
+      <ownedAttribute xmi:id="_LP98ANZFEdu_5PZppul3_A" name="eetop" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LP98AdZFEdu_5PZppul3_A" name="eMPTY_STACK_TRACE" visibility="private" isLeaf="true" isStatic="true" type="_LP98AtZFEdu_5PZppul3_A" isReadOnly="true">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LP98BNZFEdu_5PZppul3_A" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LP98BdZFEdu_5PZppul3_A" name="mIN_PRIORITY" visibility="public" isLeaf="true" isStatic="true" isReadOnly="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LP98BtZFEdu_5PZppul3_A" name="inheritedAccessControlContext" visibility="private" type="_LP98CNZFEdu_5PZppul3_A"/>
+      <ownedAttribute xmi:id="_LP98CdZFEdu_5PZppul3_A" name="target" visibility="private" type="_LMr-ctZFEdu_5PZppul3_A"/>
+      <ownedAttribute xmi:id="_LQHs8NZFEdu_5PZppul3_A" name="threadQ" visibility="private" type="_LJHGANZFEdu_5PZppul3_A"/>
+      <ownedAttribute xmi:id="_LQHs8dZFEdu_5PZppul3_A" name="daemon" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LQHs8tZFEdu_5PZppul3_A" name="group" visibility="private" type="_LQHs89ZFEdu_5PZppul3_A"/>
+      <ownedAttribute xmi:id="_LQHs9NZFEdu_5PZppul3_A" name="sUBCLASS_IMPLEMENTATION_PERMISSION" visibility="private" isLeaf="true" isStatic="true" type="_LQHs9dZFEdu_5PZppul3_A" isReadOnly="true"/>
+      <ownedAttribute xmi:id="_LQHs9tZFEdu_5PZppul3_A" name="stillborn" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LQHs99ZFEdu_5PZppul3_A" name="threadStatus" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedAttribute>
+      <nestedClassifier xmi:type="uml:Interface" xmi:id="_LPrBAtZFEdu_5PZppul3_A" name="UncaughtExceptionHandler" isAbstract="true"/>
+      <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_LRAdwNZFEdu_5PZppul3_A" name="State" isLeaf="true"/>
+      <ownedOperation xmi:id="_LQHs-NZFEdu_5PZppul3_A" name="&lt;clinit>" visibility="package" isStatic="true" concurrency="concurrent"/>
+      <ownedOperation xmi:id="_LQHs-dZFEdu_5PZppul3_A" name="setDefaultUncaughtExceptionHandler" visibility="public" isStatic="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_LQHs-tZFEdu_5PZppul3_A" name="arg0" type="_LPrBAtZFEdu_5PZppul3_A"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LQHs-9ZFEdu_5PZppul3_A" name="Thread" visibility="public" concurrency="concurrent">
+        <ownedParameter xmi:id="_LQHs_NZFEdu_5PZppul3_A" name="arg0" type="_LMr-ctZFEdu_5PZppul3_A"/>
+        <ownedParameter xmi:id="_LQQ24NZFEdu_5PZppul3_A" name="arg1" type="_TMexctZDEdu_5PZppul3_A"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LQQ24dZFEdu_5PZppul3_A" name="start" visibility="public"/>
+      <ownedOperation xmi:id="_LQQ24tZFEdu_5PZppul3_A" name="init" visibility="private" concurrency="concurrent">
+        <ownedParameter xmi:id="_LQQ249ZFEdu_5PZppul3_A" name="arg0" type="_LQHs89ZFEdu_5PZppul3_A"/>
+        <ownedParameter xmi:id="_LQQ25NZFEdu_5PZppul3_A" name="arg1" type="_LMr-ctZFEdu_5PZppul3_A"/>
+        <ownedParameter xmi:id="_LQQ25dZFEdu_5PZppul3_A" name="arg2" type="_TMexctZDEdu_5PZppul3_A"/>
+        <ownedParameter xmi:id="_LQQ25tZFEdu_5PZppul3_A" name="arg3">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LQQ259ZFEdu_5PZppul3_A" name="Thread" visibility="public" concurrency="concurrent">
+        <ownedParameter xmi:id="_LQQ26NZFEdu_5PZppul3_A" name="arg0" type="_LQHs89ZFEdu_5PZppul3_A"/>
+        <ownedParameter xmi:id="_LQQ26dZFEdu_5PZppul3_A" name="arg1" type="_LMr-ctZFEdu_5PZppul3_A"/>
+        <ownedParameter xmi:id="_LQQ26tZFEdu_5PZppul3_A" name="arg2" type="_TMexctZDEdu_5PZppul3_A"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LQQ269ZFEdu_5PZppul3_A" name="setName" visibility="public" isLeaf="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_LQQ27NZFEdu_5PZppul3_A" name="arg0" type="_TMexctZDEdu_5PZppul3_A"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LQQ27dZFEdu_5PZppul3_A" name="toString" visibility="public" concurrency="concurrent">
+        <ownedParameter xmi:id="_LQQ27tZFEdu_5PZppul3_A" type="_TMexctZDEdu_5PZppul3_A" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LQQ279ZFEdu_5PZppul3_A" name="resume" visibility="public" isLeaf="true" concurrency="concurrent"/>
+      <ownedOperation xmi:id="_LQQ28NZFEdu_5PZppul3_A" name="stop0" visibility="private" concurrency="concurrent">
+        <ownedParameter xmi:id="_LQQ28tZFEdu_5PZppul3_A" name="arg0" type="_LMr-cNZFEdu_5PZppul3_A"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LQQ289ZFEdu_5PZppul3_A" name="dumpStack" visibility="public" isStatic="true" concurrency="concurrent"/>
+      <ownedOperation xmi:id="_LQan4NZFEdu_5PZppul3_A" name="join" visibility="public" isLeaf="true" raisedException="_LQan49ZFEdu_5PZppul3_A">
+        <ownedParameter xmi:id="_LQan4dZFEdu_5PZppul3_A" name="arg0">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_LQan4tZFEdu_5PZppul3_A" name="arg1">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LQan5NZFEdu_5PZppul3_A" name="yield" visibility="public" isStatic="true" concurrency="concurrent"/>
+      <ownedOperation xmi:id="_LQan5tZFEdu_5PZppul3_A" name="Thread" visibility="public" concurrency="concurrent">
+        <ownedParameter xmi:id="_LQan59ZFEdu_5PZppul3_A" name="arg0" type="_TMexctZDEdu_5PZppul3_A"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LQan6NZFEdu_5PZppul3_A" name="suspend" visibility="public" isLeaf="true" concurrency="concurrent"/>
+      <ownedOperation xmi:id="_LQan6dZFEdu_5PZppul3_A" name="exit" visibility="private" concurrency="concurrent"/>
+      <ownedOperation xmi:id="_LQan6tZFEdu_5PZppul3_A" name="Thread" visibility="public" concurrency="concurrent">
+        <ownedParameter xmi:id="_LQan69ZFEdu_5PZppul3_A" name="arg0" type="_LQHs89ZFEdu_5PZppul3_A"/>
+        <ownedParameter xmi:id="_LQan7NZFEdu_5PZppul3_A" name="arg1" type="_TMexctZDEdu_5PZppul3_A"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LQan7dZFEdu_5PZppul3_A" name="Thread" visibility="public" concurrency="concurrent">
+        <ownedParameter xmi:id="_LQan7tZFEdu_5PZppul3_A" name="arg0" type="_LQHs89ZFEdu_5PZppul3_A"/>
+        <ownedParameter xmi:id="_LQjx0NZFEdu_5PZppul3_A" name="arg1" type="_LMr-ctZFEdu_5PZppul3_A"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LQjx0dZFEdu_5PZppul3_A" name="isDaemon" visibility="public" isLeaf="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_LQjx0tZFEdu_5PZppul3_A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LQjx09ZFEdu_5PZppul3_A" name="getId" visibility="public" concurrency="concurrent">
+        <ownedParameter xmi:id="_LQjx1NZFEdu_5PZppul3_A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LQjx1dZFEdu_5PZppul3_A" name="stop1" visibility="private" isLeaf="true">
+        <ownedParameter xmi:id="_LQjx1tZFEdu_5PZppul3_A" name="arg0" type="_LP0K9NZFEdu_5PZppul3_A"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LQjx19ZFEdu_5PZppul3_A" name="dumpThreads" visibility="private" isStatic="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_LQjx2dZFEdu_5PZppul3_A" name="arg0" type="_LJHGANZFEdu_5PZppul3_A"/>
+        <ownedParameter xmi:id="_LQjx3NZFEdu_5PZppul3_A" type="_LP98AtZFEdu_5PZppul3_A" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LQjx3tZFEdu_5PZppul3_A" name="registerNatives" visibility="private" isStatic="true" concurrency="concurrent"/>
+      <ownedOperation xmi:id="_LQjx4NZFEdu_5PZppul3_A" name="countStackFrames" visibility="public" concurrency="concurrent">
+        <ownedParameter xmi:id="_LQjx4tZFEdu_5PZppul3_A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LQjx49ZFEdu_5PZppul3_A" name="stop" visibility="public" isLeaf="true" concurrency="concurrent"/>
+      <ownedOperation xmi:id="_LQjx5NZFEdu_5PZppul3_A" name="getPriority" visibility="public" isLeaf="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_LQti0NZFEdu_5PZppul3_A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LQti0dZFEdu_5PZppul3_A" name="interrupt0" visibility="private" concurrency="concurrent"/>
+      <ownedOperation xmi:id="_LQti09ZFEdu_5PZppul3_A" name="sleep" visibility="public" isStatic="true" concurrency="concurrent" raisedException="_LQan49ZFEdu_5PZppul3_A">
+        <ownedParameter xmi:id="_LQti1dZFEdu_5PZppul3_A" name="arg0">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LQti1tZFEdu_5PZppul3_A" name="blockedOn" visibility="package" concurrency="concurrent">
+        <ownedParameter xmi:id="_LQti19ZFEdu_5PZppul3_A" name="arg0">
+          <type xmi:type="uml:Interface" href="platform:/resource/bik-designer/.repository.uml2#_LP0K-NZFEdu_5PZppul3_A"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LQti2NZFEdu_5PZppul3_A" name="setPriority" visibility="public" isLeaf="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_LQti2dZFEdu_5PZppul3_A" name="arg0">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LQti2tZFEdu_5PZppul3_A" name="getState" visibility="public" concurrency="concurrent">
+        <ownedParameter xmi:id="_LRKOwNZFEdu_5PZppul3_A" type="_LRAdwNZFEdu_5PZppul3_A" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LRKOwdZFEdu_5PZppul3_A" name="setDaemon" visibility="public" isLeaf="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_LRKOwtZFEdu_5PZppul3_A" name="arg0">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LRKOw9ZFEdu_5PZppul3_A" name="resume0" visibility="private" concurrency="concurrent"/>
+      <ownedOperation xmi:id="_LRKOxdZFEdu_5PZppul3_A" name="isInterrupted" visibility="private" concurrency="concurrent">
+        <ownedParameter xmi:id="_LRKOx9ZFEdu_5PZppul3_A" name="arg0">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_LRKOyNZFEdu_5PZppul3_A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LRKOydZFEdu_5PZppul3_A" name="Thread" visibility="public" concurrency="concurrent">
+        <ownedParameter xmi:id="_LRKOytZFEdu_5PZppul3_A" name="arg0" type="_LQHs89ZFEdu_5PZppul3_A"/>
+        <ownedParameter xmi:id="_LRKOy9ZFEdu_5PZppul3_A" name="arg1" type="_LMr-ctZFEdu_5PZppul3_A"/>
+        <ownedParameter xmi:id="_LRKOzNZFEdu_5PZppul3_A" name="arg2" type="_TMexctZDEdu_5PZppul3_A"/>
+        <ownedParameter xmi:id="_LRKOzdZFEdu_5PZppul3_A" name="arg3">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LRKOztZFEdu_5PZppul3_A" name="auditSubclass" visibility="private" isStatic="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_LRT_wdZFEdu_5PZppul3_A" name="arg0" type="_LRT_wNZFEdu_5PZppul3_A"/>
+        <ownedParameter xmi:id="_LRT_wtZFEdu_5PZppul3_A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LRT_w9ZFEdu_5PZppul3_A" name="activeCount" visibility="public" isStatic="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_LRT_xNZFEdu_5PZppul3_A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LRT_xdZFEdu_5PZppul3_A" name="stop" visibility="public" isLeaf="true">
+        <ownedParameter xmi:id="_LRT_xtZFEdu_5PZppul3_A" name="arg0" type="_LP0K9NZFEdu_5PZppul3_A"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LRT_x9ZFEdu_5PZppul3_A" name="suspend0" visibility="private" concurrency="concurrent"/>
+      <ownedOperation xmi:id="_LRT_ydZFEdu_5PZppul3_A" name="getStackTrace" visibility="public" concurrency="concurrent">
+        <ownedParameter xmi:id="_LRT_y9ZFEdu_5PZppul3_A" type="_LP98AtZFEdu_5PZppul3_A" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LRT_zdZFEdu_5PZppul3_A" name="nextThreadNum" visibility="private" isStatic="true">
+        <ownedParameter xmi:id="_LRT_ztZFEdu_5PZppul3_A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LRT_z9ZFEdu_5PZppul3_A" name="setContextClassLoader" visibility="public" concurrency="concurrent">
+        <ownedParameter xmi:id="_LRT_0NZFEdu_5PZppul3_A" name="arg0" type="_LP97-tZFEdu_5PZppul3_A"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LRT_0dZFEdu_5PZppul3_A" name="interrupt" visibility="public" concurrency="concurrent"/>
+      <ownedOperation xmi:id="_LRT_0tZFEdu_5PZppul3_A" name="getContextClassLoader" visibility="public" concurrency="concurrent">
+        <ownedParameter xmi:id="_LRT_09ZFEdu_5PZppul3_A" type="_LP97-tZFEdu_5PZppul3_A" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LRT_1NZFEdu_5PZppul3_A" name="isInterrupted" visibility="public" concurrency="concurrent">
+        <ownedParameter xmi:id="_LRdJsNZFEdu_5PZppul3_A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LRdJsdZFEdu_5PZppul3_A" name="getDefaultUncaughtExceptionHandler" visibility="public" isStatic="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_LRdJstZFEdu_5PZppul3_A" type="_LPrBAtZFEdu_5PZppul3_A" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LRdJs9ZFEdu_5PZppul3_A" name="setPriority0" visibility="private" concurrency="concurrent">
+        <ownedParameter xmi:id="_LRdJtdZFEdu_5PZppul3_A" name="arg0">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LRdJttZFEdu_5PZppul3_A" name="checkAccess" visibility="public" isLeaf="true" concurrency="concurrent"/>
+      <ownedOperation xmi:id="_LRdJt9ZFEdu_5PZppul3_A" name="start0" visibility="private" concurrency="concurrent"/>
+      <ownedOperation xmi:id="_LRdJudZFEdu_5PZppul3_A" name="Thread" visibility="public" concurrency="concurrent"/>
+      <ownedOperation xmi:id="_LRdJutZFEdu_5PZppul3_A" name="isCCLOverridden" visibility="private" isStatic="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_LRdJu9ZFEdu_5PZppul3_A" name="arg0" type="_LRT_wNZFEdu_5PZppul3_A"/>
+        <ownedParameter xmi:id="_LRdJvNZFEdu_5PZppul3_A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LRdJvdZFEdu_5PZppul3_A" name="destroy" visibility="public" concurrency="concurrent"/>
+      <ownedOperation xmi:id="_LRdJvtZFEdu_5PZppul3_A" name="dispatchUncaughtException" visibility="private" concurrency="concurrent">
+        <ownedParameter xmi:id="_LRdJv9ZFEdu_5PZppul3_A" name="arg0" type="_LP0K9NZFEdu_5PZppul3_A"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LRm6sNZFEdu_5PZppul3_A" name="getUncaughtExceptionHandler" visibility="public" concurrency="concurrent">
+        <ownedParameter xmi:id="_LRm6sdZFEdu_5PZppul3_A" type="_LPrBAtZFEdu_5PZppul3_A" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LRm6stZFEdu_5PZppul3_A" name="setUncaughtExceptionHandler" visibility="public" concurrency="concurrent">
+        <ownedParameter xmi:id="_LRm6s9ZFEdu_5PZppul3_A" name="arg0" type="_LPrBAtZFEdu_5PZppul3_A"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LRm6tNZFEdu_5PZppul3_A" name="interrupted" visibility="public" isStatic="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_LRm6tdZFEdu_5PZppul3_A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LRm6ttZFEdu_5PZppul3_A" name="enumerate" visibility="public" isStatic="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_LRm6t9ZFEdu_5PZppul3_A" name="arg0" type="_LJHGANZFEdu_5PZppul3_A"/>
+        <ownedParameter xmi:id="_LRm6udZFEdu_5PZppul3_A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LRm6utZFEdu_5PZppul3_A" name="holdsLock" visibility="public" isStatic="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_LRm6vNZFEdu_5PZppul3_A" name="arg0" type="_LMr-cNZFEdu_5PZppul3_A"/>
+        <ownedParameter xmi:id="_LRm6vdZFEdu_5PZppul3_A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LRm6vtZFEdu_5PZppul3_A" name="join" visibility="public" isLeaf="true" concurrency="concurrent" raisedException="_LQan49ZFEdu_5PZppul3_A"/>
+      <ownedOperation xmi:id="_LRm6v9ZFEdu_5PZppul3_A" name="currentThread" visibility="public" isStatic="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_LRm6wdZFEdu_5PZppul3_A" type="_LJHGANZFEdu_5PZppul3_A" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LRm6wtZFEdu_5PZppul3_A" name="getName" visibility="public" isLeaf="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_LRwEoNZFEdu_5PZppul3_A" type="_TMexctZDEdu_5PZppul3_A" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LRwEodZFEdu_5PZppul3_A" name="getThreadGroup" visibility="public" isLeaf="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_LRwEotZFEdu_5PZppul3_A" type="_LQHs89ZFEdu_5PZppul3_A" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LRwEo9ZFEdu_5PZppul3_A" name="run" visibility="public" concurrency="concurrent"/>
+      <ownedOperation xmi:id="_LRwEpNZFEdu_5PZppul3_A" name="getAllStackTraces" visibility="public" isStatic="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_LRwEptZFEdu_5PZppul3_A" type="_LRwEpdZFEdu_5PZppul3_A" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LRwEp9ZFEdu_5PZppul3_A" name="sleep" visibility="public" isStatic="true" concurrency="concurrent" raisedException="_LQan49ZFEdu_5PZppul3_A">
+        <ownedParameter xmi:id="_LRwEqNZFEdu_5PZppul3_A" name="arg0">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_LRwEqdZFEdu_5PZppul3_A" name="arg1">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LRwEqtZFEdu_5PZppul3_A" name="isAlive" visibility="public" isLeaf="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_LRwErNZFEdu_5PZppul3_A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LRwErdZFEdu_5PZppul3_A" name="Thread" visibility="public" concurrency="concurrent">
+        <ownedParameter xmi:id="_LR51oNZFEdu_5PZppul3_A" name="arg0" type="_LMr-ctZFEdu_5PZppul3_A"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LR51odZFEdu_5PZppul3_A" name="nextThreadID" visibility="private" isStatic="true">
+        <ownedParameter xmi:id="_LR51otZFEdu_5PZppul3_A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LR51o9ZFEdu_5PZppul3_A" name="getThreads" visibility="private" isStatic="true" concurrency="concurrent">
+        <ownedParameter xmi:id="_LR51ptZFEdu_5PZppul3_A" type="_LJHGANZFEdu_5PZppul3_A" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LR51qNZFEdu_5PZppul3_A" name="join" visibility="public" isLeaf="true" raisedException="_LQan49ZFEdu_5PZppul3_A">
+        <ownedParameter xmi:id="_LR51qdZFEdu_5PZppul3_A" name="arg0">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_LMr-cNZFEdu_5PZppul3_A" name="Object"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_LMr-ctZFEdu_5PZppul3_A" name="Runnable" isAbstract="true"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_LPrBBNZFEdu_5PZppul3_A" name="ThreadLocal">
+      <nestedClassifier xmi:type="uml:Class" xmi:id="_LPrBBdZFEdu_5PZppul3_A" name="ThreadLocalMap" visibility="package"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_LP0K9NZFEdu_5PZppul3_A" name="Throwable"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_LP97-tZFEdu_5PZppul3_A" name="ClassLoader" isAbstract="true"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_LP98AtZFEdu_5PZppul3_A" name="StackTraceElement" isLeaf="true"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_LQHs89ZFEdu_5PZppul3_A" name="ThreadGroup"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_LQHs9dZFEdu_5PZppul3_A" name="RuntimePermission" isLeaf="true"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_LQan49ZFEdu_5PZppul3_A" name="InterruptedException"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_LRT_wNZFEdu_5PZppul3_A" name="Class" isLeaf="true"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_TQDp6tZDEdu_5PZppul3_A" name="java.util">
+    <packagedElement xmi:type="uml:Class" xmi:id="_TQDp69ZDEdu_5PZppul3_A" name="Vector"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_LRwEpdZFEdu_5PZppul3_A" name="Map" isAbstract="true"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_LP98B9ZFEdu_5PZppul3_A" name="java.security">
+    <packagedElement xmi:type="uml:Class" xmi:id="_LP98CNZFEdu_5PZppul3_A" name="AccessControlContext" isLeaf="true"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_TN9_MNZDEdu_5PZppul3_A" supplier="_TMexctZDEdu_5PZppul3_A" client="_SokMENZDEdu_5PZppul3_A _SokMENZDEdu_5PZppul3_A"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_TQNa49ZDEdu_5PZppul3_A" supplier="_TMexctZDEdu_5PZppul3_A" client="_TPd0ANZDEdu_5PZppul3_A _TPd0ANZDEdu_5PZppul3_A"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_TQWk0tZDEdu_5PZppul3_A" supplier="_TQDp4tZDEdu_5PZppul3_A" client="_TPd0ANZDEdu_5PZppul3_A _TPd0ANZDEdu_5PZppul3_A"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_TQgV0tZDEdu_5PZppul3_A" supplier="_TQDp69ZDEdu_5PZppul3_A" client="_TPd0ANZDEdu_5PZppul3_A _TPd0ANZDEdu_5PZppul3_A"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_TQqG0NZDEdu_5PZppul3_A" supplier="_TQDp4dZDEdu_5PZppul3_A" client="_TPKSANZDEdu_5PZppul3_A"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_TSJUkNZDEdu_5PZppul3_A" supplier="_TQqG1NZDEdu_5PZppul3_A" client="_TQDp4tZDEdu_5PZppul3_A _TQDp4tZDEdu_5PZppul3_A"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_TSSegtZDEdu_5PZppul3_A" supplier="_TPd0ANZDEdu_5PZppul3_A" client="_TQDp4tZDEdu_5PZppul3_A _TQDp4tZDEdu_5PZppul3_A"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_TTexUNZDEdu_5PZppul3_A" supplier="_TPKSANZDEdu_5PZppul3_A" client="_TQDp4dZDEdu_5PZppul3_A"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_TTexU9ZDEdu_5PZppul3_A" supplier="_TQqG09ZDEdu_5PZppul3_A" client="_TQDp4dZDEdu_5PZppul3_A"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_TToiUtZDEdu_5PZppul3_A" supplier="_TRsoqdZDEdu_5PZppul3_A" client="_TQDp4dZDEdu_5PZppul3_A"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_LLMwsNZFEdu_5PZppul3_A" supplier="_TMexctZDEdu_5PZppul3_A" client="_TRsoqtZDEdu_5PZppul3_A _TRsoqtZDEdu_5PZppul3_A"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_LLMws9ZFEdu_5PZppul3_A" supplier="_TQDp4tZDEdu_5PZppul3_A" client="_TRsoqtZDEdu_5PZppul3_A _TRsoqtZDEdu_5PZppul3_A"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_LLWhstZFEdu_5PZppul3_A" supplier="_TQqG1NZDEdu_5PZppul3_A" client="_TRsoqtZDEdu_5PZppul3_A _TRsoqtZDEdu_5PZppul3_A"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_LLWhtdZFEdu_5PZppul3_A" supplier="_TPd0ANZDEdu_5PZppul3_A" client="_TRsoqtZDEdu_5PZppul3_A _TRsoqtZDEdu_5PZppul3_A"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_LLWhuNZFEdu_5PZppul3_A" supplier="_TQDp4dZDEdu_5PZppul3_A" client="_TRsoqdZDEdu_5PZppul3_A"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_LLfrotZFEdu_5PZppul3_A" supplier="_TPKSANZDEdu_5PZppul3_A" client="_TRsoqdZDEdu_5PZppul3_A"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_LLfrpdZFEdu_5PZppul3_A" supplier="_TQqG09ZDEdu_5PZppul3_A" client="_TRsoqdZDEdu_5PZppul3_A"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_LLymkNZFEdu_5PZppul3_A" supplier="_TQDp69ZDEdu_5PZppul3_A" client="_LI98ENZFEdu_5PZppul3_A"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_LL8XkdZFEdu_5PZppul3_A" supplier="_TQDp69ZDEdu_5PZppul3_A" client="_LI98ENZFEdu_5PZppul3_A"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_LL8XlNZFEdu_5PZppul3_A" supplier="_TQqG1NZDEdu_5PZppul3_A" client="_LI98ENZFEdu_5PZppul3_A"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_LL8Xl9ZFEdu_5PZppul3_A" supplier="_TRsoqtZDEdu_5PZppul3_A" client="_LI98ENZFEdu_5PZppul3_A"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_LL8XmtZFEdu_5PZppul3_A" supplier="_TPd0ANZDEdu_5PZppul3_A" client="_LI98ENZFEdu_5PZppul3_A"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_NkPEvNZFEdu_5PZppul3_A" supplier="_TMexctZDEdu_5PZppul3_A" client="_NjfdwNZFEdu_5PZppul3_A"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_9_8eFtZJEdu_5PZppul3_A" supplier="_TQDp69ZDEdu_5PZppul3_A" client="_LI98ENZFEdu_5PZppul3_A"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_-YF4VdZJEdu_5PZppul3_A" supplier="_TQDp69ZDEdu_5PZppul3_A" client="_LI98ENZFEdu_5PZppul3_A"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_-n4n0NZJEdu_5PZppul3_A" supplier="_TQDp69ZDEdu_5PZppul3_A" client="_LI98ENZFEdu_5PZppul3_A"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_Bf6k5NZKEdu_5PZppul3_A" supplier="_TQDp69ZDEdu_5PZppul3_A" client="_LI98ENZFEdu_5PZppul3_A"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_BrimENZKEdu_5PZppul3_A" supplier="_TQDp69ZDEdu_5PZppul3_A" client="_LI98ENZFEdu_5PZppul3_A"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_Bx8JANZKEdu_5PZppul3_A" supplier="_TQDp69ZDEdu_5PZppul3_A" client="_LI98ENZFEdu_5PZppul3_A"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_ByF6ANZKEdu_5PZppul3_A" supplier="_TRsoqtZDEdu_5PZppul3_A" client="_TQDp4tZDEdu_5PZppul3_A _TQDp4tZDEdu_5PZppul3_A"/>
+</uml:Model>

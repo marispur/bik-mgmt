@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="IBikItem-i" description="" id="com.mvproject.bik.designer.data" titleLabel="//@children.0" metadata="uml2-1.0" initialized="true" tag="1000" key="32303036313030362062696B2D64657369676E65722F41646D696E">
+  <children xsi:type="editmodel:LabelObjectEditModel" name="com.mvproject.bik.designer.data - BIK Items class diagrams" location="50,1270" size="285,14" fontInfo="Arial-8-0"/>
+  <children xsi:type="editmodel:ClassEditModel" name="WorkItem" location="50,870" size="236,187" id="com.mvproject.bik.designer.data/WorkItem" runTimeClassModel="subsectionId,setSubsectionId(Ljava.lang.String;),getCode(),code,getSubsectionId(),setCode(Ljava.lang.String;)">
+    <children xsi:type="editmodel:CompartmentEditModel">
+      <children xsi:type="editmodel:AttributeEditModel" name="code" id="com.mvproject.bik.designer.data/WorkItem#code"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="subsectionId" id="com.mvproject.bik.designer.data/WorkItem#subsectionId"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel">
+      <children xsi:type="editmodel:MethodEditModel" name="getCode" id="com.mvproject.bik.designer.data/WorkItem#getCode()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getSubsectionId" id="com.mvproject.bik.designer.data/WorkItem#getSubsectionId()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setCode" id="com.mvproject.bik.designer.data/WorkItem#setCode(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setSubsectionId" id="com.mvproject.bik.designer.data/WorkItem#setSubsectionId(Ljava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="com.mvproject.bik.designer.data/AbstractBikItem&lt;-com.mvproject.bik.designer.data/WorkItem" source="//@children.1" target="//@children.10/@sourceConnections.0" targetEnd="//@children.1/@sourceConnections.0/@children.1" sourceEnd="//@children.1/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="116,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showAssociationMember="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="Materials" location="547,1161" size="100,59" id="com.mvproject.bik.designer.data/Materials">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="com.mvproject.bik.designer.data/AbstractWorkComponent&lt;-com.mvproject.bik.designer.data/Materials" source="//@children.2" target="//@children.11/@sourceConnections.0" targetEnd="//@children.2/@sourceConnections.0/@children.1" sourceEnd="//@children.2/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="50,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showAssociationMember="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.11/@sourceConnections.0" name="AbstractWorkComponent" location="303,870" size="199,169" id="com.mvproject.bik.designer.data/AbstractWorkComponent" runTimeClassModel="getLabourNorm(),getMaterials(),getDepreciation(),getLabour(),getLabourPrice()">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel">
+      <children xsi:type="editmodel:MethodEditModel" name="getDepreciation" id="com.mvproject.bik.designer.data/AbstractWorkComponent#getDepreciation()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getLabour" id="com.mvproject.bik.designer.data/AbstractWorkComponent#getLabour()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getLabourNorm" id="com.mvproject.bik.designer.data/AbstractWorkComponent#getLabourNorm()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getLabourPrice" id="com.mvproject.bik.designer.data/AbstractWorkComponent#getLabourPrice()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getMaterials" id="com.mvproject.bik.designer.data/AbstractWorkComponent#getMaterials()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="com.mvproject.bik.designer.data/AbstractBikItem&lt;-com.mvproject.bik.designer.data/AbstractWorkComponent" source="//@children.3" target="//@children.10/@sourceConnections.0" targetEnd="//@children.3/@sourceConnections.0/@children.1" sourceEnd="//@children.3/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="99,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showAssociationMember="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.8/@sourceConnections.0" name="IBikItem" location="180,50" size="327,281" id="com.mvproject.bik.designer.data/IBikItem">
+    <children xsi:type="editmodel:CompartmentEditModel" size="304,198">
+      <children xsi:type="editmodel:AttributeEditModel" name="BIK_OBJTYPE_COMMENT" id="com.mvproject.bik.designer.data/IBikItem#BIK_OBJTYPE_COMMENT"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="BIK_OBJTYPE_DEPRECIATION" id="com.mvproject.bik.designer.data/IBikItem#BIK_OBJTYPE_DEPRECIATION"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="BIK_OBJTYPE_DEPRECIATION_PERCENT" id="com.mvproject.bik.designer.data/IBikItem#BIK_OBJTYPE_DEPRECIATION_PERCENT"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="BIK_OBJTYPE_LABOR" id="com.mvproject.bik.designer.data/IBikItem#BIK_OBJTYPE_LABOR"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="BIK_OBJTYPE_LABOR_COMPANY" id="com.mvproject.bik.designer.data/IBikItem#BIK_OBJTYPE_LABOR_COMPANY"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="BIK_OBJTYPE_MATERIALS" id="com.mvproject.bik.designer.data/IBikItem#BIK_OBJTYPE_MATERIALS"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="BIK_OBJTYPE_PRICE_DEF" id="com.mvproject.bik.designer.data/IBikItem#BIK_OBJTYPE_PRICE_DEF"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="BIK_OBJTYPE_SECTION" id="com.mvproject.bik.designer.data/IBikItem#BIK_OBJTYPE_SECTION"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="BIK_OBJTYPE_SUBSECTION" id="com.mvproject.bik.designer.data/IBikItem#BIK_OBJTYPE_SUBSECTION"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="BIK_OBJTYPE_SUBSECTION_COMPANY_ASSIGNMENT" id="com.mvproject.bik.designer.data/IBikItem#BIK_OBJTYPE_SUBSECTION_COMPANY_ASSIGNMENT"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="BIK_OBJTYPE_WORK_ITEM" id="com.mvproject.bik.designer.data/IBikItem#BIK_OBJTYPE_WORK_ITEM"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="212,198"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showAssociationMember="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="Comment" location="532,870" size="226,241" id="com.mvproject.bik.designer.data/Comment" runTimeClassModel="setObjId(I),getObjId(),setObjType(I),getObjType(),objType,prnSequence,objId,getPrnSequence(),setPrnSequence(I)">
+    <children xsi:type="editmodel:CompartmentEditModel">
+      <children xsi:type="editmodel:AttributeEditModel" name="objId" id="com.mvproject.bik.designer.data/Comment#objId"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="objType" id="com.mvproject.bik.designer.data/Comment#objType"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="prnSequence" id="com.mvproject.bik.designer.data/Comment#prnSequence"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel">
+      <children xsi:type="editmodel:MethodEditModel" name="getObjId" id="com.mvproject.bik.designer.data/Comment#getObjId()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getObjType" id="com.mvproject.bik.designer.data/Comment#getObjType()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getPrnSequence" id="com.mvproject.bik.designer.data/Comment#getPrnSequence()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setObjId" id="com.mvproject.bik.designer.data/Comment#setObjId(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setObjType" id="com.mvproject.bik.designer.data/Comment#setObjType(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setPrnSequence" id="com.mvproject.bik.designer.data/Comment#setPrnSequence(I)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="com.mvproject.bik.designer.data/AbstractBikItem&lt;-com.mvproject.bik.designer.data/Comment" source="//@children.5" target="//@children.10/@sourceConnections.0" targetEnd="//@children.5/@sourceConnections.0/@children.1" sourceEnd="//@children.5/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="113,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Name" methodSorter="Name" innerClassSorter="Name" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showAssociationMember="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="Labour" location="677,1161" size="87,59" id="com.mvproject.bik.designer.data/Labour">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="com.mvproject.bik.designer.data/AbstractWorkComponent&lt;-com.mvproject.bik.designer.data/Labour" source="//@children.6" target="//@children.11/@sourceConnections.0" targetEnd="//@children.6/@sourceConnections.0/@children.1" sourceEnd="//@children.6/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="43,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showAssociationMember="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="Subsection" location="50,1161" size="183,133" id="com.mvproject.bik.designer.data/Subsection" runTimeClassModel="sectionId,setSectionId(I),getSectionId()">
+    <children xsi:type="editmodel:CompartmentEditModel">
+      <children xsi:type="editmodel:AttributeEditModel" name="sectionId" id="com.mvproject.bik.designer.data/Subsection#sectionId"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel">
+      <children xsi:type="editmodel:MethodEditModel" name="getSectionId" id="com.mvproject.bik.designer.data/Subsection#getSectionId()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setSectionId" id="com.mvproject.bik.designer.data/Subsection#setSectionId(I)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="com.mvproject.bik.designer.data/Section&lt;-com.mvproject.bik.designer.data/Subsection" source="//@children.7" target="//@children.10" targetEnd="//@children.7/@sourceConnections.0/@children.1" sourceEnd="//@children.7/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="157,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="24,133"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showAssociationMember="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.10/@sourceConnections.0" name="AbstractBikItem" location="226,381" size="235,439" id="com.mvproject.bik.designer.data/AbstractBikItem">
+    <children xsi:type="editmodel:CompartmentEditModel" size="127,126">
+      <children xsi:type="editmodel:AttributeEditModel" name="expanded" id="com.mvproject.bik.designer.data/AbstractBikItem#expanded"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="id" id="com.mvproject.bik.designer.data/AbstractBikItem#id"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="isExpandable" id="com.mvproject.bik.designer.data/AbstractBikItem#isExpandable"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="listViewIndex" id="com.mvproject.bik.designer.data/AbstractBikItem#listViewIndex"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="name" id="com.mvproject.bik.designer.data/AbstractBikItem#name"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="parentId" id="com.mvproject.bik.designer.data/AbstractBikItem#parentId"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="selected" id="com.mvproject.bik.designer.data/AbstractBikItem#selected"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="212,234">
+      <children xsi:type="editmodel:MethodEditModel" name="clone" id="com.mvproject.bik.designer.data/AbstractBikItem#clone()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getBikObjType" id="com.mvproject.bik.designer.data/AbstractBikItem#getBikObjType()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getID" id="com.mvproject.bik.designer.data/AbstractBikItem#getID()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getListViewIndex" id="com.mvproject.bik.designer.data/AbstractBikItem#getListViewIndex()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getName" id="com.mvproject.bik.designer.data/AbstractBikItem#getName()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getParentId" id="com.mvproject.bik.designer.data/AbstractBikItem#getParentId()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isExpandable" id="com.mvproject.bik.designer.data/AbstractBikItem#isExpandable()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isExpanded" id="com.mvproject.bik.designer.data/AbstractBikItem#isExpanded()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isSelected" id="com.mvproject.bik.designer.data/AbstractBikItem#isSelected()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setExpanded" id="com.mvproject.bik.designer.data/AbstractBikItem#setExpanded(Z)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setListViewIndex" id="com.mvproject.bik.designer.data/AbstractBikItem#setListViewIndex(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setParentId" id="com.mvproject.bik.designer.data/AbstractBikItem#setParentId(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setSelected" id="com.mvproject.bik.designer.data/AbstractBikItem#setSelected(Z)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="com.mvproject.bik.designer.data/IBikItem&lt;-com.mvproject.bik.designer.data/AbstractBikItem" source="//@children.8" target="//@children.4" targetEnd="//@children.8/@sourceConnections.0/@children.1" sourceEnd="//@children.8/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="117,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="163,281"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showAssociationMember="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="Depreciation" location="394,1161" size="123,59" id="com.mvproject.bik.designer.data/Depreciation">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="com.mvproject.bik.designer.data/AbstractWorkComponent&lt;-com.mvproject.bik.designer.data/Depreciation" source="//@children.9" target="//@children.11/@sourceConnections.0" targetEnd="//@children.9/@sourceConnections.0/@children.1" sourceEnd="//@children.9/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="61,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showAssociationMember="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.7/@sourceConnections.0" name="Section" location="183,870" size="162,133" id="com.mvproject.bik.designer.data/Section" runTimeClassModel="getCode(),code,setCode(Ljava.lang.String;)">
+    <children xsi:type="editmodel:CompartmentEditModel">
+      <children xsi:type="editmodel:AttributeEditModel" name="code" id="com.mvproject.bik.designer.data/Section#code"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel">
+      <children xsi:type="editmodel:MethodEditModel" name="getCode" id="com.mvproject.bik.designer.data/Section#getCode()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setCode" id="com.mvproject.bik.designer.data/Section#setCode(Ljava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.3/@sourceConnections.0 //@children.5/@sourceConnections.0 //@children.1/@sourceConnections.0" autoLocated="true" id="com.mvproject.bik.designer.data/AbstractBikItem&lt;-com.mvproject.bik.designer.data/Section" source="//@children.10" target="//@children.8" targetEnd="//@children.10/@sourceConnections.0/@children.1" sourceEnd="//@children.10/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="79,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="117,439" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showAssociationMember="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="DepreciationPercent" location="192,1161" size="172,59" id="com.mvproject.bik.designer.data/DepreciationPercent">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.9/@sourceConnections.0 //@children.2/@sourceConnections.0 //@children.6/@sourceConnections.0" autoLocated="true" id="com.mvproject.bik.designer.data/AbstractWorkComponent&lt;-com.mvproject.bik.designer.data/DepreciationPercent" source="//@children.11" target="//@children.3" targetEnd="//@children.11/@sourceConnections.0/@children.1" sourceEnd="//@children.11/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="86,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="99,169" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showAssociationMember="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" properties="open=com.mvproject.bik.designer.data/IBikItem;wireOptions=0"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="10,10" gridOrigin="0,0" rulerUnit="cm">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showInterfaceStereotype="true" showAssociationMember="true" showMethods="true" showAttributes="true" showLiterlas="true"/>
+</editmodel:ClassDiagramEditModel>

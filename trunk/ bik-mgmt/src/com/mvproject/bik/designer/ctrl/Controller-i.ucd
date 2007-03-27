@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="Controller-i" foregroundRGB="255,255,255" description="" id="com.mvproject.bik.designer.ctrl" titleLabel="//@children.2" metadata="uml2-1.0" initialized="true" tag="1000" key="32303036313030362062696B2D64657369676E65722F41646D696E">
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.1/@sourceConnections.0" name="IController" location="57,50" size="301,291" id="com.mvproject.bik.designer.ctrl/IController" runTimeClassModel="STATE_CONNECT_FAILED_WAIT_LOGIN_RESULT,getDataProvider(),dataProvider,STATE_READY,uiProvider,STATE_WAIT_LOGIN_RESULT,addMessage(Lcom.mvproject.bik.designer.ctrl.messages.IControllerMessage;),setUiProvider(Lcom.mvproject.bik.designer.ui.IUIProvider;),STATE_WAIT_LOGIN_INFO,setDataProvider(Lcom.mvproject.bik.designer.data.IProvider;),getUiProvider(),STATE_CONNECT_FAILED_WAIT_USER_ACTION,getSelectedItemIndex()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="278,90">
+      <children xsi:type="editmodel:AttributeEditModel" name="STATE_WAIT_LOGIN_INFO" id="com.mvproject.bik.designer.ctrl/IController#STATE_WAIT_LOGIN_INFO"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="STATE_WAIT_LOGIN_RESULT" id="com.mvproject.bik.designer.ctrl/IController#STATE_WAIT_LOGIN_RESULT"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="STATE_READY" id="com.mvproject.bik.designer.ctrl/IController#STATE_READY"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="STATE_CONNECT_FAILED_WAIT_USER_ACTION" id="com.mvproject.bik.designer.ctrl/IController#STATE_CONNECT_FAILED_WAIT_USER_ACTION"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="STATE_CONNECT_FAILED_WAIT_LOGIN_RESULT" id="com.mvproject.bik.designer.ctrl/IController#STATE_CONNECT_FAILED_WAIT_LOGIN_RESULT"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="243,108">
+      <children xsi:type="editmodel:MethodEditModel" name="addMessage" id="com.mvproject.bik.designer.ctrl/IController#addMessage(Lcom.mvproject.bik.designer.ctrl.messages.IControllerMessage;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getUiProvider" id="com.mvproject.bik.designer.ctrl/IController#getUiProvider()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setUiProvider" id="com.mvproject.bik.designer.ctrl/IController#setUiProvider(Lcom.mvproject.bik.designer.ui.IUIProvider;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getDataProvider" id="com.mvproject.bik.designer.ctrl/IController#getDataProvider()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setDataProvider" id="com.mvproject.bik.designer.ctrl/IController#setDataProvider(Lcom.mvproject.bik.designer.data.IProvider;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getSelectedItemIndex" id="com.mvproject.bik.designer.ctrl/IController#getSelectedItemIndex()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showAssociationMember="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="Controller" location="420,70" size="262,403" id="com.mvproject.bik.designer.ctrl/Controller" runTimeClassModel="getDataProvider(),addListViewItem(),dataProvider,uiProvider,msgQ,addMessage(Lcom.mvproject.bik.designer.ctrl.messages.IControllerMessage;),getListViewItem(I),setControllerState(I),controllerState,listView,setUiProvider(Lcom.mvproject.bik.designer.ui.IUIProvider;),getControllerState(),setDataProvider(Lcom.mvproject.bik.designer.data.IProvider;),removeListViewItem(I),Controller(),addListViewItem(I),getUiProvider(),getSelectedItemIndex()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="145,90">
+      <children xsi:type="editmodel:AttributeEditModel" name="dataProvider" id="com.mvproject.bik.designer.ctrl/Controller#dataProvider"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="msgQ" id="com.mvproject.bik.designer.ctrl.messages/IControllerMessage@msgQ+com.mvproject.bik.designer.ctrl/Controller@|com.mvproject.bik.designer.ctrl.messages/IControllerMessage#msgQ"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="uiProvider" id="com.mvproject.bik.designer.ctrl/Controller#uiProvider"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="controllerState" id="com.mvproject.bik.designer.ctrl/Controller#controllerState"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="listView" id="com.mvproject.bik.designer.ctrl/Controller#listView"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="239,234">
+      <children xsi:type="editmodel:MethodEditModel" name="addMessage" id="com.mvproject.bik.designer.ctrl/Controller#addMessage(Lcom.mvproject.bik.designer.ctrl.messages.IControllerMessage;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getDataProvider" id="com.mvproject.bik.designer.ctrl/Controller#getDataProvider()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getUiProvider" id="com.mvproject.bik.designer.ctrl/Controller#getUiProvider()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setDataProvider" id="com.mvproject.bik.designer.ctrl/Controller#setDataProvider(Lcom.mvproject.bik.designer.data.IProvider;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setUiProvider" id="com.mvproject.bik.designer.ctrl/Controller#setUiProvider(Lcom.mvproject.bik.designer.ui.IUIProvider;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="Controller" id="com.mvproject.bik.designer.ctrl/Controller#Controller()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getSelectedItemIndex" id="com.mvproject.bik.designer.ctrl/Controller#getSelectedItemIndex()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="addListViewItem" id="com.mvproject.bik.designer.ctrl/Controller#addListViewItem(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getListViewItem" id="com.mvproject.bik.designer.ctrl/Controller#getListViewItem(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="removeListViewItem" id="com.mvproject.bik.designer.ctrl/Controller#removeListViewItem(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setControllerState" id="com.mvproject.bik.designer.ctrl/Controller#setControllerState(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="addListViewItem" id="com.mvproject.bik.designer.ctrl/Controller#addListViewItem()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getControllerState" id="com.mvproject.bik.designer.ctrl/Controller#getControllerState()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="com.mvproject.bik.designer.ctrl/IController&lt;-com.mvproject.bik.designer.ctrl/Controller" source="//@children.1" target="//@children.0" targetEnd="//@children.1/@sourceConnections.0/@children.1" sourceEnd="//@children.1/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,135" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="301,155"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showAssociationMember="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:LabelObjectEditModel" name="com.mvproject.bik.designer.ctrl.Controller - class diagram" size="275,14" fontInfo="Arial-8-0"/>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" properties="open=com.mvproject.bik.designer.ctrl/Controller;wireOptions=0"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="10,10" gridOrigin="0,0" rulerUnit="cm">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showInterfaceStereotype="true" showAssociationMember="true" showMethods="true" showAttributes="true" showLiterlas="true"/>
+</editmodel:ClassDiagramEditModel>
