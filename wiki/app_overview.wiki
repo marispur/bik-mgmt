@@ -1,10 +1,10 @@
 #summary Application overview
 
-= Introduction =
+== Introduction ==
 
 This application is intended to assist in building Buvdarbu Izcenojumu Katalogs (BIK) by MV project, SIA (Latvia).
 
 
-= Details =
+== Details ==
 
 The application uses PostgresSQL server as data storage and Java SWING for UI. Application allows user to maintain structured catalogue of construction estimations.
