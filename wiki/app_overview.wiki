@@ -8,3 +8,5 @@ This application is intended to assist in building Buvdarbu Izcenojumu Katalogs 
 == Details ==
 
 The application uses PostgresSQL server as data storage and Java SWING for UI. Application allows user to maintain structured catalogue of construction estimations.
+
+[http://bik-mgmt.googlecode.com/files/com.mvproject.bik.designer.data-class%20inheritance.jpg]
