@@ -2,8 +2,9 @@
 
 == Introduction ==
 
-The *BIK designer* application is intended to assist in building Buvdarbu Izcenojumu Katalogs (BIK) by MV project, SIA (Latvia). It is JAVA application built using MVC like architecure.
-Currently work on version 1.0 is in progress
+The *BIK designer* application is intended to assist in building Buvdarbu Izcenojumu Katalogs (BIK) by MV project, SIA (Latvia). Application allows user to maintain structured catalogue of construction estimations.
+
+It is JAVA application built using MVC like architecure. Currently work on version 1.0 is in progress
 
 == Features ==
 Table bellow illustrates main features BIK designer application is going to provide.
@@ -22,6 +23,4 @@ Table bellow illustrates main features BIK designer application is going to prov
 
 == Architectural details ==
 
-The application uses PostgresSQL server as data storage and Java SWING for UI. Application allows user to maintain structured catalogue of construction estimations.
-
-[http://bik-mgmt.googlecode.com/files/com.mvproject.bik.designer.data-class%20inheritance.jpg]
+The application uses PostgresSQL server as data storage and Java SWING for UI. 
