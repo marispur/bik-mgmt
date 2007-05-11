@@ -1,5 +1,5 @@
 #summary Feature requirements for BIK designer 2007 v0.1
-#labels Phase-Requirements
+#labels Phase-Requirements,Featured
 
 == Introduction ==
 
