@@ -22,7 +22,7 @@ Some _Work item components_ may use predefined prices.
 == Functions ==
 
  * Adding and removal of BIK components from catalogue.
- * Automatic calculation of _work item_ values if _companents_ are changed (added/deleted/updated/defined price applied).
+ * Automatic calculation of _work item_ values if _ work item components_ are changed (added/deleted/updated/defined price applied).
  * Displays _defined prices_ table with read-only functionality when user requests.
  * Multi-user support
  * Immediate storage of changes to server (when user changes selection or focus)
