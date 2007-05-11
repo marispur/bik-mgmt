@@ -1,11 +1,16 @@
-#summary Feature requirements for BIK designer 2007 v0.1
+#summary Feature requirements for BIK designer 2007 v0.2
 #labels Featured,Phase-Design
 
 == Introduction ==
 
 The aim of version 0.2 is to enhance [bik_designer_requirements_v01 version 0.1] of application to improve usability.
 
+== Genaral ==
+ * Export for catalogue printing and eBIK
+ * Printng support
+
 == Price definition functions ==
 
  * Searching in Price definitions table by keyword
  * Opening a PriceDef selection dialog navigates automatically to selected PriceDef if _work item component_ has defined price already in field.
+ * Make price definitions editable (this may be postponed)
