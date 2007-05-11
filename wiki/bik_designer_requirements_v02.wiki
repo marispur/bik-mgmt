@@ -1,0 +1,10 @@
+#summary Feature requirements for BIK designer 2007 v0.1
+
+== Introduction ==
+
+The aim of version 0.2 is to enhance [bik_designer_requirements_v02 version 0.1] of application to improve usability.
+
+== Price definition functions ==
+
+ * Searching in Price definitions table by keyword
+ * Opening a PriceDef selection
