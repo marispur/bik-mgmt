@@ -154,6 +154,9 @@ public class MainWindow extends javax.swing.JFrame{
         addCommentMI = new javax.swing.JMenuItem();
         jSeparator4 = new javax.swing.JSeparator();
         deleteMenuItem = new javax.swing.JMenuItem();
+        deletedStatusMenuItem = new javax.swing.JCheckBoxMenuItem();
+        requiresProofreadingStatusMenuItem = new javax.swing.JCheckBoxMenuItem();
+        notPrintingMenuItem = new javax.swing.JCheckBoxMenuItem();
         jSeparator3 = new javax.swing.JSeparator();
         hideDeletedMenuItem = new javax.swing.JCheckBoxMenuItem();
         hideObjectIds = new javax.swing.JCheckBoxMenuItem();
@@ -185,8 +188,9 @@ public class MainWindow extends javax.swing.JFrame{
 
         getContentPane().add(statusBar, java.awt.BorderLayout.SOUTH);
 
-        jSplitPane1.setDividerLocation(600);
+        jSplitPane1.setDividerLocation(500);
         jSplitPane1.setDividerSize(3);
+        jSplitPane1.setPreferredSize(new java.awt.Dimension(1000, 706));
         jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         jScrollPane2.setPreferredSize(new java.awt.Dimension(170, 404));
         historyTable.setModel(getHistoryTableModel());
@@ -326,6 +330,17 @@ public class MainWindow extends javax.swing.JFrame{
         });
 
         editMenu.add(deleteMenuItem);
+
+        deletedStatusMenuItem.setText("Ieraksts dz\u0113sts");
+        editMenu.add(deletedStatusMenuItem);
+
+        requiresProofreadingStatusMenuItem.setText("Gramatika");
+        requiresProofreadingStatusMenuItem.setToolTipText("Iesl\u0113gts, ja nepiecie\u0161ams veikt gramatikas p\u0101rbaudi");
+        editMenu.add(requiresProofreadingStatusMenuItem);
+
+        notPrintingMenuItem.setText("Nedruk\u0101t");
+        notPrintingMenuItem.setToolTipText("Ja iesl\u0113gts - netiks iek\u013cauts izdruk\u0101s");
+        editMenu.add(notPrintingMenuItem);
 
         editMenu.add(jSeparator3);
 
@@ -474,6 +489,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JMenu bikMenu;
     private javax.swing.JMenuItem changePasswordMenu;
     private javax.swing.JMenuItem deleteMenuItem;
+    private javax.swing.JCheckBoxMenuItem deletedStatusMenuItem;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
@@ -495,6 +511,8 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JPanel listViewPanel;
     private javax.swing.JMenuItem loginMenu;
     private javax.swing.JMenuBar menuBar;
+    private javax.swing.JCheckBoxMenuItem notPrintingMenuItem;
+    private javax.swing.JCheckBoxMenuItem requiresProofreadingStatusMenuItem;
     private javax.swing.JToolBar statusBar;
     // End of variables declaration//GEN-END:variables
     
