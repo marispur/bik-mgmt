@@ -88,6 +88,8 @@ public class MainWindow extends javax.swing.JFrame{
         if (oldSelectedLine!=null) oldSelectedLine.decorateLine();
         selectedLine.decorateLine();
         historyTableModel.setParent(selectedLine.getBikDataObject().getId(), selectedLine.getBikDataObject().getObjType().getId());
+        historyTable.invalidate();
+        updateAccessibleCommands();
     }
     
     public Boolean getHideDeleted(){
@@ -461,7 +463,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         
         loginDialog.setVisible(true);
         lUserName.setText(currentUser.getFullName());
-        lStatusText.setText("Lietotï¿½js veiksmï¿½gi pieslï¿½dzies BIK serverim");
+        lStatusText.setText("Lietotâjs veiksmîgi pieslçdzies BIK serverim");
         catalog = new BikCatalog(getHibernateSession());
         catalog.setName("BIK 2007");
         fillSections();
@@ -812,6 +814,13 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     }
     public void setHistoryTableModel(HistoryTableModel htmVal) {
         this.historyTableModel=htmVal;
+    }
+    
+    public void updateAccessibleCommands(){
+        if (getSelectedLine()==null) return;
+        deletedStatusMenuItem.setSelected(getSelectedLine().getBikDataObject().isDeleted());
+        requiresProofreadingStatusMenuItem.setSelected(getSelectedLine().getBikDataObject().isNeedProofReading());
+        notPrintingMenuItem.setSelected(getSelectedLine().getBikDataObject().isNotForPrint());
     }
 
 }

@@ -32,4 +32,15 @@ public interface IBikDataObject {
     public Integer getId();
     
     public void delete(String userName);
+    
+    public Boolean isNotForPrint();
+
+    public void setNotForPrint(Boolean notForPrint);
+
+    public Boolean isNeedProofReading();
+
+    public void setNeedProofReading(Boolean needProofReading);
+
+    boolean isDeleted();
+
 }

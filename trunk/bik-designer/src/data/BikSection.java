@@ -84,6 +84,12 @@ public class BikSection implements Serializable, IBikDataObject {
     @OrderBy(clause="print_sequence")
     @Where(clause="parent_type=1") // This parameter must reflect ID of DB object type
     private Collection<BikComment> bikComments;
+
+    @Column(name = "not_for_print")
+    private Boolean notForPrint;
+    
+    @Column(name = "need_proofreading")
+    private Boolean needProofReading;
     
     /** Creates a new instance of BikSection */
     public BikSection() {
@@ -346,6 +352,28 @@ public class BikSection implements Serializable, IBikDataObject {
 
     public void setBikComments(Collection<BikComment> bikComments) {
         this.bikComments = bikComments;
+    }
+
+    public Boolean isNotForPrint() {
+        if (notForPrint==null) return false;
+        return notForPrint;
+    }
+
+    public void setNotForPrint(Boolean notForPrint) {
+        this.notForPrint = notForPrint;
+    }
+
+    public Boolean isNeedProofReading() {
+        if (needProofReading==null) return false;
+        return needProofReading;
+    }
+
+    public void setNeedProofReading(Boolean needProofReading) {
+        this.needProofReading = needProofReading;
+    }
+
+    public boolean isDeleted() {
+        return getDeleted();
     }
 
 }

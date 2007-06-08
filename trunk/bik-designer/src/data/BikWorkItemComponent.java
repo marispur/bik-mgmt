@@ -94,6 +94,13 @@ public class BikWorkItemComponent implements Serializable, IBikDataObject {
     @JoinColumn(name = "wi", referencedColumnName = "id")
     @ManyToOne
     private BikWorkItem wi=null;
+
+    @Column(name = "not_for_print")
+    private Boolean notForPrint;
+    
+    @Column(name = "need_proofreading")
+    private Boolean needProofReading;
+
     
     /** Creates a new instance of BikWorkItemComponent */
     public BikWorkItemComponent() {
@@ -479,6 +486,27 @@ public class BikWorkItemComponent implements Serializable, IBikDataObject {
     public void delete(String userName) {
         setDeleted(true);
         setDeletedBy(userName);
+    }
+    public Boolean isNotForPrint() {
+        if (notForPrint==null) return false;
+        return notForPrint;
+    }
+
+    public void setNotForPrint(Boolean notForPrint) {
+        this.notForPrint = notForPrint;
+    }
+
+    public Boolean isNeedProofReading() {
+        if (needProofReading==null) return false;
+        return needProofReading;
+    }
+
+    public void setNeedProofReading(Boolean needProofReading) {
+        this.needProofReading = needProofReading;
+    }
+
+    public boolean isDeleted() {
+        return getDeleted();
     }
 
 }
