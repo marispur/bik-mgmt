@@ -84,4 +84,22 @@ public class BikCatalog implements IBikDataObject{
     public Integer getId() {
         return 0;
     }
+
+    public Boolean isNotForPrint() {
+        return false;
+    }
+
+    public void setNotForPrint(Boolean notForPrint) {
+    }
+
+    public Boolean isNeedProofReading() {
+        return false;
+    }
+
+    public void setNeedProofReading(Boolean needProofReading) {
+    }
+
+    public boolean isDeleted() {
+        return false;
+    }
 }
