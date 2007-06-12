@@ -102,4 +102,13 @@ public class BikCatalog implements IBikDataObject{
     public boolean isDeleted() {
         return false;
     }
+
+    public void setDeleted(Boolean delStatus) {
+    }
+
+    public void setDeletedBy(String delBy) {
+    }
+
+    public void setDateDeleted(Date dateDeleted) {
+    }
 }

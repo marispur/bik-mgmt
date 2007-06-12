@@ -17,6 +17,7 @@ import data.BikWorkItem;
 import data.BikWorkItemComponent;
 import data.HistoryEvent;
 import data.HistoryTableModel;
+import data.IBikDataObject;
 import java.awt.Adjustable;
 import java.awt.ScrollPane;
 import java.security.InvalidAlgorithmParameterException;
@@ -155,7 +156,6 @@ public class MainWindow extends javax.swing.JFrame{
         addSubsectionMI = new javax.swing.JMenuItem();
         addCommentMI = new javax.swing.JMenuItem();
         jSeparator4 = new javax.swing.JSeparator();
-        deleteMenuItem = new javax.swing.JMenuItem();
         deletedStatusMenuItem = new javax.swing.JCheckBoxMenuItem();
         requiresProofreadingStatusMenuItem = new javax.swing.JCheckBoxMenuItem();
         notPrintingMenuItem = new javax.swing.JCheckBoxMenuItem();
@@ -324,16 +324,13 @@ public class MainWindow extends javax.swing.JFrame{
 
         editMenu.add(jSeparator4);
 
-        deleteMenuItem.setText("Dz\u0113st");
-        deleteMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        deletedStatusMenuItem.setText("Ieraksts dz\u0113sts");
+        deletedStatusMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteMenuItemActionPerformed(evt);
+                deletedStatusMenuItemActionPerformed(evt);
             }
         });
 
-        editMenu.add(deleteMenuItem);
-
-        deletedStatusMenuItem.setText("Ieraksts dz\u0113sts");
         editMenu.add(deletedStatusMenuItem);
 
         requiresProofreadingStatusMenuItem.setText("Gramatika");
@@ -375,6 +372,62 @@ public class MainWindow extends javax.swing.JFrame{
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void deletedStatusMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletedStatusMenuItemActionPerformed
+        IBikItemLine curLine;
+        
+        // negation because state of a button already changed
+        if (!deletedStatusMenuItem.getState()) {
+            // TODO: UNdelete action must be performed
+
+            IBikDataObject bdo = getSelectedLine().getBikDataObject();
+            bdo.setDeleted(false);
+            bdo.setDeletedBy("");
+            bdo.setDateDeleted(null);
+            HibernateUtil.getCurrentSession().beginTransaction();
+            HibernateUtil.getCurrentSession().saveOrUpdate(bdo);
+            HibernateUtil.getCurrentSession().getTransaction().commit();
+
+            HistoryEvent he = new data.HistoryEvent();
+            he.setDate(new Date(System.currentTimeMillis()));
+            he.setObjId(bdo.getId());
+            he.setObjType(bdo.getObjType().getId());
+            he.setFieldName("");
+            he.setMessage("Ieraksts atjaunots");
+            he.setModifiedBy(getCurrentUser().getFullName());
+            he.bikSave();
+            
+            setStatusText("Ieraksts atjaunots");
+            
+        } else {
+            // user requested to delete item 
+            
+            if (getSelectedLine()==null) return ;
+            getSelectedLine().getBikDataObject().delete(getCurrentUser().getFullName());
+            getSelectedLine().getBikDataObject().bikSave(getHibernateSession());
+
+            HistoryEvent he = new data.HistoryEvent();
+            he.setDate(new Date(System.currentTimeMillis()));
+            he.setObjId(getSelectedLine().getBikDataObject().getId());
+            he.setObjType(getSelectedLine().getBikDataObject().getObjType().getId());
+            he.setFieldName("");
+            he.setMessage("Ieraksts dzçsts");
+            he.setModifiedBy(getCurrentUser().getFullName());
+            he.bikSave();
+            setStatusText("Ieraksts izdzçsts");
+        }
+        
+        getSelectedLine().updateUiComponents();
+        getSelectedLine().decorateLine();
+        int i = getSelectedLineIndex();
+        while (i<listViewPanel.getComponentCount()) {
+            curLine = (IBikItemLine)listViewPanel.getComponent(i);
+            curLine.updateUiComponents();
+            curLine.decorateLine();
+            i++;
+        }
+
+    }//GEN-LAST:event_deletedStatusMenuItemActionPerformed
+
     private void hideObjectIdsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hideObjectIdsActionPerformed
 // TODO add your handling code here:
     }//GEN-LAST:event_hideObjectIdsActionPerformed
@@ -386,33 +439,6 @@ public class MainWindow extends javax.swing.JFrame{
 private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
            
 }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void deleteMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteMenuItemActionPerformed
-        IBikItemLine curLine;
-        if (getSelectedLine()==null) return ;
-        getSelectedLine().getBikDataObject().delete(getCurrentUser().getFullName());
-        getSelectedLine().getBikDataObject().bikSave(getHibernateSession());
-        
-        HistoryEvent he = new data.HistoryEvent();
-        he.setDate(new Date(System.currentTimeMillis()));
-        he.setObjId(getSelectedLine().getBikDataObject().getId());
-        he.setObjType(getSelectedLine().getBikDataObject().getObjType().getId());
-        he.setFieldName("");
-        he.setMessage("Ieraksts dzçsts");
-        he.setModifiedBy(getCurrentUser().getFullName());
-        he.bikSave();
-
-        getSelectedLine().updateUiComponents();
-        getSelectedLine().decorateLine();
-        int i = getSelectedLineIndex();
-        while (i<listViewPanel.getComponentCount()) {
-            curLine = (IBikItemLine)listViewPanel.getComponent(i);
-            curLine.updateUiComponents();
-            curLine.decorateLine();
-            i++;
-        }
-
-    }//GEN-LAST:event_deleteMenuItemActionPerformed
 
     private void addSubsectionMIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSubsectionMIActionPerformed
         addSubsectionLine();
@@ -490,7 +516,6 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JMenuItem addWorkItemMI;
     private javax.swing.JMenu bikMenu;
     private javax.swing.JMenuItem changePasswordMenu;
-    private javax.swing.JMenuItem deleteMenuItem;
     private javax.swing.JCheckBoxMenuItem deletedStatusMenuItem;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenuItem exitMenuItem;
