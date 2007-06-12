@@ -42,5 +42,10 @@ public interface IBikDataObject {
     public void setNeedProofReading(Boolean needProofReading);
 
     boolean isDeleted();
+    
+    public void setDeleted(Boolean delStatus);
+    
+    public void setDeletedBy(String delBy);
 
+     public void setDateDeleted(Date dateDeleted);
 }
