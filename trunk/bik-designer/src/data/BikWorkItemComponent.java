@@ -45,38 +45,13 @@ import org.hibernate.annotations.GenerationTime;
         @NamedQuery(name = "BikWorkItemComponent.findByQty", query = "SELECT b FROM BikWorkItemComponent b WHERE b.qty = :qty"),
         @NamedQuery(name = "BikWorkItemComponent.findByPriceDef", query = "SELECT b FROM BikWorkItemComponent b WHERE b.priceDef = :priceDef")
     })
-public class BikWorkItemComponent implements Serializable, IBikDataObject {
-
-    @Id @GeneratedValue(strategy=GenerationType.SEQUENCE)
-    @Column(name = "id", nullable = false)
-    private Integer id;
-
-    @Column(name = "date_created", insertable=false)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dateCreated;
-
-    @Column(name = "date_modified", insertable=false)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dateModified;
-
-    @Column(name = "modified_by")
-    private String modifiedBy="";
+public class BikWorkItemComponent extends AbstractBikDataObject implements Serializable{
 
     @Column(name = "name")
     private String name="";
 
     @Column(name = "measure")
     private String measure="";
-
-    @Column(name = "deleted")
-    private Boolean deleted=false;
-
-    @Column(name = "date_deleted")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dateDeleted;
-
-    @Column(name = "deleted_by")
-    private String deletedBy="";
 
     @Column(name = "type")
     private Integer type=0;
@@ -95,12 +70,6 @@ public class BikWorkItemComponent implements Serializable, IBikDataObject {
     @ManyToOne
     private BikWorkItem wi=null;
 
-    @Column(name = "not_for_print")
-    private Boolean notForPrint;
-    
-    @Column(name = "need_proofreading")
-    private Boolean needProofReading;
-
     
     /** Creates a new instance of BikWorkItemComponent */
     public BikWorkItemComponent() {
@@ -114,71 +83,6 @@ public class BikWorkItemComponent implements Serializable, IBikDataObject {
      */
     public BikWorkItemComponent(Integer id) {
         this.id = id;
-    }
-
-    /**
-     * Gets the id of this BikWorkItemComponent.
-     * @return the id
-     */
-    public Integer getId() {
-        return this.id;
-    }
-
-    /**
-     * Sets the id of this BikWorkItemComponent to the specified value.
-     * @param id the new id
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * Gets the dateCreated of this BikWorkItemComponent.
-     * @return the dateCreated
-     */
-    public Date getDateCreated() {
-        return this.dateCreated;
-    }
-
-    /**
-     * Sets the dateCreated of this BikWorkItemComponent to the specified value.
-     * @param dateCreated the new dateCreated
-     */
-    public void setDateCreated(Date dateCreated) {
-        this.dateCreated = dateCreated;
-    }
-
-    /**
-     * Gets the dateModified of this BikWorkItemComponent.
-     * @return the dateModified
-     */
-    public Date getDateModified() {
-        return this.dateModified;
-    }
-
-    /**
-     * Sets the dateModified of this BikWorkItemComponent to the specified value.
-     * @param dateModified the new dateModified
-     */
-    public void setDateModified(Date dateModified) {
-        this.dateModified = dateModified;
-    }
-
-    /**
-     * Gets the modifiedBy of this BikWorkItemComponent.
-     * @return the modifiedBy
-     */
-    public String getModifiedBy() {
-        if (this.modifiedBy==null) return new String("");
-        return this.modifiedBy;
-    }
-
-    /**
-     * Sets the modifiedBy of this BikWorkItemComponent to the specified value.
-     * @param modifiedBy the new modifiedBy
-     */
-    public void setModifiedBy(String modifiedBy) {
-        this.modifiedBy = modifiedBy;
     }
 
     /**
@@ -221,55 +125,6 @@ public class BikWorkItemComponent implements Serializable, IBikDataObject {
      */
     public void setMeasure(String measure) {
         this.measure = measure;
-    }
-
-    /**
-     * Gets the deleted of this BikWorkItemComponent.
-     * @return the deleted
-     */
-    public Boolean getDeleted() {
-        if (getWi().getDeleted()) return true;
-        return this.deleted;
-    }
-
-    /**
-     * Sets the deleted of this BikWorkItemComponent to the specified value.
-     * @param deleted the new deleted
-     */
-    public void setDeleted(Boolean deleted) {
-        this.deleted = deleted;
-    }
-
-    /**
-     * Gets the dateDeleted of this BikWorkItemComponent.
-     * @return the dateDeleted
-     */
-    public Date getDateDeleted() {
-        return this.dateDeleted;
-    }
-
-    /**
-     * Sets the dateDeleted of this BikWorkItemComponent to the specified value.
-     * @param dateDeleted the new dateDeleted
-     */
-    public void setDateDeleted(Date dateDeleted) {
-        this.dateDeleted = dateDeleted;
-    }
-
-    /**
-     * Gets the deletedBy of this BikWorkItemComponent.
-     * @return the deletedBy
-     */
-    public String getDeletedBy() {
-        return this.deletedBy;
-    }
-
-    /**
-     * Sets the deletedBy of this BikWorkItemComponent to the specified value.
-     * @param deletedBy the new deletedBy
-     */
-    public void setDeletedBy(String deletedBy) {
-        this.deletedBy = deletedBy;
     }
 
     /**
@@ -438,12 +293,6 @@ public class BikWorkItemComponent implements Serializable, IBikDataObject {
        if (getType()==BikObjType.MATERIAL.getId()) return BikObjType.MATERIAL;
        if (getType()==BikObjType.LABOUR.getId()) return BikObjType.LABOUR;
        return null;
-    }
-
-    public void bikSave(Session s) {
-        s.beginTransaction();
-        s.update(this);
-        s.getTransaction().commit();
     }
     
     public BigDecimal getMaterials(){

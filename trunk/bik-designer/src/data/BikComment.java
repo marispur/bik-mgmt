@@ -39,50 +39,20 @@ import org.hibernate.annotations.OrderBy;
         @NamedQuery(name = "BikComment.findByDateDeleted", query = "SELECT b FROM BikComment b WHERE b.dateDeleted = :dateDeleted"),
         @NamedQuery(name = "BikComment.findByDeletedBy", query = "SELECT b FROM BikComment b WHERE b.deletedBy = :deletedBy")
     })
-public class BikComment implements Serializable, IBikDataObject {
+public class BikComment extends AbstractBikDataObject implements Serializable {
 
-    @Id @GeneratedValue(strategy=GenerationType.SEQUENCE)
-    @Column(name = "id", nullable = false)
-    private Integer id;
 
     @Column(name = "parent_type")
-    private Integer parentType;
+    protected  Integer parentType;
 
     @Column(name = "parent_id")
-    private Integer parentId;
-
-    @Column(name = "date_created")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dateCreated;
-
-    @Column(name = "date_modified")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dateModified;
-
-    @Column(name = "modified_by")
-    private String modifiedBy;
+    protected Integer parentId;
 
     @Column(name = "print_sequence")
     private Integer printSequence;
 
     @Column(name = "body")
     private String body;
-
-    @Column(name = "deleted")
-    private Boolean deleted;
-
-    @Column(name = "date_deleted")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dateDeleted;
-
-    @Column(name = "deleted_by")
-    private String deletedBy;
-    
-    @Column(name = "not_for_print")
-    private Boolean notForPrint;
-    
-    @Column(name = "need_proofreading")
-    private Boolean needProofReading;
 
     /** Creates a new instance of BikComment */
     public BikComment() {
@@ -96,21 +66,6 @@ public class BikComment implements Serializable, IBikDataObject {
         this.id = id;
     }
 
-    /**
-     * Gets the id of this BikComment.
-     * @return the id
-     */
-    public Integer getId() {
-        return this.id;
-    }
-
-    /**
-     * Sets the id of this BikComment to the specified value.
-     * @param id the new id
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     /**
      * Gets the parentType of this BikComment.
@@ -145,54 +100,6 @@ public class BikComment implements Serializable, IBikDataObject {
     }
 
     /**
-     * Gets the dateCreated of this BikComment.
-     * @return the dateCreated
-     */
-    public Date getDateCreated() {
-        return this.dateCreated;
-    }
-
-    /**
-     * Sets the dateCreated of this BikComment to the specified value.
-     * @param dateCreated the new dateCreated
-     */
-    public void setDateCreated(Date dateCreated) {
-        this.dateCreated = dateCreated;
-    }
-
-    /**
-     * Gets the dateModified of this BikComment.
-     * @return the dateModified
-     */
-    public Date getDateModified() {
-        return this.dateModified;
-    }
-
-    /**
-     * Sets the dateModified of this BikComment to the specified value.
-     * @param dateModified the new dateModified
-     */
-    public void setDateModified(Date dateModified) {
-        this.dateModified = dateModified;
-    }
-
-    /**
-     * Gets the modifiedBy of this BikComment.
-     * @return the modifiedBy
-     */
-    public String getModifiedBy() {
-        return this.modifiedBy;
-    }
-
-    /**
-     * Sets the modifiedBy of this BikComment to the specified value.
-     * @param modifiedBy the new modifiedBy
-     */
-    public void setModifiedBy(String modifiedBy) {
-        this.modifiedBy = modifiedBy;
-    }
-
-    /**
      * Gets the printSequence of this BikComment.
      * @return the printSequence
      */
@@ -224,55 +131,6 @@ public class BikComment implements Serializable, IBikDataObject {
      */
     public void setBody(String body) {
         this.body = body;
-    }
-
-    /**
-     * Gets the deleted of this BikComment.
-     * @return the deleted
-     */
-    public Boolean getDeleted() {
-        if (this.deleted==null) return false;
-        return this.deleted;
-    }
-
-    /**
-     * Sets the deleted of this BikComment to the specified value.
-     * @param deleted the new deleted
-     */
-    public void setDeleted(Boolean deleted) {
-        this.deleted = deleted;
-    }
-
-    /**
-     * Gets the dateDeleted of this BikComment.
-     * @return the dateDeleted
-     */
-    public Date getDateDeleted() {
-        return this.dateDeleted;
-    }
-
-    /**
-     * Sets the dateDeleted of this BikComment to the specified value.
-     * @param dateDeleted the new dateDeleted
-     */
-    public void setDateDeleted(Date dateDeleted) {
-        this.dateDeleted = dateDeleted;
-    }
-
-    /**
-     * Gets the deletedBy of this BikComment.
-     * @return the deletedBy
-     */
-    public String getDeletedBy() {
-        return this.deletedBy;
-    }
-
-    /**
-     * Sets the deletedBy of this BikComment to the specified value.
-     * @param deletedBy the new deletedBy
-     */
-    public void setDeletedBy(String deletedBy) {
-        this.deletedBy = deletedBy;
     }
 
     /**
@@ -320,37 +178,5 @@ public class BikComment implements Serializable, IBikDataObject {
         return BikObjType.COMMENT;
     }
 
-    public void bikSave(Session s) {
-        s.beginTransaction();
-        s.update(this);
-        s.getTransaction().commit();
-    }
-
-    public void delete(String userName) {
-        setDeleted(true);
-        setDeletedBy(userName);
-    }
-
-    public Boolean isNotForPrint() {
-        if (notForPrint==null) return false;
-        return notForPrint;
-    }
-
-    public void setNotForPrint(Boolean notForPrint) {
-        this.notForPrint = notForPrint;
-    }
-
-    public Boolean isNeedProofReading() {
-        if (needProofReading==null) return false;
-        return needProofReading;
-    }
-
-    public void setNeedProofReading(Boolean needProofReading) {
-        this.needProofReading = needProofReading;
-    }
-
-    public boolean isDeleted() {
-        return getDeleted();
-    }
     
 }

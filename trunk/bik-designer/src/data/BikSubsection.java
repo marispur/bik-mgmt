@@ -38,41 +38,16 @@ import org.hibernate.annotations.Where;
         @NamedQuery(name = "BikSubsection.findByDateDeleted", query = "SELECT b FROM BikSubsection b WHERE b.dateDeleted = :dateDeleted"),
         @NamedQuery(name = "BikSubsection.findByDeletedBy", query = "SELECT b FROM BikSubsection b WHERE b.deletedBy = :deletedBy")
     })
-public class BikSubsection implements Serializable, IBikDataObject {
-
-    @Id @GeneratedValue(strategy=GenerationType.SEQUENCE)
-    @Column(name = "id", nullable = false)
-    private Integer id;
+public class BikSubsection extends AbstractBikDataObject implements Serializable {
 
     @Column(name = "code")
     private String code="";
-
-    @Column(name = "date_created")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dateCreated;
-
-    @Column(name = "date_modified")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dateModified;
-
-    @Column(name = "modified_by")
-    private String modifiedBy="";
 
     @Column(name = "name")
     private String name="";
 
     @Column(name = "description")
     private String description="";
-
-    @Column(name = "deleted")
-    private Boolean deleted=false;
-
-    @Column(name = "date_deleted")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dateDeleted;
-
-    @Column(name = "deleted_by")
-    private String deletedBy="";
 
     @OneToMany(mappedBy = "subsection")
     @OrderBy(clause="code, id")
@@ -87,13 +62,6 @@ public class BikSubsection implements Serializable, IBikDataObject {
     @OrderBy(clause="print_sequence")
     @Where(clause="parent_type=2") // This parameter must reflect ID of DB object type
     private Collection<BikComment> bikComments;
-
-    @Column(name = "not_for_print")
-    private Boolean notForPrint;
-    
-    @Column(name = "need_proofreading")
-    private Boolean needProofReading;
-
     
     /** Creates a new instance of BikSubsection */
     public BikSubsection() {
@@ -104,22 +72,6 @@ public class BikSubsection implements Serializable, IBikDataObject {
      * @param id the id of the BikSubsection
      */
     public BikSubsection(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * Gets the id of this BikSubsection.
-     * @return the id
-     */
-    public Integer getId() {
-        return this.id;
-    }
-
-    /**
-     * Sets the id of this BikSubsection to the specified value.
-     * @param id the new id
-     */
-    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -139,55 +91,6 @@ public class BikSubsection implements Serializable, IBikDataObject {
     public void setCode(String code) {
         // TODO: add history handling
         this.code = code;
-    }
-
-    /**
-     * Gets the dateCreated of this BikSubsection.
-     * @return the dateCreated
-     */
-    public Date getDateCreated() {
-        return this.dateCreated;
-    }
-
-    /**
-     * Sets the dateCreated of this BikSubsection to the specified value.
-     * @param dateCreated the new dateCreated
-     */
-    public void setDateCreated(Date dateCreated) {
-        this.dateCreated = dateCreated;
-    }
-
-    /**
-     * Gets the dateModified of this BikSubsection.
-     * @return the dateModified
-     */
-    public Date getDateModified() {
-        return this.dateModified;
-    }
-
-    /**
-     * Sets the dateModified of this BikSubsection to the specified value.
-     * @param dateModified the new dateModified
-     */
-    public void setDateModified(Date dateModified) {
-        this.dateModified = dateModified;
-    }
-
-    /**
-     * Gets the modifiedBy of this BikSubsection.
-     * @return the modifiedBy
-     */
-    public String getModifiedBy() {
-        if (this.modifiedBy==null) return new String("");
-        return this.modifiedBy;
-    }
-
-    /**
-     * Sets the modifiedBy of this BikSubsection to the specified value.
-     * @param modifiedBy the new modifiedBy
-     */
-    public void setModifiedBy(String modifiedBy) {
-        this.modifiedBy = modifiedBy;
     }
 
     /**
@@ -223,56 +126,6 @@ public class BikSubsection implements Serializable, IBikDataObject {
      */
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    /**
-     * Gets the deleted of this BikSubsection.
-     * @return the deleted
-     */
-    public Boolean getDeleted() {
-        if (getSection().getDeleted()) return true;
-        return this.deleted;
-    }
-
-    /**
-     * Sets the deleted of this BikSubsection to the specified value.
-     * @param deleted the new deleted
-     */
-    public void setDeleted(Boolean deleted) {
-        this.deleted = deleted;
-    }
-
-    /**
-     * Gets the dateDeleted of this BikSubsection.
-     * @return the dateDeleted
-     */
-    public Date getDateDeleted() {
-        return this.dateDeleted;
-    }
-
-    /**
-     * Sets the dateDeleted of this BikSubsection to the specified value.
-     * @param dateDeleted the new dateDeleted
-     */
-    public void setDateDeleted(Date dateDeleted) {
-        this.dateDeleted = dateDeleted;
-    }
-
-    /**
-     * Gets the deletedBy of this BikSubsection.
-     * @return the deletedBy
-     */
-    public String getDeletedBy() {
-        if (this.deletedBy==null) return new String("");
-        return this.deletedBy;
-    }
-
-    /**
-     * Sets the deletedBy of this BikSubsection to the specified value.
-     * @param deletedBy the new deletedBy
-     */
-    public void setDeletedBy(String deletedBy) {
-        this.deletedBy = deletedBy;
     }
 
     /**
@@ -352,18 +205,6 @@ public class BikSubsection implements Serializable, IBikDataObject {
         return BikObjType.SUBSECTION;
     }
 
-    public void bikSave(Session s) {
-        s.beginTransaction();
-        s.update(this);
-        s.getTransaction().commit();
-
-    }
-
-    public void delete(String userName) {
-        setDeleted(true);
-        setDeletedBy(userName);
-    }
-
     public Collection<BikComment> getBikComments() {
         return bikComments;
     }
@@ -371,26 +212,6 @@ public class BikSubsection implements Serializable, IBikDataObject {
     public void setBikComments(Collection<BikComment> bikComments) {
         this.bikComments = bikComments;
     }
-    public Boolean isNotForPrint() {
-        if (notForPrint==null) return false;
-        return notForPrint;
-    }
 
-    public void setNotForPrint(Boolean notForPrint) {
-        this.notForPrint = notForPrint;
-    }
-
-    public Boolean isNeedProofReading() {
-        if (needProofReading==null) return false;
-        return needProofReading;
-    }
-
-    public void setNeedProofReading(Boolean needProofReading) {
-        this.needProofReading = needProofReading;
-    }
-
-    public boolean isDeleted() {
-        return getDeleted();
-    }
     
 }
