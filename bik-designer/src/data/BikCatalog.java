@@ -19,7 +19,7 @@ import org.hibernate.*;
  *
  * @author mpurins
  */
-public class BikCatalog implements IBikDataObject{
+public class BikCatalog extends AbstractBikDataObject {
     
     private String name = "BIK 2007";
     private Collection<BikSection> bikSectionCollection;
