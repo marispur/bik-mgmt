@@ -46,11 +46,12 @@ public class SectionLine extends AbstractBikItemLine {
         tfName = new javax.swing.JTextField();
         lId = new javax.swing.JLabel();
         tfId = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        setPreferredSize(new java.awt.Dimension(500, 25));
+        setPreferredSize(new java.awt.Dimension(700, 38));
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 formMouseClicked(evt);
@@ -68,7 +69,7 @@ public class SectionLine extends AbstractBikItemLine {
             }
         });
 
-        add(expanderButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 15, 15));
+        add(expanderButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 12, 15, 15));
 
         tfCode.setEditable(false);
         tfCode.setFont(new java.awt.Font("Tahoma", 3, 14));
@@ -83,7 +84,7 @@ public class SectionLine extends AbstractBikItemLine {
             }
         });
 
-        add(tfCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 5, 30, -1));
+        add(tfCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 9, 30, -1));
 
         tfName.setEditable(false);
         tfName.setFont(new java.awt.Font("Tahoma", 3, 14));
@@ -96,7 +97,7 @@ public class SectionLine extends AbstractBikItemLine {
             }
         });
 
-        add(tfName, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 5, 520, -1));
+        add(tfName, new org.netbeans.lib.awtextra.AbsoluteConstraints(99, 9, 588, -1));
 
         lId.setText("ID:");
         add(lId, new org.netbeans.lib.awtextra.AbsoluteConstraints(455, 5, -1, -1));
@@ -104,6 +105,9 @@ public class SectionLine extends AbstractBikItemLine {
         tfId.setEditable(false);
         tfId.setText("1234");
         add(tfId, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Maris\\Pictures\\Folder-Documents-copy-32x32.png"));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 3, -1, -1));
 
     }// </editor-fold>//GEN-END:initComponents
 
@@ -132,7 +136,7 @@ public class SectionLine extends AbstractBikItemLine {
             getMainWindow(this).getHibernateSession().refresh(getBikSection());
             Iterator subIt = getBikSection().getBikSubsectionCollection().iterator();
             int addIndex = curParentIndex+1;
-            Boolean hd = getMainWindow(this).getHideDeleted();
+            Boolean hd = getMainWindow(this).getViewHideDeleted();
             
             Iterator commentsIt = getBikSection().getBikComments().iterator();
             while (commentsIt.hasNext()){
@@ -171,6 +175,7 @@ public class SectionLine extends AbstractBikItemLine {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton expanderButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lId;
     private javax.swing.JTextField tfCode;
     private javax.swing.JTextField tfId;

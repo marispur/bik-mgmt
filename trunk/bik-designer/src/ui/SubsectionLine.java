@@ -44,12 +44,13 @@ public class SubsectionLine extends AbstractBikItemLine {
         tfSectionCode = new javax.swing.JTextField();
         tfId = new javax.swing.JTextField();
         lId = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        setMinimumSize(new java.awt.Dimension(650, 50));
-        setPreferredSize(new java.awt.Dimension(650, 50));
+        setMinimumSize(new java.awt.Dimension(700, 38));
+        setPreferredSize(new java.awt.Dimension(700, 38));
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 formMouseClicked(evt);
@@ -67,7 +68,7 @@ public class SubsectionLine extends AbstractBikItemLine {
             }
         });
 
-        add(expanderButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 5, 15, 15));
+        add(expanderButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 12, 15, 15));
 
         tfCode.setText("11");
         tfCode.setEnabled(false);
@@ -92,7 +93,7 @@ public class SubsectionLine extends AbstractBikItemLine {
             }
         });
 
-        add(tfCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 5, 50, -1));
+        add(tfCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 9, 50, 24));
 
         tfName.setColumns(20);
         tfName.setFont(fieldFont);
@@ -121,7 +122,7 @@ public class SubsectionLine extends AbstractBikItemLine {
 
         jScrollPane1.setViewportView(tfName);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 5, 440, 40));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 3, 531, -1));
 
         tfSectionCode.setEditable(false);
         tfSectionCode.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
@@ -134,14 +135,17 @@ public class SubsectionLine extends AbstractBikItemLine {
             }
         });
 
-        add(tfSectionCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 8, 25, -1));
+        add(tfSectionCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 9, 27, 24));
 
         tfId.setEditable(false);
         tfId.setText("1234");
-        add(tfId, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 20, 70, -1));
+        add(tfId, new org.netbeans.lib.awtextra.AbsoluteConstraints(591, 3, 70, -1));
 
         lId.setText("Subsection ID:");
-        add(lId, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, -1, -1));
+        add(lId, new org.netbeans.lib.awtextra.AbsoluteConstraints(513, 3, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Maris\\Pictures\\Folder-copy-2-32x32.png"));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 3, 33, -1));
 
     }// </editor-fold>//GEN-END:initComponents
 
@@ -213,7 +217,7 @@ public class SubsectionLine extends AbstractBikItemLine {
             getMainWindow(this).getHibernateSession().refresh(getBikSubsection());
             Iterator wiIt = getBikSubsection().getBikWorkItemCollection().iterator();
             int addIndex = curParentIndex+1;
-            Boolean hd = getMainWindow(this).getHideDeleted();
+            Boolean hd = getMainWindow(this).getViewHideDeleted();
             
             Iterator commentsIt = getBikSubsection().getBikComments().iterator();
             while (commentsIt.hasNext()){
@@ -253,6 +257,7 @@ public class SubsectionLine extends AbstractBikItemLine {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton expanderButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lId;
     private javax.swing.JTextField tfCode;
@@ -277,9 +282,11 @@ public class SubsectionLine extends AbstractBikItemLine {
     public void updateUiComponents() {
         
         // hide IDs
+        tfId.setVisible(false);
+        lId.setVisible(false);
         if (getMainWindow(this)!=null){
             // null may be only during initiation
-            if (getMainWindow(this).getHideObjectIds()){
+            if (getMainWindow(this).getViewHideObjectIds()){
                 tfId.setVisible(false);
                 lId.setVisible(false);
             }

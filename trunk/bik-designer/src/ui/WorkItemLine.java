@@ -66,12 +66,12 @@ public class WorkItemLine extends AbstractBikItemLine {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        setMinimumSize(new java.awt.Dimension(626, 77));
-        setPreferredSize(new java.awt.Dimension(626, 77));
+        setPreferredSize(new java.awt.Dimension(700, 75));
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 formMouseClicked(evt);
@@ -94,7 +94,7 @@ public class WorkItemLine extends AbstractBikItemLine {
             }
         });
 
-        add(expanderButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 10, 15, 15));
+        add(expanderButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 27, 15, 15));
 
         tfCode.setText("11");
         tfCode.setEnabled(false);
@@ -156,7 +156,7 @@ public class WorkItemLine extends AbstractBikItemLine {
 
         jScrollPane1.setViewportView(tfName);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 5, 440, 50));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 5, -1, 45));
 
         tfSectionCode.setEditable(false);
         tfSectionCode.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
@@ -193,7 +193,7 @@ public class WorkItemLine extends AbstractBikItemLine {
             }
         });
 
-        add(tfMeasure, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 55, 50, -1));
+        add(tfMeasure, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 50, -1));
 
         tfLabourNorm.setEditable(false);
         tfLabourNorm.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
@@ -207,7 +207,7 @@ public class WorkItemLine extends AbstractBikItemLine {
             }
         });
 
-        add(tfLabourNorm, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 36, -1));
+        add(tfLabourNorm, new org.netbeans.lib.awtextra.AbsoluteConstraints(216, 54, 45, -1));
 
         tfLabourCost.setEditable(false);
         tfLabourCost.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
@@ -221,7 +221,7 @@ public class WorkItemLine extends AbstractBikItemLine {
             }
         });
 
-        add(tfLabourCost, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 36, -1));
+        add(tfLabourCost, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 54, 45, -1));
 
         tfLabour.setEditable(false);
         tfLabour.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
@@ -235,7 +235,7 @@ public class WorkItemLine extends AbstractBikItemLine {
             }
         });
 
-        add(tfLabour, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 60, 50, -1));
+        add(tfLabour, new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 54, 57, -1));
 
         tfMaterials.setEditable(false);
         tfMaterials.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
@@ -249,7 +249,7 @@ public class WorkItemLine extends AbstractBikItemLine {
             }
         });
 
-        add(tfMaterials, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 60, 70, -1));
+        add(tfMaterials, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 54, 57, -1));
 
         tfDepreciation.setEditable(false);
         tfDepreciation.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
@@ -263,7 +263,7 @@ public class WorkItemLine extends AbstractBikItemLine {
             }
         });
 
-        add(tfDepreciation, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 60, 50, -1));
+        add(tfDepreciation, new org.netbeans.lib.awtextra.AbsoluteConstraints(519, 54, 54, -1));
 
         tfTotal.setEditable(false);
         tfTotal.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
@@ -277,25 +277,28 @@ public class WorkItemLine extends AbstractBikItemLine {
             }
         });
 
-        add(tfTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 60, 70, -1));
+        add(tfTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(613, 54, 81, -1));
 
         jLabel1.setText("Kop\u0101:");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 60, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(586, 54, -1, -1));
 
         jLabel2.setText("A:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(507, 54, -1, -1));
 
         jLabel3.setText("M:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(429, 54, -1, -1));
 
         jLabel4.setText("D:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(354, 54, -1, -1));
 
         jLabel5.setText("ln:");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 15, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 54, 15, -1));
 
         jLabel6.setText("likme:");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 54, -1, -1));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\Maris\\Pictures\\Folder-apps-copy-32x32.png"));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 18, -1, -1));
 
     }// </editor-fold>//GEN-END:initComponents
 
@@ -402,7 +405,7 @@ public class WorkItemLine extends AbstractBikItemLine {
             getMainWindow(this).getHibernateSession().refresh(getBikWorkItem());
             Iterator wicIt = getBikWorkItem().getBikWorkItemComponentCollection().iterator();
             int addIndex = curParentIndex+1;
-            Boolean hd = getMainWindow(this).getHideDeleted();
+            Boolean hd = getMainWindow(this).getViewHideDeleted();
             
             while (wicIt.hasNext()){
                 BikWorkItemComponent wic = (BikWorkItemComponent)wicIt.next();
@@ -436,6 +439,7 @@ public class WorkItemLine extends AbstractBikItemLine {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lId;
     private javax.swing.JTextField tfCode;

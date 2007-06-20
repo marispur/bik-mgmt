@@ -99,7 +99,7 @@ public class BikCatalog extends AbstractBikDataObject {
     public void setNeedProofReading(Boolean needProofReading) {
     }
 
-    public boolean isDeleted() {
+    public Boolean isDeleted() {
         return false;
     }
 
