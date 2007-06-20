@@ -18,6 +18,7 @@ import org.hibernate.annotations.Generated;
 import org.hibernate.annotations.GenerationTime;
 import org.hibernate.annotations.OrderBy;
 import org.hibernate.annotations.Where;
+import org.hibernate.type.TrueFalseType;
 
 /**
  * Entity class BikSubsection
@@ -211,6 +212,13 @@ public class BikSubsection extends AbstractBikDataObject implements Serializable
 
     public void setBikComments(Collection<BikComment> bikComments) {
         this.bikComments = bikComments;
+    }
+
+    public Boolean isDeleted() {
+        Boolean retValue;
+        if (section.getDeleted()) return true;
+        retValue = this.deleted;
+        return retValue;
     }
 
     

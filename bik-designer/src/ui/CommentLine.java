@@ -48,6 +48,7 @@ public class CommentLine extends AbstractBikItemLine {
         jScrollPane1 = new javax.swing.JScrollPane();
         tfBody = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -83,7 +84,7 @@ public class CommentLine extends AbstractBikItemLine {
             }
         });
 
-        add(tfPrintSequence, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 20, -1));
+        add(tfPrintSequence, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 15, 20, -1));
 
         lId.setText("CommentId:");
         lId.setFocusable(false);
@@ -116,10 +117,14 @@ public class CommentLine extends AbstractBikItemLine {
 
         jScrollPane1.setViewportView(tfBody);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 5, 480, 50));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(198, 3, 498, 42));
 
+        jLabel1.setLabelFor(tfPrintSequence);
         jLabel1.setText("Drukas indekss:");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 80, 20));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 14, -1, 21));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Maris\\Pictures\\docu-32x32.png"));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 9, 32, 32));
 
     }// </editor-fold>//GEN-END:initComponents
 
@@ -158,6 +163,7 @@ public class CommentLine extends AbstractBikItemLine {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lId;
     private javax.swing.JTextArea tfBody;

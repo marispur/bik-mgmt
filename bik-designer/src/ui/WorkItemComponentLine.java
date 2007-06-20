@@ -70,8 +70,7 @@ public class WorkItemComponentLine extends AbstractBikItemLine implements IPrice
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        setMinimumSize(new java.awt.Dimension(626, 23));
-        setPreferredSize(new java.awt.Dimension(700, 23));
+        setPreferredSize(new java.awt.Dimension(700, 25));
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 formMouseClicked(evt);
@@ -116,7 +115,7 @@ public class WorkItemComponentLine extends AbstractBikItemLine implements IPrice
 
         jScrollPane1.setViewportView(tfName);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 1, 180, 18));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 3, 180, 18));
 
         tfMeasure.setText("m3");
         tfMeasure.setToolTipText("M\u0113ra vien\u012bba");
@@ -135,7 +134,7 @@ public class WorkItemComponentLine extends AbstractBikItemLine implements IPrice
             }
         });
 
-        add(tfMeasure, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 1, 50, 18));
+        add(tfMeasure, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 3, 50, 18));
 
         tfPrice.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
         tfPrice.setText("34,67");
@@ -155,7 +154,7 @@ public class WorkItemComponentLine extends AbstractBikItemLine implements IPrice
             }
         });
 
-        add(tfPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 1, 60, 18));
+        add(tfPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(489, 3, 60, 18));
 
         tfQty.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
         tfQty.setText("0,9");
@@ -172,7 +171,7 @@ public class WorkItemComponentLine extends AbstractBikItemLine implements IPrice
             }
         });
 
-        add(tfQty, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 1, 57, 18));
+        add(tfQty, new org.netbeans.lib.awtextra.AbsoluteConstraints(429, 3, 57, 18));
 
         tfPriceDefId.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
         tfPriceDefId.setText("123,874");
@@ -192,7 +191,7 @@ public class WorkItemComponentLine extends AbstractBikItemLine implements IPrice
             }
         });
 
-        add(tfPriceDefId, new org.netbeans.lib.awtextra.AbsoluteConstraints(555, 1, 50, 18));
+        add(tfPriceDefId, new org.netbeans.lib.awtextra.AbsoluteConstraints(555, 3, 50, 18));
 
         tfTotal.setEditable(false);
         tfTotal.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
@@ -206,7 +205,7 @@ public class WorkItemComponentLine extends AbstractBikItemLine implements IPrice
             }
         });
 
-        add(tfTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(635, 1, 60, 18));
+        add(tfTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(636, 3, 60, 18));
 
         selectPriceDefButton.setText("?");
         selectPriceDefButton.setToolTipText("Izv\u0113l\u0113ties cenu...");
@@ -223,7 +222,7 @@ public class WorkItemComponentLine extends AbstractBikItemLine implements IPrice
             }
         });
 
-        add(selectPriceDefButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(605, 1, 15, 18));
+        add(selectPriceDefButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(606, 3, 15, 18));
 
         clearPriceDefButton.setText("x");
         clearPriceDefButton.setToolTipText("Izv\u0113l\u0113ties cenu...");
@@ -240,11 +239,11 @@ public class WorkItemComponentLine extends AbstractBikItemLine implements IPrice
             }
         });
 
-        add(clearPriceDefButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 1, 15, 18));
+        add(clearPriceDefButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(621, 3, 15, 18));
 
         lType.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lType.setText("Xy");
-        add(lType, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 1, 20, 18));
+        add(lType, new org.netbeans.lib.awtextra.AbsoluteConstraints(171, 3, 20, 18));
 
     }// </editor-fold>//GEN-END:initComponents
 

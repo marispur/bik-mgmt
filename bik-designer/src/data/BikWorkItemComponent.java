@@ -45,7 +45,7 @@ import org.hibernate.annotations.GenerationTime;
         @NamedQuery(name = "BikWorkItemComponent.findByQty", query = "SELECT b FROM BikWorkItemComponent b WHERE b.qty = :qty"),
         @NamedQuery(name = "BikWorkItemComponent.findByPriceDef", query = "SELECT b FROM BikWorkItemComponent b WHERE b.priceDef = :priceDef")
     })
-public class BikWorkItemComponent extends AbstractBikDataObject implements Serializable{
+public class BikWorkItemComponent extends AbstractBikDataObject implements Serializable {
 
     @Column(name = "name")
     private String name="";
@@ -354,8 +354,15 @@ public class BikWorkItemComponent extends AbstractBikDataObject implements Seria
         this.needProofReading = needProofReading;
     }
 
-    public boolean isDeleted() {
+    public Boolean isDeleted() {
         return getDeleted();
+    }
+
+    public Boolean getDeleted() {
+        Boolean retValue;
+        if (getWi().getDeleted()) return true;
+        retValue = super.getDeleted();
+        return retValue;
     }
 
 }

@@ -255,5 +255,12 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
         }
         return rv;
     }
+
+    public Boolean isDeleted() {
+        Boolean retValue;
+        if (getSubsection().getDeleted()) return true;
+        retValue = this.deleted;
+        return retValue;
+    }
     
 }

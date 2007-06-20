@@ -93,12 +93,24 @@ public class MainWindow extends javax.swing.JFrame{
         updateAccessibleCommands();
     }
     
-    public Boolean getHideDeleted(){
+    public Boolean getViewHideDeleted(){
         return hideDeletedMenuItem.isSelected();
     }
     
-    public Boolean getHideObjectIds() {
+    public Boolean getViewHideObjectIds() {
         return hideObjectIds.isSelected();
+    }
+    
+    public Boolean getViewShowDeletedOnly() {
+        return onlyDeleted.isSelected();
+    }
+    
+    public Boolean getViewShowProofReadingOnly() {
+        return onlyNeedProofreading.isSelected();
+    }
+    
+    public Boolean getViewShowNotForPrintOnly() {
+        return onlyNotForPrint.isSelected();
     }
     
     private void fillSections(){
@@ -106,7 +118,7 @@ public class MainWindow extends javax.swing.JFrame{
         Iterator secIter = catalog.getBikSectionCollection().iterator();
         while (secIter.hasNext()){
             BikSection s = (BikSection) secIter.next();
-            if ( !(getHideDeleted() && s.getDeleted()) ){
+            if ( !(getViewHideDeleted() && s.getDeleted()) ){
                 SectionLine sl = new SectionLine();
                 sl.setBikSection(s);
                 listViewPanel.add(sl);
@@ -146,6 +158,13 @@ public class MainWindow extends javax.swing.JFrame{
         jSeparator1 = new javax.swing.JSeparator();
         exitMenuItem = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
+        viewMenu = new javax.swing.JMenu();
+        hideDeletedMenuItem = new javax.swing.JCheckBoxMenuItem();
+        hideObjectIds = new javax.swing.JCheckBoxMenuItem();
+        jSeparator3 = new javax.swing.JSeparator();
+        onlyDeleted = new javax.swing.JCheckBoxMenuItem();
+        onlyNotForPrint = new javax.swing.JCheckBoxMenuItem();
+        onlyNeedProofreading = new javax.swing.JCheckBoxMenuItem();
         editMenu = new javax.swing.JMenu();
         addWiCMaterialsMI = new javax.swing.JMenuItem();
         addWiCLabourMI = new javax.swing.JMenuItem();
@@ -159,10 +178,6 @@ public class MainWindow extends javax.swing.JFrame{
         deletedStatusMenuItem = new javax.swing.JCheckBoxMenuItem();
         requiresProofreadingStatusMenuItem = new javax.swing.JCheckBoxMenuItem();
         notPrintingMenuItem = new javax.swing.JCheckBoxMenuItem();
-        jSeparator3 = new javax.swing.JSeparator();
-        hideDeletedMenuItem = new javax.swing.JCheckBoxMenuItem();
-        hideObjectIds = new javax.swing.JCheckBoxMenuItem();
-        bikMenu = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("BIK dizaineris 2007 v0.1");
@@ -190,7 +205,7 @@ public class MainWindow extends javax.swing.JFrame{
 
         getContentPane().add(statusBar, java.awt.BorderLayout.SOUTH);
 
-        jSplitPane1.setDividerLocation(500);
+        jSplitPane1.setDividerLocation(705);
         jSplitPane1.setDividerSize(3);
         jSplitPane1.setPreferredSize(new java.awt.Dimension(1000, 706));
         jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -255,6 +270,39 @@ public class MainWindow extends javax.swing.JFrame{
         fileMenu.add(jMenuItem1);
 
         menuBar.add(fileMenu);
+
+        viewMenu.setText("Skats");
+        hideDeletedMenuItem.setText("Sl\u0113pt dz\u0113stos");
+        hideDeletedMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hideDeletedMenuItemActionPerformed(evt);
+            }
+        });
+
+        viewMenu.add(hideDeletedMenuItem);
+
+        hideObjectIds.setSelected(true);
+        hideObjectIds.setText("Sl\u0113pt objektu identifik\u0101torus");
+        hideObjectIds.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hideObjectIdsActionPerformed(evt);
+            }
+        });
+
+        viewMenu.add(hideObjectIds);
+
+        viewMenu.add(jSeparator3);
+
+        onlyDeleted.setText("R\u0101d\u012bt tikai dz\u0113stos ");
+        viewMenu.add(onlyDeleted);
+
+        onlyNotForPrint.setText("R\u0101d\u012bt tikai nedruk\u0101jamos");
+        viewMenu.add(onlyNotForPrint);
+
+        onlyNeedProofreading.setText("R\u0101d\u012bti tikai kori\u0123\u0113jamos");
+        viewMenu.add(onlyNeedProofreading);
+
+        menuBar.add(viewMenu);
 
         editMenu.setText("Darb\u012bbas");
         addWiCMaterialsMI.setText("+ Materi\u0101li");
@@ -341,31 +389,7 @@ public class MainWindow extends javax.swing.JFrame{
         notPrintingMenuItem.setToolTipText("Ja iesl\u0113gts - netiks iek\u013cauts izdruk\u0101s");
         editMenu.add(notPrintingMenuItem);
 
-        editMenu.add(jSeparator3);
-
-        hideDeletedMenuItem.setText("Sl\u0113pt dz\u0113stos");
-        hideDeletedMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                hideDeletedMenuItemActionPerformed(evt);
-            }
-        });
-
-        editMenu.add(hideDeletedMenuItem);
-
-        hideObjectIds.setSelected(true);
-        hideObjectIds.setText("Sl\u0113pt objektu identifik\u0101torus");
-        hideObjectIds.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                hideObjectIdsActionPerformed(evt);
-            }
-        });
-
-        editMenu.add(hideObjectIds);
-
         menuBar.add(editMenu);
-
-        bikMenu.setText("BIK");
-        menuBar.add(bikMenu);
 
         setJMenuBar(menuBar);
 
@@ -514,7 +538,6 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JMenuItem addWiCLabourMI;
     private javax.swing.JMenuItem addWiCMaterialsMI;
     private javax.swing.JMenuItem addWorkItemMI;
-    private javax.swing.JMenu bikMenu;
     private javax.swing.JMenuItem changePasswordMenu;
     private javax.swing.JCheckBoxMenuItem deletedStatusMenuItem;
     private javax.swing.JMenu editMenu;
@@ -539,8 +562,12 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JMenuItem loginMenu;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JCheckBoxMenuItem notPrintingMenuItem;
+    private javax.swing.JCheckBoxMenuItem onlyDeleted;
+    private javax.swing.JCheckBoxMenuItem onlyNeedProofreading;
+    private javax.swing.JCheckBoxMenuItem onlyNotForPrint;
     private javax.swing.JCheckBoxMenuItem requiresProofreadingStatusMenuItem;
     private javax.swing.JToolBar statusBar;
+    private javax.swing.JMenu viewMenu;
     // End of variables declaration//GEN-END:variables
     
     /**

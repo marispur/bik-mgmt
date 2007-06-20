@@ -17,6 +17,7 @@ import org.hibernate.Session;
  * @author mpurins
  */
 public interface IBikDataObject {
+    
     public BikObjType getObjType();
     public void bikSave(Session s);
     public Date getDateCreated();
@@ -41,11 +42,25 @@ public interface IBikDataObject {
 
     public void setNeedProofReading(Boolean needProofReading);
 
-    boolean isDeleted();
+    public Boolean isDeleted();
     
     public void setDeleted(Boolean delStatus);
     
     public void setDeletedBy(String delBy);
 
-     public void setDateDeleted(Date dateDeleted);
+    public void setDateDeleted(Date dateDeleted);
+    
+    public Boolean hasDeletedChildren();
+    
+    public Boolean hasNeedProofreadingChildren();
+    
+    public Boolean hasNotForPrintChildren();
+    
+    public void setModifiedBy(String modifiedBy);
+    
+    public void setId(Integer id);
+    
+    public void setDateModified(Date dateModified);
+    
+    public void setDateCreated(Date dateCreated);
 }

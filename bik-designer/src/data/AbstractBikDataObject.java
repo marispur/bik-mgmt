@@ -140,7 +140,8 @@ public abstract class AbstractBikDataObject implements IBikDataObject {
     }
 
 
-    public boolean isDeleted() {
+    public Boolean isDeleted() {
+        if (deleted==null) return false;
         return getDeleted();
     }
 
@@ -227,5 +228,17 @@ public abstract class AbstractBikDataObject implements IBikDataObject {
     public void setNotForPrint(Boolean notForPrint) {
         this.notForPrint = notForPrint;
     }
+
+    public Boolean hasDeletedChildren() {
+        return false;
+    }
     
+    public Boolean hasNeedProofreadingChildren() {
+        return false;
+    }
+    
+    public Boolean hasNotForPrintChildren() {
+        return false;
+    }
+
 }
