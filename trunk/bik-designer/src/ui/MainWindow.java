@@ -20,6 +20,10 @@ import data.HistoryTableModel;
 import data.IBikDataObject;
 import java.awt.Adjustable;
 import java.awt.ScrollPane;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -36,6 +40,7 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.PBEParameterSpec;
 import javax.swing.BoundedRangeModel;
+import javax.swing.JFileChooser;
 import org.hibernate.Session;
 
 /**
@@ -156,8 +161,9 @@ public class MainWindow extends javax.swing.JFrame{
         loginMenu = new javax.swing.JMenuItem();
         changePasswordMenu = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JSeparator();
+        exportTypesettingMenuItem = new javax.swing.JMenuItem();
+        jSeparator6 = new javax.swing.JSeparator();
         exitMenuItem = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
         viewMenu = new javax.swing.JMenu();
         hideDeletedMenuItem = new javax.swing.JCheckBoxMenuItem();
         hideObjectIds = new javax.swing.JCheckBoxMenuItem();
@@ -251,6 +257,17 @@ public class MainWindow extends javax.swing.JFrame{
 
         fileMenu.add(jSeparator1);
 
+        exportTypesettingMenuItem.setText("Eksport\u0113t maket\u0113\u0161anai...");
+        exportTypesettingMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exportTypesettingMenuItemActionPerformed(evt);
+            }
+        });
+
+        fileMenu.add(exportTypesettingMenuItem);
+
+        fileMenu.add(jSeparator6);
+
         exitMenuItem.setText("Beigt darbu");
         exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -259,15 +276,6 @@ public class MainWindow extends javax.swing.JFrame{
         });
 
         fileMenu.add(exitMenuItem);
-
-        jMenuItem1.setText("Item");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-
-        fileMenu.add(jMenuItem1);
 
         menuBar.add(fileMenu);
 
@@ -460,9 +468,24 @@ public class MainWindow extends javax.swing.JFrame{
         addCommentLine();
     }//GEN-LAST:event_addCommentMIActionPerformed
 
-private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-           
-}//GEN-LAST:event_jMenuItem1ActionPerformed
+    private void exportTypesettingMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportTypesettingMenuItemActionPerformed
+        final JFileChooser fc = new JFileChooser("Desktop");
+        this.setStatusText("Izvçlieties failu, kurâ eksportçt datus maketçðanai...");
+        int returnVal = fc.showSaveDialog(this);
+        if (returnVal == JFileChooser.APPROVE_OPTION ) {
+            PrintWriter target;
+            try {
+                target = new PrintWriter(new BufferedWriter(new FileWriter(fc.getSelectedFile())));
+                this.setStatusText("Sâku eksportçt datus failâ " +fc.getSelectedFile().getPath() + "...");
+                this.catalog.exportToFileForTypesetting(target);
+                target.close();
+                this.setStatusText("Exports veiksmîgi pabeigts failâ " +fc.getSelectedFile().getPath());
+                
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_exportTypesettingMenuItemActionPerformed
 
     private void addSubsectionMIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSubsectionMIActionPerformed
         addSubsectionLine();
@@ -521,6 +544,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         
     private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
         this.setVisible(false);
+        System.exit(0);
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
     public void showPriceDialog(IPriceDefUser caller, String idVal){
@@ -542,12 +566,12 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JCheckBoxMenuItem deletedStatusMenuItem;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenuItem exitMenuItem;
+    private javax.swing.JMenuItem exportTypesettingMenuItem;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JCheckBoxMenuItem hideDeletedMenuItem;
     private javax.swing.JCheckBoxMenuItem hideObjectIds;
     private javax.swing.JTable historyTable;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
@@ -555,6 +579,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JLabel lStatusText;
     private javax.swing.JLabel lUserName;

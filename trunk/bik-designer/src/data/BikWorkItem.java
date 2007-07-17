@@ -206,7 +206,7 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
         Iterator wicIt = getBikWorkItemComponentCollection().iterator();
         while(wicIt.hasNext()){
             curWic = (BikWorkItemComponent) wicIt.next();
-            if (!curWic.getDeleted()) rv = rv.add(curWic.getMaterials());
+            if (!curWic.getDeleted() && curWic.getMaterials().floatValue()>0 ) rv = rv.add(curWic.getMaterials());
         }
         return rv;
     }
@@ -216,7 +216,7 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
         Iterator wicIt = getBikWorkItemComponentCollection().iterator();
         while(wicIt.hasNext()){
             curWic = (BikWorkItemComponent) wicIt.next();
-            if (!curWic.getDeleted()) rv = rv.add(curWic.getDepreciation());
+            if (!curWic.getDeleted() && curWic.getDepreciation().floatValue() > 0 ) rv = rv.add(curWic.getDepreciation());
         }
         return rv;
     }
@@ -226,7 +226,7 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
         Iterator wicIt = getBikWorkItemComponentCollection().iterator();
         while(wicIt.hasNext()){
             curWic = (BikWorkItemComponent) wicIt.next();
-            if (!curWic.getDeleted()) rv = rv.add(curWic.getLabour());
+            if (!curWic.getDeleted() && curWic.getLabour().floatValue()>0 ) rv = rv.add(curWic.getLabour());
         }
         return rv;
     }
@@ -239,10 +239,22 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
         Iterator wicIt = getBikWorkItemComponentCollection().iterator();
         while(wicIt.hasNext()){
             curWic = (BikWorkItemComponent) wicIt.next();
-            if (!curWic.getDeleted()) rv = rv.add(curWic.getLabourNorm());
+            if (!curWic.getDeleted() && curWic.getLabourNorm().floatValue()>0) rv = rv.add(curWic.getLabourNorm());
         }
         return rv;
     }
+    
+    /**
+     * Returns total cost of a work item consisting of labour, materials and 
+     * depreciation costs altogether
+     */
+    
+    public BigDecimal getCost(){
+        return getLabour().add(getMaterials().add(getDepreciation()));
+
+   }
+    
+    
     public BigDecimal getLabourCost(){
         // TODO: mathematics is not corect here in case there is more than one 
         // labour work component 
@@ -251,7 +263,7 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
         Iterator wicIt = getBikWorkItemComponentCollection().iterator();
         while(wicIt.hasNext()){
             curWic = (BikWorkItemComponent) wicIt.next();
-            if (!curWic.getDeleted()) rv = rv.add(curWic.getLabourCost());
+            if (!curWic.getDeleted() && curWic.getLabourCost().floatValue()>0) rv = rv.add(curWic.getLabourCost());
         }
         return rv;
     }
@@ -261,6 +273,37 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
         if (getSubsection().getDeleted()) return true;
         retValue = this.deleted;
         return retValue;
+    }
+    public void exportToFileForTypesetting(java.io.PrintWriter output){
+        
+        if (this.isNotForPrint() || this.getName().trim().length()==0 )
+            return;
+        
+        if (this.isDeleted()) {
+            output.printf("%s-%s%cnetiek izmantots%n",
+                    this.getSubsection().getSection().getCode().trim(), this.getCode().trim(), 9);
+        } else {
+            try {
+                output.printf("%s-%s%c%s%c%s%c%.3f%c%.3f%c%.2f%c%.2f%c%.2f%c%.2f%n",
+                       this.getSubsection().getSection().getCode().trim(),
+                       this.getCode().trim(),
+                       9,
+                       this.getName().trim(),
+                       9,
+                       this.getMeasure().trim(),
+                       9,
+                       this.getLabourNorm().floatValue(),9,
+                       this.getLabourCost().floatValue(),9,
+                        this.getLabour().floatValue(),9,
+                        this.getMaterials().floatValue(),9,
+                        this.getDepreciation().floatValue(),9,
+                        this.getCost().floatValue()
+                       );
+            } catch (java.lang.IllegalArgumentException e) {
+                e.printStackTrace(System.out);
+            }
+
+        }
     }
     
 }

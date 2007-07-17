@@ -12,6 +12,8 @@ package data;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
+import java.util.Formatter;
+import java.util.Iterator;
 import javax.persistence.*;
 import org.hibernate.Session;
 import org.hibernate.annotations.Generated;
@@ -221,5 +223,40 @@ public class BikSubsection extends AbstractBikDataObject implements Serializable
         return retValue;
     }
 
+    public void exportToFileForTypesetting(java.io.PrintWriter output){
+        
+        if (this.isNotForPrint() || this.getName().trim().length()==0 )
+            return;
+        
+        if (this.isDeleted()) {
+            output.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< SADAÏA");
+            output.printf("%s-%s%cnetiek izmantota%n",
+                    this.getSection().getCode().trim(), this.getCode().trim(), 9);
+            output.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< SADAÏAS NOSAUKUMS BEIDZAS");
+        } else {
+            output.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< SADAÏA");
+            output.printf("%s-%s%c%s%n",
+                    this.getSection().getCode().trim(),
+                    this.getCode().trim(),
+                    9,
+                    this.getName().trim());
+            output.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< SADAÏAS NOSAUKUMS BEIDZAS");
+
+            Iterator<BikComment> i = this.getBikComments().iterator();
+            if (i.hasNext()) {
+                output.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< SADAÏAS KOMENTÂRI");
+                while (i.hasNext()) {
+                    i.next().exportToFileForTypesetting(output);
+                }
+                output.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< SADAÏAS KOMENTÂRI BEIGAS");
+            }
+            
+            Iterator<BikWorkItem> i2 = this.getBikWorkItemCollection().iterator();
+            while (i2.hasNext()) {
+                i2.next().exportToFileForTypesetting(output);
+            }
+            
+        }
+    }
     
 }

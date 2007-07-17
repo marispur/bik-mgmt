@@ -63,4 +63,6 @@ public interface IBikDataObject {
     public void setDateModified(Date dateModified);
     
     public void setDateCreated(Date dateCreated);
+    
+    public void exportToFileForTypesetting(java.io.PrintWriter output);
 }

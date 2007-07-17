@@ -106,7 +106,7 @@ public class SectionLine extends AbstractBikItemLine {
         tfId.setText("1234");
         add(tfId, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Maris\\Pictures\\Folder-Documents-copy-32x32.png"));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Folder-Documents-copy-32x32.png")));
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 3, -1, -1));
 
     }// </editor-fold>//GEN-END:initComponents

@@ -177,6 +177,10 @@ public class BikComment extends AbstractBikDataObject implements Serializable {
     public BikObjType getObjType() {
         return BikObjType.COMMENT;
     }
-
+    public void exportToFileForTypesetting(java.io.PrintWriter output){
+        if (!this.isDeleted() && !this.isNotForPrint()) {
+            output.printf("%s%n", this.getBody().trim());
+        }
+    }
     
 }

@@ -130,11 +130,13 @@ public class WorkItemLine extends AbstractBikItemLine {
         tfId.setFocusable(false);
         add(tfId, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 35, -1));
 
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(490, 45));
         tfName.setFont(fieldFont);
         tfName.setLineWrap(true);
         tfName.setRows(2);
         tfName.setWrapStyleWord(true);
         tfName.setEnabled(false);
+        tfName.setPreferredSize(new java.awt.Dimension(104, 104));
         tfName.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tfNameMouseClicked(evt);
@@ -156,7 +158,7 @@ public class WorkItemLine extends AbstractBikItemLine {
 
         jScrollPane1.setViewportView(tfName);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 5, -1, 45));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 5, -1, -1));
 
         tfSectionCode.setEditable(false);
         tfSectionCode.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
@@ -297,7 +299,7 @@ public class WorkItemLine extends AbstractBikItemLine {
         jLabel6.setText("likme:");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 54, -1, -1));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\Maris\\Pictures\\Folder-apps-copy-32x32.png"));
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Folder-apps-copy-32x32.png")));
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 18, -1, -1));
 
     }// </editor-fold>//GEN-END:initComponents

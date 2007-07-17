@@ -27,20 +27,22 @@
             </MenuItem>
             <MenuItem class="javax.swing.JSeparator" name="jSeparator1">
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="exportTypesettingMenuItem">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Eksport&#x113;t maket&#x113;&#x161;anai..."/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="exportTypesettingMenuItemActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JSeparator" name="jSeparator6">
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="exitMenuItem">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Beigt darbu"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="exitMenuItemActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Item"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>

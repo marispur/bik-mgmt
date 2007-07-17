@@ -13,6 +13,7 @@ import bikdesigner.HibernateUtil;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
+import java.util.Iterator;
 import javax.persistence.*;
 import org.hibernate.Session;
 import org.hibernate.annotations.Generated;
@@ -192,5 +193,19 @@ public class BikSection extends AbstractBikDataObject implements Serializable {
     public void setBikComments(Collection<BikComment> bikComments) {
         this.bikComments = bikComments;
     }
-
+    public void exportToFileForTypesetting(java.io.PrintWriter output){
+        output.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<< NODAÏA");
+        output.printf("%s %s%n",this.getCode().trim(),this.getName().trim());
+        output.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<< NODAÏAS KOMENTÂRI");
+        Iterator<BikComment> i = this.getBikComments().iterator();
+        while (i.hasNext()) {
+            i.next().exportToFileForTypesetting(output);
+        }
+        output.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<< NODAÏAS KOMENTÂRI BEIGAS");
+        
+        Iterator<BikSubsection> i2 = this.getBikSubsectionCollection().iterator();
+        while (i2.hasNext()) {
+            i2.next().exportToFileForTypesetting(output);
+        }
+    }
 }

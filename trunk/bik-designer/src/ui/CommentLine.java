@@ -123,7 +123,7 @@ public class CommentLine extends AbstractBikItemLine {
         jLabel1.setText("Drukas indekss:");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 14, -1, 21));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Maris\\Pictures\\docu-32x32.png"));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/docu-32x32.png")));
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 9, 32, 32));
 
     }// </editor-fold>//GEN-END:initComponents
