@@ -111,4 +111,11 @@ public class BikCatalog extends AbstractBikDataObject {
 
     public void setDateDeleted(Date dateDeleted) {
     }
+    
+    public void exportToFileForTypesetting(java.io.PrintWriter output){
+        Iterator<BikSection> i = this.getBikSectionCollection().iterator();
+        while (i.hasNext()) {
+            i.next().exportToFileForTypesetting(output);
+        }
+    }
 }

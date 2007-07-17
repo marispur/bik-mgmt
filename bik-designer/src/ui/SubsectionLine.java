@@ -144,7 +144,7 @@ public class SubsectionLine extends AbstractBikItemLine {
         lId.setText("Subsection ID:");
         add(lId, new org.netbeans.lib.awtextra.AbsoluteConstraints(513, 3, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Maris\\Pictures\\Folder-copy-2-32x32.png"));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Folder-copy-2-32x32.png")));
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 3, 33, -1));
 
     }// </editor-fold>//GEN-END:initComponents

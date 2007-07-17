@@ -240,5 +240,9 @@ public abstract class AbstractBikDataObject implements IBikDataObject {
     public Boolean hasNotForPrintChildren() {
         return false;
     }
+    
+    public void exportToFileForTypesetting(java.io.PrintWriter output){
+        output.println(this.toString());
+    }
 
 }
