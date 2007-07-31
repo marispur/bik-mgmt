@@ -41,6 +41,8 @@ import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.PBEParameterSpec;
 import javax.swing.BoundedRangeModel;
 import javax.swing.JFileChooser;
+import javax.swing.ProgressMonitor;
+import javax.swing.SwingWorker;
 import org.hibernate.Session;
 
 /**
@@ -117,19 +119,53 @@ public class MainWindow extends javax.swing.JFrame{
     public Boolean getViewShowNotForPrintOnly() {
         return onlyNotForPrint.isSelected();
     }
-    
-    private void fillSections(){
-        listViewPanel.removeAll();
-        Iterator secIter = catalog.getBikSectionCollection().iterator();
-        while (secIter.hasNext()){
-            BikSection s = (BikSection) secIter.next();
-            if ( !(getViewHideDeleted() && s.getDeleted()) ){
-                SectionLine sl = new SectionLine();
-                sl.setBikSection(s);
-                listViewPanel.add(sl);
-            }
+
+    class Task extends SwingWorker<Void, Void> {
+        
+        private ProgressMonitor pm;
+        
+        public Task(ProgressMonitor pmval) {
+            pm=pmval;
         }
-        //this.invalidate();
+        
+        @Override
+        public Void doInBackground() {
+                int progresscounter=0;
+                pm.setMillisToPopup(0);
+                pm.setMaximum(catalog.getBikSectionCollection().size());
+                listViewPanel.removeAll();
+                Iterator secIter = catalog.getBikSectionCollection().iterator();
+                while (secIter.hasNext()){
+                    progresscounter +=1;
+                    pm.setProgress(progresscounter);
+                    BikSection s = (BikSection) secIter.next();
+                    pm.setNote(s.getCode().trim() + " " + s.getName());
+
+                    if ( !(getViewHideDeleted() && s.getDeleted()) ){
+                        SectionLine sl = new SectionLine();
+                        sl.setBikSection(s);
+                        listViewPanel.add(sl);
+                    }
+                }
+                listViewPanel.validate();
+                return null;
+        }
+        
+        @Override
+        public void done() {
+            pm.close();
+            if (pm.isCanceled()) setStatusText("Nodaïas saturs ielâdçts");
+            
+        }
+    }
+
+    private void fillSections(){
+        ProgressMonitor pm = new ProgressMonitor(this, "Saòemu nodaïas datus no servera", 
+                 "Lâdçju nodaïas", 0, 3);
+
+        Task t = new Task(pm);
+        t.execute();            
+
     }
 
     public Session getHibernateSession() {

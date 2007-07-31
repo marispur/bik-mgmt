@@ -18,6 +18,9 @@ import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.geom.Line2D;
 import java.util.Iterator;
+import javax.swing.ProgressMonitor;
+import javax.swing.SwingWorker;
+import org.hibernate.HibernateException;
 
 /**
  *
@@ -122,7 +125,78 @@ public class SectionLine extends AbstractBikItemLine {
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
         selectLine(this);
     }//GEN-LAST:event_formMouseClicked
-    
+
+    class Task extends SwingWorker<Void, Void> {
+        
+        private SectionLine sl;
+        private ProgressMonitor pm;
+        private int curParentIndex;
+        
+        public Task(SectionLine slval, ProgressMonitor pmval, int curParentIndexVal) {
+            sl=slval;
+            pm=pmval;
+            curParentIndex=curParentIndexVal;
+        }
+        
+        @Override
+        public Void doInBackground() {
+                int progresscounter=1;
+                expanderButton.setText("-");
+                pm.setMillisToPopup(0);
+                pm.setNote("Meklçjam komponentes (solis 1/3)");
+                
+                sl.getMainWindow(sl).getHibernateSession().refresh(sl.getBikSection());
+                Iterator subIt = getBikSection().getBikSubsectionCollection().iterator();
+                int addIndex = curParentIndex+1;
+                Boolean hd = sl.getMainWindow(sl).getViewHideDeleted();
+                pm.setProgress(progresscounter);
+                pm.setMaximum(getBikSection().getBikComments().size()+getBikSection().getBikSubsectionCollection().size());
+                pm.setNote("Lâdçju nodaïas komentârus (solis 2/3)");
+                
+                Iterator commentsIt = getBikSection().getBikComments().iterator();
+                while (commentsIt.hasNext()){
+                    progresscounter +=1;
+                    pm.setProgress(progresscounter);
+                    BikComment comment = (BikComment) commentsIt.next();
+                    if ( !(hd && comment.getDeleted()) ){
+                        CommentLine commentL = new CommentLine();
+                        HibernateUtil.getCurrentSession().refresh(comment);
+                        commentL.setBikComment(comment);
+                        sl.getParent().add(commentL,addIndex);
+                        commentL.invalidate();
+                        addIndex++;
+                    }
+                }
+                
+                
+                while (subIt.hasNext()){
+                    progresscounter +=1;
+                    pm.setProgress(progresscounter);
+                    BikSubsection subSe = (BikSubsection)subIt.next();
+                    pm.setNote(subSe.getSection().getCode().trim()+"-"+subSe.getCode().trim()+
+                            " " + subSe.getName().trim());
+                    if ( !(hd && subSe.getDeleted()) ){
+                        SubsectionLine subSec = new SubsectionLine();
+                        sl.getMainWindow(sl).getHibernateSession().refresh(subSe);
+                        subSec.setBikSubsection(subSe);
+                        sl.getParent().add(subSec,addIndex);
+                        addIndex++;
+                    }
+                
+                }
+                pm.setProgress(pm.getMaximum());
+                sl.getParent().validate();
+                return null;
+        }
+        
+        @Override
+        public void done() {
+            pm.close();
+            if (pm.isCanceled()) sl.getMainWindow(sl).setStatusText("Nodaïas saturs ielâdçts");
+            
+        }
+    }
+
     private void expanderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_expanderButtonActionPerformed
         selectLine(this);
         int curParentIndex;
@@ -132,35 +206,11 @@ public class SectionLine extends AbstractBikItemLine {
         
         
         if (expanderButton.isSelected()) {
-            expanderButton.setText("-");
-            getMainWindow(this).getHibernateSession().refresh(getBikSection());
-            Iterator subIt = getBikSection().getBikSubsectionCollection().iterator();
-            int addIndex = curParentIndex+1;
-            Boolean hd = getMainWindow(this).getViewHideDeleted();
+            ProgressMonitor pm = new ProgressMonitor(this, "Saòemu nodaïas datus no servera", 
+                     "Lâdçju nodaïas saturu", 0, 3);
             
-            Iterator commentsIt = getBikSection().getBikComments().iterator();
-            while (commentsIt.hasNext()){
-                BikComment comment = (BikComment) commentsIt.next();
-                if ( !(hd && comment.getDeleted()) ){
-                    CommentLine commentL = new CommentLine();
-                    HibernateUtil.getCurrentSession().refresh(comment);
-                    commentL.setBikComment(comment);
-                    this.getParent().add(commentL,addIndex);
-                    addIndex++;
-                }
-            }
-            
-            while (subIt.hasNext()){
-                BikSubsection subSe = (BikSubsection)subIt.next();
-                if ( !(hd && subSe.getDeleted()) ){
-                    SubsectionLine subSec = new SubsectionLine();
-                    getMainWindow(this).getHibernateSession().refresh(subSe);
-                    subSec.setBikSubsection(subSe);
-                    this.getParent().add(subSec,addIndex);
-                    addIndex++;
-                }
-            }
-            
+            Task t = new Task(this, pm, curParentIndex);
+            t.execute();            
         } else {
             expanderButton.setText("+");
             while(getParent().getComponentCount()>curParentIndex+1){

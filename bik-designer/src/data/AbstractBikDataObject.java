@@ -107,6 +107,7 @@ public abstract class AbstractBikDataObject implements IBikDataObject {
      * @return the deleted
      */
     public Boolean getDeleted() {
+        if (this.deleted==null) return false;
         return this.deleted;
     }
 
@@ -141,7 +142,6 @@ public abstract class AbstractBikDataObject implements IBikDataObject {
 
 
     public Boolean isDeleted() {
-        if (deleted==null) return false;
         return getDeleted();
     }
 
