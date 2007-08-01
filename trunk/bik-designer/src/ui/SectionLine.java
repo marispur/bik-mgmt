@@ -185,7 +185,7 @@ public class SectionLine extends AbstractBikItemLine {
                 
                 }
                 pm.setProgress(pm.getMaximum());
-                sl.getParent().validate();
+                sl.getMainWindow(sl).validate();
                 return null;
         }
         
