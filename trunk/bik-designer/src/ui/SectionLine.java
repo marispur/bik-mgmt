@@ -142,6 +142,7 @@ public class SectionLine extends AbstractBikItemLine {
         public Void doInBackground() {
                 int progresscounter=1;
                 expanderButton.setText("-");
+                pm.setMillisToDecideToPopup(0);
                 pm.setMillisToPopup(0);
                 pm.setNote("Meklçjam komponentes (solis 1/3)");
                 

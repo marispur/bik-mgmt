@@ -132,6 +132,7 @@ public class MainWindow extends javax.swing.JFrame{
         public Void doInBackground() {
                 int progresscounter=0;
                 pm.setMillisToPopup(0);
+                pm.setMillisToDecideToPopup(0);
                 pm.setMaximum(catalog.getBikSectionCollection().size());
                 listViewPanel.removeAll();
                 Iterator secIter = catalog.getBikSectionCollection().iterator();
