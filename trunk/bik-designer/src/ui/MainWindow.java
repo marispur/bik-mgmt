@@ -90,13 +90,29 @@ public class MainWindow extends javax.swing.JFrame{
         return selectedLine;
     }
     
+    public void refreshSelectedLineHistory() {
+        IBikDataObject obj = selectedLine.getBikDataObject();
+        historyTableModel.setParent(obj.getId(), obj.getObjType().getId());
+        if (historyTableModel.getRowCount()==0) {
+            historyTable.setEnabled(false);
+            historyTableLabel.setEnabled(false);
+        }
+        else {
+            historyTable.setEnabled(true);
+            historyTableLabel.setEnabled(false);
+        }
+        historyTable.invalidate();
+        historyObjTypeLabel.setText(obj.getClass().getCanonicalName());
+        historyObjID.setText(obj.getId().toString());
+        
+    }
+    
     public void setSelectedLine(IBikItemLine selectedLine) {
         IBikItemLine oldSelectedLine = this.selectedLine;
         this.selectedLine = selectedLine;
         if (oldSelectedLine!=null) oldSelectedLine.decorateLine();
         selectedLine.decorateLine();
-        historyTableModel.setParent(selectedLine.getBikDataObject().getId(), selectedLine.getBikDataObject().getObjType().getId());
-        historyTable.invalidate();
+        refreshSelectedLineHistory();
         updateAccessibleCommands();
     }
     
@@ -189,8 +205,15 @@ public class MainWindow extends javax.swing.JFrame{
         jLabel2 = new javax.swing.JLabel();
         lUserName = new javax.swing.JLabel();
         jSplitPane1 = new javax.swing.JSplitPane();
+        jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         historyTable = new javax.swing.JTable();
+        historyObjTypeLabel = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        historyTableLabel = new javax.swing.JLabel();
+        historyObjID = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         listViewPanel = new javax.swing.JPanel();
         menuBar = new javax.swing.JMenuBar();
@@ -256,7 +279,68 @@ public class MainWindow extends javax.swing.JFrame{
         historyTable.setModel(getHistoryTableModel());
         jScrollPane2.setViewportView(historyTable);
 
-        jSplitPane1.setRightComponent(jScrollPane2);
+        historyObjTypeLabel.setFont(new java.awt.Font("Tahoma", 1, 14));
+        historyObjTypeLabel.setText("jLabel1");
+
+        jLabel3.setText("Nosaukums:");
+
+        jLabel4.setText("BIK kods:");
+
+        jLabel1.setText("BIK dizainera ID:");
+
+        historyTableLabel.setText("V\u0113sture:");
+
+        historyObjID.setEditable(false);
+        historyObjID.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addContainerGap(155, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(historyObjTypeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addContainerGap(168, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(historyObjID, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(historyTableLabel)
+                        .addContainerGap(172, Short.MAX_VALUE))))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(historyObjTypeLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(historyObjID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addComponent(historyTableLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jSplitPane1.setRightComponent(jPanel1);
 
         jScrollPane1.setBorder(null);
         jScrollPane1.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
@@ -607,8 +691,15 @@ public class MainWindow extends javax.swing.JFrame{
     private javax.swing.JMenu fileMenu;
     private javax.swing.JCheckBoxMenuItem hideDeletedMenuItem;
     private javax.swing.JCheckBoxMenuItem hideObjectIds;
+    private javax.swing.JTextField historyObjID;
+    private javax.swing.JLabel historyObjTypeLabel;
     private javax.swing.JTable historyTable;
+    private javax.swing.JLabel historyTableLabel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
