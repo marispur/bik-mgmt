@@ -99,7 +99,7 @@ public class MainWindow extends javax.swing.JFrame{
         }
         else {
             historyTable.setEnabled(true);
-            historyTableLabel.setEnabled(false);
+            historyTableLabel.setEnabled(true);
         }
         historyTable.invalidate();
         historyObjTypeLabel.setText(obj.getClass().getCanonicalName());
@@ -275,12 +275,13 @@ public class MainWindow extends javax.swing.JFrame{
         jSplitPane1.setDividerSize(3);
         jSplitPane1.setPreferredSize(new java.awt.Dimension(1000, 706));
         jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        jScrollPane2.setEnabled(false);
         jScrollPane2.setPreferredSize(new java.awt.Dimension(170, 404));
         historyTable.setModel(getHistoryTableModel());
         jScrollPane2.setViewportView(historyTable);
 
         historyObjTypeLabel.setFont(new java.awt.Font("Tahoma", 1, 14));
-        historyObjTypeLabel.setText("jLabel1");
+        historyObjTypeLabel.setText(" ");
 
         jLabel3.setText("Nosaukums:");
 
@@ -289,9 +290,10 @@ public class MainWindow extends javax.swing.JFrame{
         jLabel1.setText("BIK dizainera ID:");
 
         historyTableLabel.setText("V\u0113sture:");
+        historyTableLabel.setEnabled(false);
 
         historyObjID.setEditable(false);
-        historyObjID.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        historyObjID.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -300,26 +302,16 @@ public class MainWindow extends javax.swing.JFrame{
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addContainerGap(155, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(historyObjTypeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addContainerGap(168, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                    .addComponent(jLabel3)
+                    .addComponent(historyObjTypeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                    .addComponent(jLabel4)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(historyObjID, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(historyTableLabel)
-                        .addContainerGap(172, Short.MAX_VALUE))))
+                        .addComponent(historyObjID, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))
+                    .addComponent(historyTableLabel))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -334,10 +326,10 @@ public class MainWindow extends javax.swing.JFrame{
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(historyObjID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
+                .addGap(213, 213, 213)
                 .addComponent(historyTableLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jSplitPane1.setRightComponent(jPanel1);
