@@ -26,7 +26,8 @@ public abstract class AbstractBikItemLine extends JPanel implements IBikItemLine
     
     protected data.IBikDataObject bikDataObject;
 
-    protected static final Color backgroundColor = new Color(212,208,200,255);
+    // protected static final Color backgroundColor = new Color(212,208,200,255);
+    protected static final Color backgroundColor = new Color(248,248,248,255);
     
     protected static final Color editableFieldBackgroundColor = Color.WHITE;
     
