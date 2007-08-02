@@ -28,6 +28,7 @@ import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.text.DateFormat;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -104,6 +105,13 @@ public class MainWindow extends javax.swing.JFrame{
         historyTable.invalidate();
         historyObjTypeLabel.setText(obj.getClass().getCanonicalName());
         historyObjID.setText(obj.getId().toString());
+        historyModifiedBy.setText(obj.getModifiedBy());
+        if (obj.getDateModified()!=null) {
+            historyModifiedDate.setText(DateFormat.getDateInstance(DateFormat.DATE_FIELD).format(obj.getDateModified()));
+        } else historyModifiedDate.setText(" - ");
+        if (obj.getDateCreated()!=null) {
+            historyCreatedDate.setText(DateFormat.getDateInstance(DateFormat.DATE_FIELD).format(obj.getDateCreated()));
+        } else historyCreatedDate.setText(" - ");
         
     }
     
@@ -213,7 +221,17 @@ public class MainWindow extends javax.swing.JFrame{
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         historyTableLabel = new javax.swing.JLabel();
+        historyCode = new javax.swing.JTextField();
+        historyName = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         historyObjID = new javax.swing.JTextField();
+        historyCreatedBy = new javax.swing.JTextField();
+        historyModifiedDate = new javax.swing.JTextField();
+        historyModifiedBy = new javax.swing.JTextField();
+        historyCreatedDate = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         listViewPanel = new javax.swing.JPanel();
         menuBar = new javax.swing.JMenuBar();
@@ -282,18 +300,65 @@ public class MainWindow extends javax.swing.JFrame{
 
         historyObjTypeLabel.setFont(new java.awt.Font("Tahoma", 1, 14));
         historyObjTypeLabel.setText(" ");
+        historyObjTypeLabel.setFocusable(false);
 
         jLabel3.setText("Nosaukums:");
+        jLabel3.setEnabled(false);
+        jLabel3.setFocusable(false);
 
         jLabel4.setText("BIK kods:");
+        jLabel4.setEnabled(false);
+        jLabel4.setFocusable(false);
 
         jLabel1.setText("BIK dizainera ID:");
+        jLabel1.setFocusable(false);
 
         historyTableLabel.setText("V\u0113sture:");
         historyTableLabel.setEnabled(false);
 
+        historyCode.setEditable(false);
+        historyCode.setText(" - ");
+        historyCode.setEnabled(false);
+        historyCode.setFocusable(false);
+
+        historyName.setEditable(false);
+        historyName.setText(" - ");
+        historyName.setEnabled(false);
+        historyName.setFocusable(false);
+
+        jLabel5.setText("Izveidots:");
+        jLabel5.setFocusable(false);
+
+        jLabel6.setText("Autors:");
+        jLabel6.setEnabled(false);
+        jLabel6.setFocusable(false);
+
+        jLabel7.setText("P\u0113d\u0113j\u0101s izmai\u0146as:");
+        jLabel7.setFocusable(false);
+
+        jLabel8.setText("Izmai\u0146u autors:");
+        jLabel8.setFocusable(false);
+
         historyObjID.setEditable(false);
-        historyObjID.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        historyObjID.setText(" - ");
+        historyObjID.setFocusable(false);
+
+        historyCreatedBy.setEditable(false);
+        historyCreatedBy.setText(" - ");
+        historyCreatedBy.setEnabled(false);
+        historyCreatedBy.setFocusable(false);
+
+        historyModifiedDate.setEditable(false);
+        historyModifiedDate.setText(" - ");
+        historyModifiedDate.setFocusable(false);
+
+        historyModifiedBy.setEditable(false);
+        historyModifiedBy.setText(" - ");
+        historyModifiedBy.setFocusable(false);
+
+        historyCreatedDate.setEditable(false);
+        historyCreatedDate.setText(" - ");
+        historyCreatedDate.setFocusable(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -303,33 +368,75 @@ public class MainWindow extends javax.swing.JFrame{
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
-                    .addComponent(jLabel3)
                     .addComponent(historyObjTypeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
-                    .addComponent(jLabel4)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(historyCreatedBy, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))
+                    .addComponent(historyTableLabel)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(historyName, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(historyCode, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(historyCreatedDate, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(historyModifiedDate, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(historyModifiedBy, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(historyObjID, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))
-                    .addComponent(historyTableLabel))
+                        .addComponent(historyObjID, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(historyObjTypeLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(historyCreatedDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(historyModifiedDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(historyModifiedBy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(historyObjID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(213, 213, 213)
+                .addGap(84, 84, 84)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(historyCreatedBy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(historyName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(historyCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                 .addComponent(historyTableLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jSplitPane1.setRightComponent(jPanel1);
@@ -683,6 +790,12 @@ public class MainWindow extends javax.swing.JFrame{
     private javax.swing.JMenu fileMenu;
     private javax.swing.JCheckBoxMenuItem hideDeletedMenuItem;
     private javax.swing.JCheckBoxMenuItem hideObjectIds;
+    private javax.swing.JTextField historyCode;
+    private javax.swing.JTextField historyCreatedBy;
+    private javax.swing.JTextField historyCreatedDate;
+    private javax.swing.JTextField historyModifiedBy;
+    private javax.swing.JTextField historyModifiedDate;
+    private javax.swing.JTextField historyName;
     private javax.swing.JTextField historyObjID;
     private javax.swing.JLabel historyObjTypeLabel;
     private javax.swing.JTable historyTable;
@@ -691,6 +804,10 @@ public class MainWindow extends javax.swing.JFrame{
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
