@@ -193,19 +193,19 @@ public class BikSection extends AbstractBikDataObject implements Serializable {
     public void setBikComments(Collection<BikComment> bikComments) {
         this.bikComments = bikComments;
     }
-    public void exportToFileForTypesetting(java.io.PrintWriter output){
+    public void exportToFileForTypesetting(java.io.PrintWriter output, javax.swing.ProgressMonitor pm){
         output.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<< NODAÏA");
         output.printf("%s %s%n",this.getCode().trim(),this.getName().trim());
         output.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<< NODAÏAS KOMENTÂRI");
         Iterator<BikComment> i = this.getBikComments().iterator();
         while (i.hasNext()) {
-            i.next().exportToFileForTypesetting(output);
+            i.next().exportToFileForTypesetting(output, pm);
         }
         output.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<< NODAÏAS KOMENTÂRI BEIGAS");
         
         Iterator<BikSubsection> i2 = this.getBikSubsectionCollection().iterator();
         while (i2.hasNext()) {
-            i2.next().exportToFileForTypesetting(output);
+            i2.next().exportToFileForTypesetting(output, pm);
         }
     }
 }

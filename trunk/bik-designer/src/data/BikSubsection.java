@@ -223,11 +223,12 @@ public class BikSubsection extends AbstractBikDataObject implements Serializable
         return retValue;
     }
 
-    public void exportToFileForTypesetting(java.io.PrintWriter output){
+    public void exportToFileForTypesetting(java.io.PrintWriter output, javax.swing.ProgressMonitor pm){
         
         if (this.isNotForPrint() || this.getName().trim().length()==0 )
             return;
-        
+        // if (!(this.getId()==4580 || this.getId()==4642 || this.getId()==4747 || 
+        //        this.getId()==5543 || this.getId()==8296)) return ;
         if (this.isDeleted()) {
             output.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< SADAÏA");
             output.printf("%s-%s%cnetiek izmantota%n",
@@ -246,14 +247,14 @@ public class BikSubsection extends AbstractBikDataObject implements Serializable
             if (i.hasNext()) {
                 output.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< SADAÏAS KOMENTÂRI");
                 while (i.hasNext()) {
-                    i.next().exportToFileForTypesetting(output);
+                    i.next().exportToFileForTypesetting(output, pm);
                 }
                 output.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< SADAÏAS KOMENTÂRI BEIGAS");
             }
             
             Iterator<BikWorkItem> i2 = this.getBikWorkItemCollection().iterator();
             while (i2.hasNext()) {
-                i2.next().exportToFileForTypesetting(output);
+                i2.next().exportToFileForTypesetting(output, pm);
             }
             
         }

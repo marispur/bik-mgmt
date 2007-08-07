@@ -13,6 +13,7 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.*;
+import javax.swing.ProgressMonitor;
 import org.hibernate.Session;
 import org.hibernate.annotations.Generated;
 import org.hibernate.annotations.GenerationTime;
@@ -241,7 +242,7 @@ public abstract class AbstractBikDataObject implements IBikDataObject {
         return false;
     }
     
-    public void exportToFileForTypesetting(java.io.PrintWriter output){
+    public void exportToFileForTypesetting(java.io.PrintWriter output, javax.swing.ProgressMonitor pm){
         output.println(this.toString());
     }
 

@@ -14,6 +14,7 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.*;
+import javax.swing.ProgressMonitor;
 import org.hibernate.Session;
 import org.hibernate.annotations.Generated;
 import org.hibernate.annotations.GenerationTime;
@@ -177,7 +178,7 @@ public class BikComment extends AbstractBikDataObject implements Serializable {
     public BikObjType getObjType() {
         return BikObjType.COMMENT;
     }
-    public void exportToFileForTypesetting(java.io.PrintWriter output){
+    public void exportToFileForTypesetting(java.io.PrintWriter output, ProgressMonitor pm){
         if (!this.isDeleted() && !this.isNotForPrint()) {
             output.printf("%s%n", this.getBody().trim());
         }

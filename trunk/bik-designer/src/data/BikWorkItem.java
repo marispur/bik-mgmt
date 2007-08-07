@@ -274,7 +274,7 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
         retValue = this.deleted;
         return retValue;
     }
-    public void exportToFileForTypesetting(java.io.PrintWriter output){
+    public void exportToFileForTypesetting(java.io.PrintWriter output, javax.swing.ProgressMonitor pm){
         
         if (this.isNotForPrint() || this.getName().trim().length()==0 )
             return;

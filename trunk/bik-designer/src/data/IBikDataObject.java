@@ -10,6 +10,7 @@
 package data;
 
 import java.util.Date;
+import javax.swing.ProgressMonitor;
 import org.hibernate.Session;
 
 /**
@@ -64,5 +65,5 @@ public interface IBikDataObject {
     
     public void setDateCreated(Date dateCreated);
     
-    public void exportToFileForTypesetting(java.io.PrintWriter output);
+    public void exportToFileForTypesetting(java.io.PrintWriter output, javax.swing.ProgressMonitor pm);
 }
