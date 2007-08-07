@@ -13,6 +13,7 @@ import bikdesigner.HibernateUtil;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Iterator;
+import javax.swing.ProgressMonitor;
 import org.hibernate.*;
 
 /**
@@ -112,10 +113,16 @@ public class BikCatalog extends AbstractBikDataObject {
     public void setDateDeleted(Date dateDeleted) {
     }
     
-    public void exportToFileForTypesetting(java.io.PrintWriter output){
+    public void exportToFileForTypesetting(java.io.PrintWriter output, ProgressMonitor pm){
         Iterator<BikSection> i = this.getBikSectionCollection().iterator();
+        pm.setMaximum(this.getBikSectionCollection().size());
+        int progressCounter=0;
         while (i.hasNext()) {
-            i.next().exportToFileForTypesetting(output);
+            progressCounter += 1;
+            BikSection currentSection = i.next();
+            pm.setProgress(progressCounter);
+            pm.setNote("Eksportçju: "+currentSection.getCode()+" "+currentSection.getName());
+            currentSection.exportToFileForTypesetting(output, pm);
         }
     }
 }

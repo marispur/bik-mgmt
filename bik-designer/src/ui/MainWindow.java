@@ -289,7 +289,7 @@ public class MainWindow extends javax.swing.JFrame{
 
         getContentPane().add(statusBar, java.awt.BorderLayout.SOUTH);
 
-        jSplitPane1.setDividerLocation(705);
+        jSplitPane1.setDividerLocation(735);
         jSplitPane1.setDividerSize(3);
         jSplitPane1.setPreferredSize(new java.awt.Dimension(1000, 706));
         jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -367,37 +367,37 @@ public class MainWindow extends javax.swing.JFrame{
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
-                    .addComponent(historyObjTypeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+                    .addComponent(historyObjTypeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(historyCreatedBy, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))
+                        .addComponent(historyCreatedBy, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE))
                     .addComponent(historyTableLabel)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(historyName, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE))
+                        .addComponent(historyName, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(historyCode, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE))
+                        .addComponent(historyCode, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(historyCreatedDate, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE))
+                        .addComponent(historyCreatedDate, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(historyModifiedDate, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE))
+                        .addComponent(historyModifiedDate, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(historyModifiedBy, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE))
+                        .addComponent(historyModifiedBy, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(historyObjID, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)))
+                        .addComponent(historyObjID, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -687,18 +687,45 @@ public class MainWindow extends javax.swing.JFrame{
     private void addCommentMIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCommentMIActionPerformed
         addCommentLine();
     }//GEN-LAST:event_addCommentMIActionPerformed
-
+    class ExportTask extends SwingWorker<Void, Void> {
+        
+        private ProgressMonitor pm;
+        private BikCatalog cat;
+        private PrintWriter target;
+        
+        public ExportTask(ProgressMonitor pmval, BikCatalog catval, PrintWriter targetval) {
+            pm=pmval;
+            cat=catval;
+            target=targetval;
+        }
+        
+        @Override
+        public Void doInBackground() {
+            pm.setMillisToDecideToPopup(0);
+            pm.setMillisToPopup(0);
+            cat.exportToFileForTypesetting(target, pm);
+            target.close();
+            return null;
+        }
+        
+        @Override
+        public void done() {
+            pm.close();
+        }
+    }
     private void exportTypesettingMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportTypesettingMenuItemActionPerformed
         final JFileChooser fc = new JFileChooser("Desktop");
         this.setStatusText("Izvçlieties failu, kurâ eksportçt datus maketçðanai...");
         int returnVal = fc.showSaveDialog(this);
         if (returnVal == JFileChooser.APPROVE_OPTION ) {
             PrintWriter target;
+            ProgressMonitor pmon = new ProgressMonitor(this,"Eksportçju datus izdrukai..","Sâku eksportu",0,1);
             try {
                 target = new PrintWriter(new BufferedWriter(new FileWriter(fc.getSelectedFile())));
                 this.setStatusText("Sâku eksportçt datus failâ " +fc.getSelectedFile().getPath() + "...");
-                this.catalog.exportToFileForTypesetting(target);
-                target.close();
+                ExportTask t = new ExportTask(pmon, this.catalog, target);
+                t.execute(); 
+                
                 this.setStatusText("Exports veiksmîgi pabeigts failâ " +fc.getSelectedFile().getPath());
                 
             } catch (IOException ex) {
