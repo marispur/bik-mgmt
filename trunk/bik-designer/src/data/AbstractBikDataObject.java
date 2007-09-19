@@ -245,5 +245,9 @@ public abstract class AbstractBikDataObject implements IBikDataObject {
     public void exportToFileForTypesetting(java.io.PrintWriter output, javax.swing.ProgressMonitor pm){
         output.println(this.toString());
     }
+    public Integer exportToFileForBasicXML(java.io.PrintWriter output, javax.swing.ProgressMonitor pm, Integer seqId){
+        output.println(this.toString());
+        return 0;
+    }
 
 }

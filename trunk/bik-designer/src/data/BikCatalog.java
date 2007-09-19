@@ -10,6 +10,7 @@
 package data;
 
 import bikdesigner.HibernateUtil;
+import java.io.PrintWriter;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Iterator;
@@ -124,5 +125,23 @@ public class BikCatalog extends AbstractBikDataObject {
             pm.setNote("Eksportçju: "+currentSection.getCode()+" "+currentSection.getName());
             currentSection.exportToFileForTypesetting(output, pm);
         }
+    }
+
+    public Integer exportToFileForBasicXML(PrintWriter output, ProgressMonitor pm, Integer seqId) {
+        
+        output.println("<?xml version=\"1.0\" encoding=\"utf-8\" ?>");
+        output.println("<item>");
+        Iterator<BikSection> i = this.getBikSectionCollection().iterator();
+        pm.setMaximum(this.getBikSectionCollection().size());
+        int progressCounter=0;
+        while (i.hasNext()) {
+            progressCounter += 1;
+            BikSection currentSection = i.next();
+            pm.setProgress(progressCounter);
+            pm.setNote("Eksportçju: "+currentSection.getCode()+" "+currentSection.getName());
+            seqId = currentSection.exportToFileForBasicXML(output, pm, seqId);
+        }
+        output.println("</item>");
+        return seqId;
     }
 }

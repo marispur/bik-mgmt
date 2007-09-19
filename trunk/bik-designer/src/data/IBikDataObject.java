@@ -66,4 +66,6 @@ public interface IBikDataObject {
     public void setDateCreated(Date dateCreated);
     
     public void exportToFileForTypesetting(java.io.PrintWriter output, javax.swing.ProgressMonitor pm);
+    
+    public Integer exportToFileForBasicXML(java.io.PrintWriter output, javax.swing.ProgressMonitor pm, Integer seqId);
 }

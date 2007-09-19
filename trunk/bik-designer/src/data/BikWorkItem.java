@@ -9,12 +9,15 @@
 
 package data;
 
+import java.io.PrintWriter;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.Date;
+import java.util.Formatter;
 import java.util.Iterator;
 import javax.persistence.*;
+import javax.swing.ProgressMonitor;
 import org.hibernate.Session;
 import org.hibernate.annotations.Generated;
 import org.hibernate.annotations.GenerationTime;
@@ -305,5 +308,105 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
 
         }
     }
+
+    private Integer exportToFileForBasicXMLWorkItemComponenets (
+            PrintWriter output, 
+            Integer seqId) 
+    {
+        Formatter fmt = new Formatter(output);
+        Double printMaterialPrice, printMaterialCount;
+        Double printDepreciationPrice, printDepreciationCount;
+        
+        // set prices correctly
+        if (this.getMaterials().doubleValue()<0.1) {
+            printMaterialPrice = this.getMaterials().doubleValue() * 100;
+            printMaterialCount = 0.01;
+        } else if (this.getMaterials().doubleValue()<1) {
+            printMaterialPrice = this.getMaterials().doubleValue() * 10;
+            printMaterialCount = 0.1;
+        } else {
+            printMaterialPrice = this.getMaterials().doubleValue();
+            printMaterialCount = (double) 1;
+        }
+
+        if (this.getDepreciation().doubleValue()<0.1) {
+            printDepreciationPrice = this.getDepreciation().doubleValue() * 100;
+            printDepreciationCount = 0.01;
+        } else if (this.getDepreciation().doubleValue()<1) {
+            printDepreciationPrice = this.getDepreciation().doubleValue() * 10;
+            printDepreciationCount = 0.1;
+        } else {
+            printDepreciationPrice = this.getDepreciation().doubleValue();
+            printDepreciationCount = (double) 1;
+        }
+        
+        // write labour costs
+        seqId++;
+        output.print("\t\t\t\t<subitem id=\""+ seqId.toString() + "\"");
+        output.print(" name=\"Darba alga\"");
+        output.print(" type=\"32\"");
+        output.print(" order=\"0\"");
+        output.print(" price=\"");
+        fmt.format("%.2f",this.getLabourCost());
+        output.print("\"");
+        output.print(" count=\"");
+        fmt.format("%.2f",this.getLabourNorm());
+        output.print("\"");
+        output.print(" unit=\"posma h\"");
+        output.print(" unitid=\"503\"");
+        output.println(" />");
+        
+        seqId++;
+        output.print("\t\t\t\t<subitem id=\""+ seqId.toString() + "\"");
+        output.print(" name=\"Materiâli\"");
+        output.print(" type=\"64\"");
+        output.print(" order=\"1\"");
+        output.print(" price=\"");
+        fmt.format("%.2f",printMaterialPrice);
+        output.print("\"");
+        output.print(" count=\"");
+        fmt.format("%.2f",printMaterialCount);
+        output.print("\"");
+        output.println(" />");
+        
+        seqId++;
+        output.print("\t\t\t\t<subitem id=\""+ seqId.toString() + "\"");
+        output.print(" name=\"Nolietojums\"");
+        output.print(" type=\"128\"");
+        output.print(" order=\"2\"");
+        output.print(" price=\"");
+        fmt.format("%.2f",printDepreciationPrice);
+        output.print("\"");
+        output.print(" count=\"");
+        fmt.format("%.2f",printDepreciationPrice);
+        output.print("\"");
+        output.println(" />");
+        
+        return seqId;
+    }
     
+    public Integer exportToFileForBasicXML(
+            PrintWriter output, 
+            ProgressMonitor pm, 
+            Integer seqId) 
+    {
+        if (this.isNotForPrint() || this.isDeleted()) return seqId;
+        
+        seqId++;
+        output.print("\t\t\t<item id=\"");
+        output.print(seqId.toString());
+        output.print("\" type=\"0\" motive=\"BIK07:" + 
+                this.getSubsection().getSection().getCode().trim() +"\""+
+                " code_norms=\""+this.getSubsection().getSection().getCode().trim() + "-" 
+                + this.getCode().trim()+"\"");
+        output.print(" name=\""+this.getName().trim().replace('\"','\'')+"\"");
+        output.print(" amount=\"1\"");
+        output.println(" unit=\""+this.getMeasure().trim()+"\">");
+        
+        seqId = exportToFileForBasicXMLWorkItemComponenets(output,seqId);
+        
+        output.println("\t\t\t</item>");
+        return seqId;
+        
+    }
 }
