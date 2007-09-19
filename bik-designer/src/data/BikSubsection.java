@@ -9,12 +9,14 @@
 
 package data;
 
+import java.io.PrintWriter;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Formatter;
 import java.util.Iterator;
 import javax.persistence.*;
+import javax.swing.ProgressMonitor;
 import org.hibernate.Session;
 import org.hibernate.annotations.Generated;
 import org.hibernate.annotations.GenerationTime;
@@ -259,5 +261,33 @@ public class BikSubsection extends AbstractBikDataObject implements Serializable
             
         }
     }
-    
+
+    public Integer exportToFileForBasicXML(
+            PrintWriter output, 
+            ProgressMonitor pm, 
+            Integer seqId) 
+    {
+        if (this.isNotForPrint() || this.isDeleted()) return seqId;
+        
+        seqId++;
+        output.print("\t\t<item id=\"");
+        output.print(seqId.toString());
+        output.print("\" type=\"1\" motive=\"BIK07:" + 
+                this.getSection().getCode().trim() +"\""+
+                " code_norms=\""+this.getSection().getCode().trim() + "-" 
+                + this.getCode().trim()+"\"");
+        output.print(" name=\""+this.getName().trim()+"\"");
+        output.print(" amount=\"1\"");
+        output.println(" unit=\"\">");
+        
+        Iterator<BikWorkItem> i = this.getBikWorkItemCollection().iterator();
+        while (i.hasNext()){
+            BikWorkItem bss = i.next();
+            seqId = bss.exportToFileForBasicXML(output, pm, seqId);
+        }
+        
+        output.println("\t\t</item>");
+        return seqId;
+        
+    }    
 }
