@@ -324,6 +324,9 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
         } else if (this.getMaterials().doubleValue()<1) {
             printMaterialPrice = this.getMaterials().doubleValue() * 10;
             printMaterialCount = 0.1;
+        } else if (this.getMaterials().doubleValue()==0){
+            printMaterialPrice = (double)0;
+            printMaterialCount = (double)0;
         } else {
             printMaterialPrice = this.getMaterials().doubleValue();
             printMaterialCount = (double) 1;
@@ -335,6 +338,9 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
         } else if (this.getDepreciation().doubleValue()<1) {
             printDepreciationPrice = this.getDepreciation().doubleValue() * 10;
             printDepreciationCount = 0.1;
+        } else if (this.getDepreciation().doubleValue()==0) {
+            printDepreciationPrice = (double) 0;
+            printDepreciationCount = (double) 0;
         } else {
             printDepreciationPrice = this.getDepreciation().doubleValue();
             printDepreciationCount = (double) 1;
@@ -399,9 +405,9 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
                 this.getSubsection().getSection().getCode().trim() +"\""+
                 " code_norms=\""+this.getSubsection().getSection().getCode().trim() + "-" 
                 + this.getCode().trim()+"\"");
-        output.print(" name=\""+this.getName().trim().replace('\"','\'')+"\"");
+        output.print(" name=\""+prepareForXMLOutput(this.getName())+"\"");
         output.print(" amount=\"1\"");
-        output.println(" unit=\""+this.getMeasure().trim()+"\">");
+        output.println(" unit=\""+ prepareForXMLOutput(this.getMeasure())+"\">");
         
         seqId = exportToFileForBasicXMLWorkItemComponenets(output,seqId);
         

@@ -276,7 +276,7 @@ public class BikSubsection extends AbstractBikDataObject implements Serializable
                 this.getSection().getCode().trim() +"\""+
                 " code_norms=\""+this.getSection().getCode().trim() + "-" 
                 + this.getCode().trim()+"\"");
-        output.print(" name=\""+this.getName().trim()+"\"");
+        output.print(" name=\""+prepareForXMLOutput(this.getName())+"\"");
         output.print(" amount=\"1\"");
         output.println(" unit=\"\">");
         
