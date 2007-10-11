@@ -251,7 +251,7 @@ public class SectionLine extends AbstractBikItemLine {
         tfName.setText(getBikSection().getName());
         tfId.setText(getBikSection().getId().toString());
         expanderButton.setEnabled(true);
-        expanderButton.setToolTipText("Sadaïu skaits:"+getBikSection().getBikSubsectionCollection().size());       
+        // expanderButton.setToolTipText("Sadaïu skaits:"+getBikSection().getBikSubsectionCollection().size());       
         decorateLine();
     }
 

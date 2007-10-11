@@ -272,9 +272,9 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
     }
 
     public Boolean isDeleted() {
-        Boolean retValue;
+        Boolean retValue=false;
         if (getSubsection().getDeleted()) return true;
-        retValue = this.deleted;
+        if (this.deleted!=null) retValue = this.deleted;
         return retValue;
     }
     public void exportToFileForTypesetting(java.io.PrintWriter output, javax.swing.ProgressMonitor pm){
@@ -384,7 +384,7 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
         fmt.format("%.2f",printDepreciationPrice);
         output.print("\"");
         output.print(" count=\"");
-        fmt.format("%.2f",printDepreciationPrice);
+        fmt.format("%.2f",printDepreciationCount);
         output.print("\"");
         output.println(" />");
         
@@ -394,10 +394,13 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
     public Integer exportToFileForBasicXML(
             PrintWriter output, 
             ProgressMonitor pm, 
-            Integer seqId) 
+            Integer seqId,
+            Integer localOrder) 
     {
         if (this.isNotForPrint() || this.isDeleted()) return seqId;
         
+        pm.setNote(this.getSubsection().getSection().getCode().trim() + "-" +
+                this.getCode().trim());
         seqId++;
         output.print("\t\t\t<item id=\"");
         output.print(seqId.toString());
@@ -407,6 +410,7 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
                 + this.getCode().trim()+"\"");
         output.print(" name=\""+prepareForXMLOutput(this.getName())+"\"");
         output.print(" amount=\"1\"");
+        output.print(" order=\""+localOrder+"\"");
         output.println(" unit=\""+ prepareForXMLOutput(this.getMeasure())+"\">");
         
         seqId = exportToFileForBasicXMLWorkItemComponenets(output,seqId);

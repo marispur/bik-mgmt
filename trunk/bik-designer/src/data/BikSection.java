@@ -213,7 +213,7 @@ public class BikSection extends AbstractBikDataObject implements Serializable {
     
     
 
-    public Integer exportToFileForBasicXML(PrintWriter output, ProgressMonitor pm, Integer seqId) {
+    public Integer exportToFileForBasicXML(PrintWriter output, ProgressMonitor pm, Integer seqId, Integer localOrder) {
         if (this.isNotForPrint() || this.isDeleted()) return seqId;
         
         seqId++;
@@ -223,12 +223,15 @@ public class BikSection extends AbstractBikDataObject implements Serializable {
                 " code_norms=\""+this.getCode().trim()+"\"");
         output.print(" name=\""+prepareForXMLOutput(this.getName())+"\"");
         output.print(" amount=\"1\"");
+        output.print(" order=\""+localOrder+"\"");
         output.println(" unit=\"\">");
         
+        int localSubOrder=0;
         Iterator<BikSubsection> i = this.getBikSubsectionCollection().iterator();
         while (i.hasNext()){
             BikSubsection bss = i.next();
-            seqId = bss.exportToFileForBasicXML(output, pm, seqId);
+            seqId = bss.exportToFileForBasicXML(output, pm, seqId, localSubOrder);
+            localSubOrder+=1;
         }
         
         output.println("\t</item>");
