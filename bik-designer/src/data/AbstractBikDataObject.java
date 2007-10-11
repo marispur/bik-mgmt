@@ -245,7 +245,7 @@ public abstract class AbstractBikDataObject implements IBikDataObject {
     public void exportToFileForTypesetting(java.io.PrintWriter output, javax.swing.ProgressMonitor pm){
         output.println(this.toString());
     }
-    public Integer exportToFileForBasicXML(java.io.PrintWriter output, javax.swing.ProgressMonitor pm, Integer seqId){
+    public Integer exportToFileForBasicXML(java.io.PrintWriter output, javax.swing.ProgressMonitor pm, Integer seqId, Integer localOrder){
         output.println(this.toString());
         return 0;
     }
@@ -253,12 +253,12 @@ public abstract class AbstractBikDataObject implements IBikDataObject {
     public static String prepareForXMLOutput(String val){
         String out;
         if (val==null) return null;
-        out = val.trim().replace("\"","&quot;");
-        out = out.replace("&","&amp;");
+        out = val.trim().replace("&","&amp;");
+        out = out.replace("\"","&quot;");
         out = out.replace("'","&apos;");
+        out = out.replace("<o>","&#0176;");
         out = out.replace("<","&lt;");
         out = out.replace(">","&gt;");
-        out = out.replace("<o>","&#0176;");
         return out;
     }
 

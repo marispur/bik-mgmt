@@ -134,12 +134,14 @@ public class BikCatalog extends AbstractBikDataObject {
         Iterator<BikSection> i = this.getBikSectionCollection().iterator();
         pm.setMaximum(this.getBikSectionCollection().size());
         int progressCounter=0;
+        int localOrder=0;
         while (i.hasNext()) {
             progressCounter += 1;
             BikSection currentSection = i.next();
             pm.setProgress(progressCounter);
             pm.setNote("Eksportçju: "+currentSection.getCode()+" "+currentSection.getName());
-            seqId = currentSection.exportToFileForBasicXML(output, pm, seqId);
+            seqId = currentSection.exportToFileForBasicXML(output, pm, seqId, localOrder);
+            localOrder+=1;
         }
         output.println("</item>");
         return seqId;

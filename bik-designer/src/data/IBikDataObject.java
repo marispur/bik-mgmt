@@ -67,5 +67,5 @@ public interface IBikDataObject {
     
     public void exportToFileForTypesetting(java.io.PrintWriter output, javax.swing.ProgressMonitor pm);
     
-    public Integer exportToFileForBasicXML(java.io.PrintWriter output, javax.swing.ProgressMonitor pm, Integer seqId);
+    public Integer exportToFileForBasicXML(java.io.PrintWriter output, javax.swing.ProgressMonitor pm, Integer seqId, Integer localOrder);
 }

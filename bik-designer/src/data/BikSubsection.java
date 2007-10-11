@@ -265,7 +265,8 @@ public class BikSubsection extends AbstractBikDataObject implements Serializable
     public Integer exportToFileForBasicXML(
             PrintWriter output, 
             ProgressMonitor pm, 
-            Integer seqId) 
+            Integer seqId,
+            Integer localOrder) 
     {
         if (this.isNotForPrint() || this.isDeleted()) return seqId;
         
@@ -278,12 +279,16 @@ public class BikSubsection extends AbstractBikDataObject implements Serializable
                 + this.getCode().trim()+"\"");
         output.print(" name=\""+prepareForXMLOutput(this.getName())+"\"");
         output.print(" amount=\"1\"");
+        output.print(" order=\""+localOrder+"\"");
+
         output.println(" unit=\"\">");
         
         Iterator<BikWorkItem> i = this.getBikWorkItemCollection().iterator();
+        int localWIOrder=0;
         while (i.hasNext()){
             BikWorkItem bss = i.next();
-            seqId = bss.exportToFileForBasicXML(output, pm, seqId);
+            seqId = bss.exportToFileForBasicXML(output, pm, seqId, localWIOrder);
+            localWIOrder+=1;
         }
         
         output.println("\t\t</item>");
