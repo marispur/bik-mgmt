@@ -47,6 +47,8 @@ public class CommentLine extends AbstractBikItemLine {
         tfId = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tfBody = new javax.swing.JTextArea();
+        iconNotForPrint = new javax.swing.JLabel();
+        iconNeedsProofReading = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -119,6 +121,12 @@ public class CommentLine extends AbstractBikItemLine {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(198, 3, 498, 42));
 
+        iconNotForPrint.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/nonprinting.gif")));
+        add(iconNotForPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 15, 12));
+
+        iconNeedsProofReading.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/proofread.gif")));
+        add(iconNeedsProofReading, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 27, 12, 15));
+
         jLabel1.setLabelFor(tfPrintSequence);
         jLabel1.setText("Drukas indekss:");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 14, -1, 21));
@@ -162,6 +170,8 @@ public class CommentLine extends AbstractBikItemLine {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel iconNeedsProofReading;
+    private javax.swing.JLabel iconNotForPrint;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -262,6 +272,12 @@ public class CommentLine extends AbstractBikItemLine {
             tfPrintSequence.setBackground(editableFieldBackgroundColor);
             tfBody.setBackground(editableFieldBackgroundColor);
         }
+        
+        if (getBikComment().isNotForPrint()) iconNotForPrint.setVisible(true); 
+        else iconNotForPrint.setVisible(false); 
+
+        if (getBikComment().isNeedProofReading()) iconNeedsProofReading.setVisible(true); 
+        else iconNeedsProofReading.setVisible(false); 
     }
     
     
