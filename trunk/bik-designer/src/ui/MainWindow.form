@@ -174,12 +174,18 @@
                 <Property name="text" type="java.lang.String" value="Gramatika"/>
                 <Property name="toolTipText" type="java.lang.String" value="Iesl&#x113;gts, ja nepiecie&#x161;ams veikt gramatikas p&#x101;rbaudi"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="requiresProofreadingStatusMenuItemActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JCheckBoxMenuItem" name="notPrintingMenuItem">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Nedruk&#x101;t"/>
                 <Property name="toolTipText" type="java.lang.String" value="Ja iesl&#x113;gts - netiks iek&#x13c;auts izdruk&#x101;s"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="notPrintingMenuItemActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

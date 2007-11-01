@@ -621,10 +621,22 @@ public class MainWindow extends javax.swing.JFrame{
 
         requiresProofreadingStatusMenuItem.setText("Gramatika");
         requiresProofreadingStatusMenuItem.setToolTipText("Iesl\u0113gts, ja nepiecie\u0161ams veikt gramatikas p\u0101rbaudi");
+        requiresProofreadingStatusMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                requiresProofreadingStatusMenuItemActionPerformed(evt);
+            }
+        });
+
         editMenu.add(requiresProofreadingStatusMenuItem);
 
         notPrintingMenuItem.setText("Nedruk\u0101t");
         notPrintingMenuItem.setToolTipText("Ja iesl\u0113gts - netiks iek\u013cauts izdruk\u0101s");
+        notPrintingMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                notPrintingMenuItemActionPerformed(evt);
+            }
+        });
+
         editMenu.add(notPrintingMenuItem);
 
         menuBar.add(editMenu);
@@ -633,6 +645,51 @@ public class MainWindow extends javax.swing.JFrame{
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void requiresProofreadingStatusMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requiresProofreadingStatusMenuItemActionPerformed
+
+        if (getSelectedLine()==null) return ;
+        getSelectedLine().getBikDataObject().setNeedProofReading(requiresProofreadingStatusMenuItem.getState());
+        getSelectedLine().getBikDataObject().bikSave(getHibernateSession());
+
+        HistoryEvent he = new data.HistoryEvent();
+        he.setDate(new Date(System.currentTimeMillis()));
+        he.setObjId(getSelectedLine().getBikDataObject().getId());
+        he.setObjType(getSelectedLine().getBikDataObject().getObjType().getId());
+        he.setFieldName("needsProofReading");
+        he.setMessage("Ierakstam izmainîts 'Pârbaudît korektoram!' parametrs uz " + requiresProofreadingStatusMenuItem.getState());
+        he.setModifiedBy(getCurrentUser().getFullName());
+        he.bikSave();
+        setStatusText("Ierakstam izmainîts 'Pârbaudît korektoram!' parametrs uz " + requiresProofreadingStatusMenuItem.getState());
+        
+        getSelectedLine().updateUiComponents();
+        getSelectedLine().decorateLine();
+        updateAccessibleCommands();
+        refreshSelectedLineHistory();
+        
+    }//GEN-LAST:event_requiresProofreadingStatusMenuItemActionPerformed
+
+    private void notPrintingMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notPrintingMenuItemActionPerformed
+
+        if (getSelectedLine()==null) return ;
+        getSelectedLine().getBikDataObject().setNotForPrint(notPrintingMenuItem.getState());
+        getSelectedLine().getBikDataObject().bikSave(getHibernateSession());
+
+        HistoryEvent he = new data.HistoryEvent();
+        he.setDate(new Date(System.currentTimeMillis()));
+        he.setObjId(getSelectedLine().getBikDataObject().getId());
+        he.setObjType(getSelectedLine().getBikDataObject().getObjType().getId());
+        he.setFieldName("notForPrint");
+        he.setMessage("Ierakstam izmainîts 'Nedrukât!' parametrs uz " + notPrintingMenuItem.getState());
+        he.setModifiedBy(getCurrentUser().getFullName());
+        he.bikSave();
+        setStatusText("Ierakstam izmainîts 'Nedrukât!' parametrs uz " + notPrintingMenuItem.getState());
+        
+        getSelectedLine().updateUiComponents();
+        getSelectedLine().decorateLine();
+        updateAccessibleCommands();
+        refreshSelectedLineHistory();
+    }//GEN-LAST:event_notPrintingMenuItemActionPerformed
 
     private void exportBasicXMLMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportBasicXMLMenuItemActionPerformed
         Integer sq = new Integer(1);
@@ -644,7 +701,7 @@ public class MainWindow extends javax.swing.JFrame{
         
         // negation because state of a button already changed
         if (!deletedStatusMenuItem.getState()) {
-            // TODO: UNdelete action must be performed
+            // UNdelete action must be performed
 
             IBikDataObject bdo = getSelectedLine().getBikDataObject();
             bdo.setDeleted(false);
