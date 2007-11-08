@@ -57,6 +57,8 @@ public class BikComment extends AbstractBikDataObject implements Serializable {
 
     /** Creates a new instance of BikComment */
     public BikComment() {
+        needProofReading = true;
+        notForPrint = false;
     }
 
     /**
@@ -183,5 +185,6 @@ public class BikComment extends AbstractBikDataObject implements Serializable {
             output.printf("%s%n", this.getBody().trim());
         }
     }
+
     
 }

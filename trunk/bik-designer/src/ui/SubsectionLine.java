@@ -44,6 +44,8 @@ public class SubsectionLine extends AbstractBikItemLine {
         tfSectionCode = new javax.swing.JTextField();
         tfId = new javax.swing.JTextField();
         lId = new javax.swing.JLabel();
+        iconNotForPrint = new javax.swing.JLabel();
+        iconNeedsProofReading = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -143,6 +145,13 @@ public class SubsectionLine extends AbstractBikItemLine {
 
         lId.setText("Subsection ID:");
         add(lId, new org.netbeans.lib.awtextra.AbsoluteConstraints(513, 3, -1, -1));
+
+        iconNotForPrint.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/nonprinting.gif")));
+        iconNotForPrint.setToolTipText("Vajag p\u0101rbaud\u012bt gramatiku");
+        add(iconNotForPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 4, 24, 15));
+
+        iconNeedsProofReading.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/proofread.gif")));
+        add(iconNeedsProofReading, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 12, 21, 21));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Folder-copy-2-32x32.png")));
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 3, 33, -1));
@@ -257,6 +266,8 @@ public class SubsectionLine extends AbstractBikItemLine {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton expanderButton;
+    private javax.swing.JLabel iconNeedsProofReading;
+    private javax.swing.JLabel iconNotForPrint;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lId;
@@ -340,6 +351,7 @@ public class SubsectionLine extends AbstractBikItemLine {
                 he.setModifiedBy(getMainWindow(this).getCurrentUser().getFullName());
                 he.setNewVal(tfName.getText().trim());
                 he.setOldVal(getBikSubsection().getName());
+                getBikSubsection().setNeedProofReading(true);
                 he.bikSave();
             }
             
@@ -349,11 +361,18 @@ public class SubsectionLine extends AbstractBikItemLine {
             getBikSubsection().setDateModified(new Date(System.currentTimeMillis()));
             getBikSubsection().setModifiedBy(getMainWindow(this).getCurrentUser().getFullName());
             getBikSubsection().bikSave(getMainWindow(this).getHibernateSession());
-
+            decorateLine();
         }
     }
 
     public void decorateLine() {
+        
+        if (getBikSubsection().isNotForPrint()) iconNotForPrint.setVisible(true); 
+        else iconNotForPrint.setVisible(false); 
+
+        if (getBikSubsection().isNeedProofReading()) iconNeedsProofReading.setVisible(true); 
+        else iconNeedsProofReading.setVisible(false); 
+
         // now let's color deleted items
         if (getBikSubsection().getDeleted()) {
             this.setBackground(deletedItemColor);

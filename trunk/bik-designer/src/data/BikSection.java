@@ -65,7 +65,9 @@ public class BikSection extends AbstractBikDataObject implements Serializable {
     
     /** Creates a new instance of BikSection */
     public BikSection() {
-    }
+         needProofReading = true;
+        notForPrint = false;
+   }
 
     /**
      * Creates a new instance of BikSection with the specified values.

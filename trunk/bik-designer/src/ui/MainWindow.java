@@ -124,6 +124,10 @@ public class MainWindow extends javax.swing.JFrame{
         updateAccessibleCommands();
     }
     
+    public Boolean getViewHideNotForPrint() {
+        return hideNotForPrintMenuItem.isSelected();
+    }
+    
     public Boolean getViewHideDeleted(){
         return hideDeletedMenuItem.isSelected();
     }
@@ -244,13 +248,14 @@ public class MainWindow extends javax.swing.JFrame{
         jSeparator6 = new javax.swing.JSeparator();
         exitMenuItem = new javax.swing.JMenuItem();
         viewMenu = new javax.swing.JMenu();
+        hideNotForPrintMenuItem = new javax.swing.JCheckBoxMenuItem();
         hideDeletedMenuItem = new javax.swing.JCheckBoxMenuItem();
         hideObjectIds = new javax.swing.JCheckBoxMenuItem();
         jSeparator3 = new javax.swing.JSeparator();
         onlyDeleted = new javax.swing.JCheckBoxMenuItem();
         onlyNotForPrint = new javax.swing.JCheckBoxMenuItem();
         onlyNeedProofreading = new javax.swing.JCheckBoxMenuItem();
-        editMenu = new javax.swing.JMenu();
+        actionsMenu = new javax.swing.JMenu();
         addWiCMaterialsMI = new javax.swing.JMenuItem();
         addWiCLabourMI = new javax.swing.JMenuItem();
         addWiCDepreciationMI = new javax.swing.JMenuItem();
@@ -296,6 +301,7 @@ public class MainWindow extends javax.swing.JFrame{
         jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         jScrollPane2.setEnabled(false);
         jScrollPane2.setPreferredSize(new java.awt.Dimension(170, 404));
+        historyTable.setAutoCreateRowSorter(true);
         historyTable.setModel(getHistoryTableModel());
         jScrollPane2.setViewportView(historyTable);
 
@@ -510,6 +516,10 @@ public class MainWindow extends javax.swing.JFrame{
         menuBar.add(fileMenu);
 
         viewMenu.setText("Skats");
+        hideNotForPrintMenuItem.setSelected(true);
+        hideNotForPrintMenuItem.setText("Sl\u0113pt nedruk\u0101jamos");
+        viewMenu.add(hideNotForPrintMenuItem);
+
         hideDeletedMenuItem.setText("Sl\u0113pt dz\u0113stos");
         hideDeletedMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -542,7 +552,7 @@ public class MainWindow extends javax.swing.JFrame{
 
         menuBar.add(viewMenu);
 
-        editMenu.setText("Darb\u012bbas");
+        actionsMenu.setText("Darb\u012bbas");
         addWiCMaterialsMI.setText("+ Materi\u0101li");
         addWiCMaterialsMI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -550,7 +560,7 @@ public class MainWindow extends javax.swing.JFrame{
             }
         });
 
-        editMenu.add(addWiCMaterialsMI);
+        actionsMenu.add(addWiCMaterialsMI);
 
         addWiCLabourMI.setText("+ Darba alga");
         addWiCLabourMI.addActionListener(new java.awt.event.ActionListener() {
@@ -559,7 +569,7 @@ public class MainWindow extends javax.swing.JFrame{
             }
         });
 
-        editMenu.add(addWiCLabourMI);
+        actionsMenu.add(addWiCLabourMI);
 
         addWiCDepreciationMI.setText("+ Amortiz\u0101cija");
         addWiCDepreciationMI.addActionListener(new java.awt.event.ActionListener() {
@@ -568,7 +578,7 @@ public class MainWindow extends javax.swing.JFrame{
             }
         });
 
-        editMenu.add(addWiCDepreciationMI);
+        actionsMenu.add(addWiCDepreciationMI);
 
         addWiCDepreciationPercentMI.setText("+ Amortiz\u0101cija (%)");
         addWiCDepreciationPercentMI.addActionListener(new java.awt.event.ActionListener() {
@@ -577,9 +587,9 @@ public class MainWindow extends javax.swing.JFrame{
             }
         });
 
-        editMenu.add(addWiCDepreciationPercentMI);
+        actionsMenu.add(addWiCDepreciationPercentMI);
 
-        editMenu.add(jSeparator5);
+        actionsMenu.add(jSeparator5);
 
         addWorkItemMI.setText("+ Darbs");
         addWorkItemMI.addActionListener(new java.awt.event.ActionListener() {
@@ -588,7 +598,7 @@ public class MainWindow extends javax.swing.JFrame{
             }
         });
 
-        editMenu.add(addWorkItemMI);
+        actionsMenu.add(addWorkItemMI);
 
         addSubsectionMI.setText("+ Sada\u013ca");
         addSubsectionMI.addActionListener(new java.awt.event.ActionListener() {
@@ -597,7 +607,7 @@ public class MainWindow extends javax.swing.JFrame{
             }
         });
 
-        editMenu.add(addSubsectionMI);
+        actionsMenu.add(addSubsectionMI);
 
         addCommentMI.setText("+ Koment\u0101rs");
         addCommentMI.addActionListener(new java.awt.event.ActionListener() {
@@ -606,9 +616,9 @@ public class MainWindow extends javax.swing.JFrame{
             }
         });
 
-        editMenu.add(addCommentMI);
+        actionsMenu.add(addCommentMI);
 
-        editMenu.add(jSeparator4);
+        actionsMenu.add(jSeparator4);
 
         deletedStatusMenuItem.setText("Ieraksts dz\u0113sts");
         deletedStatusMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -617,7 +627,7 @@ public class MainWindow extends javax.swing.JFrame{
             }
         });
 
-        editMenu.add(deletedStatusMenuItem);
+        actionsMenu.add(deletedStatusMenuItem);
 
         requiresProofreadingStatusMenuItem.setText("Gramatika");
         requiresProofreadingStatusMenuItem.setToolTipText("Iesl\u0113gts, ja nepiecie\u0161ams veikt gramatikas p\u0101rbaudi");
@@ -627,7 +637,7 @@ public class MainWindow extends javax.swing.JFrame{
             }
         });
 
-        editMenu.add(requiresProofreadingStatusMenuItem);
+        actionsMenu.add(requiresProofreadingStatusMenuItem);
 
         notPrintingMenuItem.setText("Nedruk\u0101t");
         notPrintingMenuItem.setToolTipText("Ja iesl\u0113gts - netiks iek\u013cauts izdruk\u0101s");
@@ -637,9 +647,9 @@ public class MainWindow extends javax.swing.JFrame{
             }
         });
 
-        editMenu.add(notPrintingMenuItem);
+        actionsMenu.add(notPrintingMenuItem);
 
-        menuBar.add(editMenu);
+        menuBar.add(actionsMenu);
 
         setJMenuBar(menuBar);
 
@@ -876,6 +886,7 @@ public class MainWindow extends javax.swing.JFrame{
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu actionsMenu;
     private javax.swing.JMenuItem addCommentMI;
     private javax.swing.JMenuItem addSubsectionMI;
     private javax.swing.JMenuItem addWiCDepreciationMI;
@@ -885,12 +896,12 @@ public class MainWindow extends javax.swing.JFrame{
     private javax.swing.JMenuItem addWorkItemMI;
     private javax.swing.JMenuItem changePasswordMenu;
     private javax.swing.JCheckBoxMenuItem deletedStatusMenuItem;
-    private javax.swing.JMenu editMenu;
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenuItem exportBasicXMLMenuItem;
     private javax.swing.JMenuItem exportTypesettingMenuItem;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JCheckBoxMenuItem hideDeletedMenuItem;
+    private javax.swing.JCheckBoxMenuItem hideNotForPrintMenuItem;
     private javax.swing.JCheckBoxMenuItem hideObjectIds;
     private javax.swing.JTextField historyCode;
     private javax.swing.JTextField historyCreatedBy;
@@ -1129,10 +1140,11 @@ public class MainWindow extends javax.swing.JFrame{
         if (botype.equals(BikObjType.SECTION)) {
             
             subsParent = (BikSection)getSelectedLine().getBikDataObject();
+            
         }
         if (botype.equals(BikObjType.SUBSECTION)) {
             subsParent = ((BikSubsection)getSelectedLine().getBikDataObject()).getSection();
-            getSelectedLine().expand();
+            // getSelectedLine().expand();
         }
         if (botype.equals(BikObjType.WORK_ITEM)) {
             subsParent = ((BikWorkItem)getSelectedLine().getBikDataObject()).getSubsection().getSection();

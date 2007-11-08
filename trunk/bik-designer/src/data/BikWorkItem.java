@@ -65,6 +65,8 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
     
     /** Creates a new instance of BikWorkItem */
     public BikWorkItem() {
+        needProofReading = true;
+        notForPrint = false;
     }
 
     /**

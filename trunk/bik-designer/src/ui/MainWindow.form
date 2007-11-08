@@ -60,6 +60,12 @@
             <Property name="text" type="java.lang.String" value="Skats"/>
           </Properties>
           <SubComponents>
+            <MenuItem class="javax.swing.JCheckBoxMenuItem" name="hideNotForPrintMenuItem">
+              <Properties>
+                <Property name="selected" type="boolean" value="true"/>
+                <Property name="text" type="java.lang.String" value="Sl&#x113;pt nedruk&#x101;jamos"/>
+              </Properties>
+            </MenuItem>
             <MenuItem class="javax.swing.JCheckBoxMenuItem" name="hideDeletedMenuItem">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Sl&#x113;pt dz&#x113;stos"/>
@@ -96,7 +102,7 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="editMenu">
+        <Menu class="javax.swing.JMenu" name="actionsMenu">
           <Properties>
             <Property name="text" type="java.lang.String" value="Darb&#x12b;bas"/>
           </Properties>
@@ -395,6 +401,7 @@
               <SubComponents>
                 <Component class="javax.swing.JTable" name="historyTable">
                   <Properties>
+                    <Property name="autoCreateRowSorter" type="boolean" value="true"/>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                       <Connection code="getHistoryTableModel()" type="code"/>
                     </Property>

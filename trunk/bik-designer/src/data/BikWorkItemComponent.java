@@ -75,6 +75,8 @@ public class BikWorkItemComponent extends AbstractBikDataObject implements Seria
     public BikWorkItemComponent() {
         unitPrice = new BigDecimal(0);
         qty = new BigDecimal(0);
+        needProofReading = true;
+        notForPrint = false;
     }
 
     /**
