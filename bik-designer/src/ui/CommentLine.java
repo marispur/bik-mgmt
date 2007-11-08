@@ -243,6 +243,7 @@ public class CommentLine extends AbstractBikItemLine {
                 he.setModifiedBy(getMainWindow(this).getCurrentUser().getFullName());
                 he.setNewVal(tfBody.getText().trim());
                 he.setOldVal(getBikComment().getBody());
+                getBikComment().setNeedProofReading(true);
                 he.bikSave();
             }
             
@@ -251,6 +252,7 @@ public class CommentLine extends AbstractBikItemLine {
             getBikComment().setDateModified(new Date(System.currentTimeMillis()));
             getBikComment().setModifiedBy(getMainWindow(this).getCurrentUser().getFullName());
             getBikComment().bikSave(getMainWindow(this).getHibernateSession());
+            decorateLine();
         }
     }
 

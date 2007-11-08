@@ -60,6 +60,8 @@ public class WorkItemLine extends AbstractBikItemLine {
         tfMaterials = new javax.swing.JTextField();
         tfDepreciation = new javax.swing.JTextField();
         tfTotal = new javax.swing.JTextField();
+        iconNotForPrint = new javax.swing.JLabel();
+        iconNeedsProofReading = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -71,7 +73,7 @@ public class WorkItemLine extends AbstractBikItemLine {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        setPreferredSize(new java.awt.Dimension(700, 75));
+        setPreferredSize(new java.awt.Dimension(700, 90));
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 formMouseClicked(evt);
@@ -158,7 +160,7 @@ public class WorkItemLine extends AbstractBikItemLine {
 
         jScrollPane1.setViewportView(tfName);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 5, -1, -1));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 5, -1, 60));
 
         tfSectionCode.setEditable(false);
         tfSectionCode.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
@@ -209,7 +211,7 @@ public class WorkItemLine extends AbstractBikItemLine {
             }
         });
 
-        add(tfLabourNorm, new org.netbeans.lib.awtextra.AbsoluteConstraints(216, 54, 45, -1));
+        add(tfLabourNorm, new org.netbeans.lib.awtextra.AbsoluteConstraints(216, 69, 45, -1));
 
         tfLabourCost.setEditable(false);
         tfLabourCost.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
@@ -223,7 +225,7 @@ public class WorkItemLine extends AbstractBikItemLine {
             }
         });
 
-        add(tfLabourCost, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 54, 45, -1));
+        add(tfLabourCost, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 69, 45, -1));
 
         tfLabour.setEditable(false);
         tfLabour.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
@@ -237,7 +239,7 @@ public class WorkItemLine extends AbstractBikItemLine {
             }
         });
 
-        add(tfLabour, new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 54, 57, -1));
+        add(tfLabour, new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 69, 57, -1));
 
         tfMaterials.setEditable(false);
         tfMaterials.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
@@ -251,7 +253,7 @@ public class WorkItemLine extends AbstractBikItemLine {
             }
         });
 
-        add(tfMaterials, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 54, 57, -1));
+        add(tfMaterials, new org.netbeans.lib.awtextra.AbsoluteConstraints(441, 69, 57, -1));
 
         tfDepreciation.setEditable(false);
         tfDepreciation.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
@@ -265,7 +267,7 @@ public class WorkItemLine extends AbstractBikItemLine {
             }
         });
 
-        add(tfDepreciation, new org.netbeans.lib.awtextra.AbsoluteConstraints(519, 54, 54, -1));
+        add(tfDepreciation, new org.netbeans.lib.awtextra.AbsoluteConstraints(519, 69, 54, -1));
 
         tfTotal.setEditable(false);
         tfTotal.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
@@ -279,25 +281,32 @@ public class WorkItemLine extends AbstractBikItemLine {
             }
         });
 
-        add(tfTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(613, 54, 81, -1));
+        add(tfTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(612, 69, 81, -1));
+
+        iconNotForPrint.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/nonprinting.gif")));
+        iconNotForPrint.setToolTipText("Vajag p\u0101rbaud\u012bt gramatiku");
+        add(iconNotForPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 21, 15, 15));
+
+        iconNeedsProofReading.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/proofread.gif")));
+        add(iconNeedsProofReading, new org.netbeans.lib.awtextra.AbsoluteConstraints(117, 30, 12, 12));
 
         jLabel1.setText("Kop\u0101:");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(586, 54, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(585, 69, -1, -1));
 
         jLabel2.setText("A:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(507, 54, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(507, 69, -1, -1));
 
         jLabel3.setText("M:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(429, 54, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(429, 69, -1, -1));
 
         jLabel4.setText("D:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(354, 54, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(354, 69, -1, -1));
 
         jLabel5.setText("ln:");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 54, 15, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 69, 15, -1));
 
         jLabel6.setText("likme:");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 54, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 69, -1, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Folder-apps-copy-32x32.png")));
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 18, -1, -1));
@@ -435,6 +444,8 @@ public class WorkItemLine extends AbstractBikItemLine {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton expanderButton;
+    private javax.swing.JLabel iconNeedsProofReading;
+    private javax.swing.JLabel iconNotForPrint;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -508,7 +519,7 @@ public class WorkItemLine extends AbstractBikItemLine {
                 getBikWorkItem().getMeasure().equals(tfMeasure.getText()) ){
             return ;
         } else {
-            //dirty record need to save
+            // dirty record need to save
             // first save the history records because after save cannot see 
             // difference between state in db and memory
             if (!getBikWorkItem().getCode().equals(tfCode.getText())){
@@ -534,6 +545,7 @@ public class WorkItemLine extends AbstractBikItemLine {
                 he.setModifiedBy(getMainWindow(this).getCurrentUser().getFullName());
                 he.setNewVal(tfName.getText().trim());
                 he.setOldVal(getBikWorkItem().getName());
+                getBikWorkItem().setNeedProofReading(true);
                 he.bikSave();
             }
             if (!getBikWorkItem().getMeasure().equals(tfMeasure.getText())){
@@ -555,11 +567,19 @@ public class WorkItemLine extends AbstractBikItemLine {
             getBikWorkItem().setDateModified(new Date(System.currentTimeMillis()));
             getBikWorkItem().setModifiedBy(getMainWindow(this).getCurrentUser().getFullName());
             getBikWorkItem().bikSave(getMainWindow(this).getHibernateSession());
+            decorateLine();
         }
     }
 
     public void decorateLine() {
-         // now let's color deleted items
+         
+        if (getBikWorkItem().isNotForPrint()) iconNotForPrint.setVisible(true); 
+        else iconNotForPrint.setVisible(false); 
+
+        if (getBikWorkItem().isNeedProofReading()) iconNeedsProofReading.setVisible(true); 
+        else iconNeedsProofReading.setVisible(false); 
+        
+        // now let's color deleted items
         if (getBikWorkItem().getDeleted()) {
             this.setBackground(deletedItemColor);
             tfCode.setBackground(deletedItemColor);
