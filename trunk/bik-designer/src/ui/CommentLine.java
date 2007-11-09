@@ -257,7 +257,13 @@ public class CommentLine extends AbstractBikItemLine {
     }
 
     public void decorateLine() {
-         // now let's color deleted items
+        if (getBikComment().isNotForPrint()) iconNotForPrint.setVisible(true); 
+        else iconNotForPrint.setVisible(false); 
+
+        if (getBikComment().isNeedProofReading()) iconNeedsProofReading.setVisible(true); 
+        else iconNeedsProofReading.setVisible(false); 
+
+        // now let's color deleted items
         if (getBikComment().getDeleted()) {
             this.setBackground(deletedItemColor);
             tfPrintSequence.setBackground(deletedItemColor);
@@ -275,11 +281,6 @@ public class CommentLine extends AbstractBikItemLine {
             tfBody.setBackground(editableFieldBackgroundColor);
         }
         
-        if (getBikComment().isNotForPrint()) iconNotForPrint.setVisible(true); 
-        else iconNotForPrint.setVisible(false); 
-
-        if (getBikComment().isNeedProofReading()) iconNeedsProofReading.setVisible(true); 
-        else iconNeedsProofReading.setVisible(false); 
     }
     
     
