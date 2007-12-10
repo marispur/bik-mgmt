@@ -224,7 +224,7 @@ public class BikSubsection extends AbstractBikDataObject implements Serializable
     public Boolean isDeleted() {
         Boolean retValue;
         if (section.getDeleted()) return true;
-        retValue = this.deleted;
+        retValue = super.isDeleted();
         return retValue;
     }
 
