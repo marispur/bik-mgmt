@@ -962,6 +962,7 @@ public class MainWindow extends javax.swing.JFrame{
         if (found) rv=i;
         return rv;
     }
+    
     private void addWorkItemComponentLine(BikObjType objType) {
         BikWorkItem wicParent = null;
         if (getSelectedLine()==null) return ;
@@ -1017,11 +1018,16 @@ public class MainWindow extends javax.swing.JFrame{
         if (getSelectedLine()==null) return ;
         data.IBikDataObject parentObj = getSelectedLine().getBikDataObject();
         int insertIndex = getNextWorkItemLineSpot();
+        
+        BikObjType botype = parentObj.getObjType();
+
+        if (botype.equals(BikObjType.SECTION)) insertIndex = getSelectedLineIndex()+1;
+        
         if (insertIndex==-1) {
             setStatusText("Komentâru nevar pievienot - nevar atrast vietu, kur pievienot");
             return ;
         }
-        BikObjType botype = parentObj.getObjType();
+
         if (botype.equals(BikObjType.SECTION) ||
                 botype.equals(BikObjType.SUBSECTION)) {
             // sâkam izveidot rindu
@@ -1199,7 +1205,11 @@ public class MainWindow extends javax.swing.JFrame{
     public int getNextWorkItemLineSpot() {
         int startIndex=0, rv =-1;
         IBikItemLine curLine;
+
         if (getSelectedLineIndex()!=-1) startIndex = getSelectedLineIndex()+1;
+        
+        if (listViewPanel.getComponentCount()==startIndex) rv = startIndex;   // Last line is selected
+        
         while ( startIndex<listViewPanel.getComponentCount()) {
             curLine = (IBikItemLine)listViewPanel.getComponent(startIndex);
             BikObjType curObjType = curLine.getBikDataObject().getObjType();
@@ -1223,6 +1233,9 @@ public class MainWindow extends javax.swing.JFrame{
         int startIndex=0, rv =-1;
         IBikItemLine curLine;
         if (getSelectedLineIndex()!=-1) startIndex = getSelectedLineIndex()+1;
+        
+        if (listViewPanel.getComponentCount()==startIndex) rv = startIndex;   // Last line is selected
+
         while ( startIndex<listViewPanel.getComponentCount()) {
             curLine = (IBikItemLine)listViewPanel.getComponent(startIndex);
             BikObjType curObjType = curLine.getBikDataObject().getObjType();
@@ -1234,6 +1247,8 @@ public class MainWindow extends javax.swing.JFrame{
             
             startIndex++;
         }
+        
+        if (startIndex==listViewPanel.getComponentCount()) rv = startIndex; // we can always add subsection at the end if there is no better place        
         return rv;
     }
 
