@@ -232,8 +232,6 @@ public class BikSubsection extends AbstractBikDataObject implements Serializable
         
         if (this.isNotForPrint() || this.getName().trim().length()==0 )
             return;
-        // if (!(this.getId()==4580 || this.getId()==4642 || this.getId()==4747 || 
-        //        this.getId()==5543 || this.getId()==8296)) return ;
         if (this.isDeleted()) {
             output.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< SADAÏA");
             output.printf("%s-%s%cnetiek izmantota%n",

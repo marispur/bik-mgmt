@@ -160,7 +160,7 @@ public class WorkItemLine extends AbstractBikItemLine {
 
         jScrollPane1.setViewportView(tfName);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 5, -1, 60));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 5, -1, -1));
 
         tfSectionCode.setEditable(false);
         tfSectionCode.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
