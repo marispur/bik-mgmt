@@ -12,6 +12,7 @@ import data.BikSubsection;
 import data.BikWorkItem;
 import data.BikWorkItemComponent;
 import data.HistoryEvent;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.text.DecimalFormat;
 import java.text.ParseException;
@@ -50,8 +51,6 @@ public class WorkItemLine extends AbstractBikItemLine {
         tfCode = new javax.swing.JTextField();
         lId = new javax.swing.JLabel();
         tfId = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tfName = new javax.swing.JTextArea();
         tfSectionCode = new javax.swing.JTextField();
         tfMeasure = new javax.swing.JTextField();
         tfLabourNorm = new javax.swing.JTextField();
@@ -69,6 +68,8 @@ public class WorkItemLine extends AbstractBikItemLine {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        taName = new javax.swing.JTextPane();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -101,7 +102,6 @@ public class WorkItemLine extends AbstractBikItemLine {
         tfCode.setText("11");
         tfCode.setEnabled(false);
         tfCode.setMinimumSize(new java.awt.Dimension(60, 20));
-        tfCode.setNextFocusableComponent(tfName);
         tfCode.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tfCodeMouseClicked(evt);
@@ -131,36 +131,6 @@ public class WorkItemLine extends AbstractBikItemLine {
         tfId.setText("1234");
         tfId.setFocusable(false);
         add(tfId, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 35, -1));
-
-        jScrollPane1.setPreferredSize(new java.awt.Dimension(490, 45));
-        tfName.setFont(fieldFont);
-        tfName.setLineWrap(true);
-        tfName.setRows(2);
-        tfName.setWrapStyleWord(true);
-        tfName.setEnabled(false);
-        tfName.setPreferredSize(new java.awt.Dimension(104, 104));
-        tfName.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tfNameMouseClicked(evt);
-            }
-        });
-        tfName.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                tfNameFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                tfNameFocusLost(evt);
-            }
-        });
-        tfName.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                tfNameKeyPressed(evt);
-            }
-        });
-
-        jScrollPane1.setViewportView(tfName);
-
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 5, -1, -1));
 
         tfSectionCode.setEditable(false);
         tfSectionCode.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
@@ -311,9 +281,41 @@ public class WorkItemLine extends AbstractBikItemLine {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Folder-apps-copy-32x32.png")));
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 18, -1, -1));
 
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        taName.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                taNameMouseClicked(evt);
+            }
+        });
+        taName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                taNameFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                taNameFocusLost(evt);
+            }
+        });
+        taName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                taNameKeyPressed(evt);
+            }
+        });
+
+        jScrollPane2.setViewportView(taName);
+
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 3, 492, 63));
+
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tfNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfNameKeyPressed
+    private void taNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_taNameFocusLost
+    saveLine();
+    }//GEN-LAST:event_taNameFocusLost
+
+    private void taNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_taNameMouseClicked
+    selectLine(this);
+    }//GEN-LAST:event_taNameMouseClicked
+
+    private void taNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_taNameKeyPressed
         //pressing Enter key saves the record
         if (evt.getKeyCode()==10){
             // and does not allow new line to be inserted
@@ -321,7 +323,11 @@ public class WorkItemLine extends AbstractBikItemLine {
             saveLine();
         }
 
-    }//GEN-LAST:event_tfNameKeyPressed
+    }//GEN-LAST:event_taNameKeyPressed
+
+    private void taNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_taNameFocusGained
+    selectLine(this);
+    }//GEN-LAST:event_taNameFocusGained
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
         selectLine(this);
@@ -366,18 +372,6 @@ public class WorkItemLine extends AbstractBikItemLine {
     private void tfMeasureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfMeasureActionPerformed
         saveLine();
     }//GEN-LAST:event_tfMeasureActionPerformed
-
-    private void tfNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfNameMouseClicked
-        selectLine(this);
-    }//GEN-LAST:event_tfNameMouseClicked
-
-    private void tfNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfNameFocusLost
-        saveLine();
-    }//GEN-LAST:event_tfNameFocusLost
-
-    private void tfNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfNameFocusGained
-        selectLine(this);
-    }//GEN-LAST:event_tfNameFocusGained
 
     private void tfCodeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfCodeMouseClicked
         selectLine(this);
@@ -453,8 +447,9 @@ public class WorkItemLine extends AbstractBikItemLine {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lId;
+    private javax.swing.JTextPane taName;
     private javax.swing.JTextField tfCode;
     private javax.swing.JTextField tfDepreciation;
     private javax.swing.JTextField tfId;
@@ -463,7 +458,6 @@ public class WorkItemLine extends AbstractBikItemLine {
     private javax.swing.JTextField tfLabourNorm;
     private javax.swing.JTextField tfMaterials;
     private javax.swing.JTextField tfMeasure;
-    private javax.swing.JTextArea tfName;
     private javax.swing.JTextField tfSectionCode;
     private javax.swing.JTextField tfTotal;
     // End of variables declaration//GEN-END:variables
@@ -482,11 +476,14 @@ public class WorkItemLine extends AbstractBikItemLine {
 
     public void updateUiComponents() {
         tfCode.setEnabled(!getBikWorkItem().getDeleted());
-        tfName.setEnabled(!getBikWorkItem().getDeleted());
+        // tfName.setEnabled(!getBikWorkItem().getDeleted());
+        taName.setEnabled(!getBikWorkItem().getDeleted());
         tfMeasure.setEnabled(!getBikWorkItem().getDeleted());
 
-        tfName.setText(getBikWorkItem().getName());
-        tfName.setCaretPosition(0);
+        // tfName.setText(getBikWorkItem().getName());
+        // tfName.setCaretPosition(0);
+        taName.setText(getBikWorkItem().getName());
+        taName.setCaretPosition(0);
         tfCode.setText(getBikWorkItem().getCode());
         tfMeasure.setText(getBikWorkItem().getMeasure());
         tfId.setText(getBikWorkItem().getId().toString());
@@ -515,7 +512,7 @@ public class WorkItemLine extends AbstractBikItemLine {
             return;
         }
         if (getBikWorkItem().getCode().equals(tfCode.getText()) &&
-                getBikWorkItem().getName().equals(tfName.getText()) &&
+                getBikWorkItem().getName().equals(taName.getText()) &&
                 getBikWorkItem().getMeasure().equals(tfMeasure.getText()) ){
             return ;
         } else {
@@ -530,12 +527,13 @@ public class WorkItemLine extends AbstractBikItemLine {
                 he.setFieldName("code");
                 he.setMessage("Nomainîts kods");
                 he.setModifiedBy(getMainWindow(this).getCurrentUser().getFullName());
-                he.setNewVal(tfCode.getText().trim());
+                he.setNewVal(tfCode.getText().trim());                
                 he.setOldVal(getBikWorkItem().getCode());
                 he.bikSave();
             }
 
-            if (!getBikWorkItem().getName().equals(tfName.getText())){
+//            if (!getBikWorkItem().getName().equals(tfName.getText())){
+            if (!getBikWorkItem().getName().equals(taName.getText())){
                 HistoryEvent he = new data.HistoryEvent();
                 he.setDate(new Date(System.currentTimeMillis()));
                 he.setObjId(getBikWorkItem().getId());
@@ -543,7 +541,7 @@ public class WorkItemLine extends AbstractBikItemLine {
                 he.setFieldName("name");
                 he.setMessage("Nomainîts nosaukums");
                 he.setModifiedBy(getMainWindow(this).getCurrentUser().getFullName());
-                he.setNewVal(tfName.getText().trim());
+                he.setNewVal(taName.getText().trim());
                 he.setOldVal(getBikWorkItem().getName());
                 getBikWorkItem().setNeedProofReading(true);
                 he.bikSave();
@@ -562,7 +560,7 @@ public class WorkItemLine extends AbstractBikItemLine {
             }
             
             getBikWorkItem().setCode(tfCode.getText());
-            getBikWorkItem().setName(tfName.getText());
+            getBikWorkItem().setName(taName.getText());
             getBikWorkItem().setMeasure(tfMeasure.getText());
             getBikWorkItem().setDateModified(new Date(System.currentTimeMillis()));
             getBikWorkItem().setModifiedBy(getMainWindow(this).getCurrentUser().getFullName());
@@ -583,7 +581,8 @@ public class WorkItemLine extends AbstractBikItemLine {
         if (getBikWorkItem().getDeleted()) {
             this.setBackground(deletedItemColor);
             tfCode.setBackground(deletedItemColor);
-            tfName.setBackground(deletedItemColor);
+            // tfName.setBackground(deletedItemColor);
+            taName.setBackground(deletedItemColor);
             tfDepreciation.setBackground(deletedItemColor);
             tfLabour.setBackground(deletedItemColor);
             tfTotal.setBackground(deletedItemColor);
@@ -597,7 +596,8 @@ public class WorkItemLine extends AbstractBikItemLine {
         } else {
             this.setBackground(backgroundColor);
             tfCode.setBackground(editableFieldBackgroundColor);
-            tfName.setBackground(editableFieldBackgroundColor);
+            // tfName.setBackground(editableFieldBackgroundColor);
+            taName.setBackground(editableFieldBackgroundColor);
             tfDepreciation.setBackground(backgroundColor);
             tfTotal.setBackground(backgroundColor);
             tfLabour.setBackground(backgroundColor);
@@ -612,7 +612,8 @@ public class WorkItemLine extends AbstractBikItemLine {
         if (getMainWindow(this)!=null && getMainWindow(this).getSelectedLine().equals(this)){
             this.setBackground(selectedLineBackgroundColor);
             tfCode.setBackground(editableFieldBackgroundColor);
-            tfName.setBackground(editableFieldBackgroundColor);
+            // tfName.setBackground(editableFieldBackgroundColor);
+            taName.setBackground(editableFieldBackgroundColor);
             tfDepreciation.setBackground(selectedLineBackgroundColor);
             tfLabour.setBackground(selectedLineBackgroundColor);
             tfLabourNorm.setBackground(selectedLineBackgroundColor);
@@ -650,7 +651,8 @@ public class WorkItemLine extends AbstractBikItemLine {
     }
     
     public JTextComponent getDefaultFocusComponent() {
-        return tfName;
+        // return tfName;
+        return taName;
     }
 
     public void expand() {
