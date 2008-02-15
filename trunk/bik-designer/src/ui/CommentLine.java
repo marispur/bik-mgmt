@@ -45,12 +45,12 @@ public class CommentLine extends AbstractBikItemLine {
         tfPrintSequence = new javax.swing.JTextField();
         lId = new javax.swing.JLabel();
         tfId = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tfBody = new javax.swing.JTextArea();
         iconNotForPrint = new javax.swing.JLabel();
         iconNeedsProofReading = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        taBody = new javax.swing.JTextPane();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -66,7 +66,6 @@ public class CommentLine extends AbstractBikItemLine {
         tfPrintSequence.setToolTipText("Drukas k\u0101rt\u012bbas indekss");
         tfPrintSequence.setEnabled(false);
         tfPrintSequence.setMinimumSize(new java.awt.Dimension(60, 20));
-        tfPrintSequence.setNextFocusableComponent(tfBody);
         tfPrintSequence.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tfPrintSequenceMouseClicked(evt);
@@ -97,30 +96,6 @@ public class CommentLine extends AbstractBikItemLine {
         tfId.setFocusable(false);
         add(tfId, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 35, -1));
 
-        jScrollPane1.setPreferredSize(new java.awt.Dimension(606, 54));
-        tfBody.setFont(fieldFont);
-        tfBody.setLineWrap(true);
-        tfBody.setRows(4);
-        tfBody.setToolTipText("Koment\u0101rs");
-        tfBody.setEnabled(false);
-        tfBody.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tfBodyMouseClicked(evt);
-            }
-        });
-        tfBody.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                tfBodyFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                tfBodyFocusLost(evt);
-            }
-        });
-
-        jScrollPane1.setViewportView(tfBody);
-
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(198, 3, 498, 42));
-
         iconNotForPrint.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/nonprinting.gif")));
         add(iconNotForPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 15, 12));
 
@@ -134,23 +109,56 @@ public class CommentLine extends AbstractBikItemLine {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/docu-32x32.png")));
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 9, 32, 32));
 
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        taBody.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                taBodyMouseClicked(evt);
+            }
+        });
+        taBody.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                taBodyFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                taBodyFocusLost(evt);
+            }
+        });
+        taBody.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                taBodyKeyPressed(evt);
+            }
+        });
+
+        jScrollPane2.setViewportView(taBody);
+
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 3, 492, 51));
+
     }// </editor-fold>//GEN-END:initComponents
+
+    private void taBodyKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_taBodyKeyPressed
+//pressing Enter key saves the record
+        if (evt.getKeyCode()==10){
+            // and does not allow new line to be inserted
+            evt.consume();
+            saveLine();
+        }
+    }//GEN-LAST:event_taBodyKeyPressed
+
+    private void taBodyFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_taBodyFocusLost
+        saveLine();
+    }//GEN-LAST:event_taBodyFocusLost
+
+    private void taBodyFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_taBodyFocusGained
+        selectLine(this);
+    }//GEN-LAST:event_taBodyFocusGained
+
+    private void taBodyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_taBodyMouseClicked
+        selectLine(this);
+    }//GEN-LAST:event_taBodyMouseClicked
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
         selectLine(this);
     }//GEN-LAST:event_formMouseClicked
-
-    private void tfBodyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfBodyMouseClicked
-        selectLine(this);
-    }//GEN-LAST:event_tfBodyMouseClicked
-
-    private void tfBodyFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfBodyFocusLost
-        saveLine();
-    }//GEN-LAST:event_tfBodyFocusLost
-
-    private void tfBodyFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfBodyFocusGained
-        selectLine(this);
-    }//GEN-LAST:event_tfBodyFocusGained
 
     private void tfPrintSequenceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfPrintSequenceMouseClicked
         selectLine(this);
@@ -174,9 +182,9 @@ public class CommentLine extends AbstractBikItemLine {
     private javax.swing.JLabel iconNotForPrint;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lId;
-    private javax.swing.JTextArea tfBody;
+    private javax.swing.JTextPane taBody;
     private javax.swing.JTextField tfId;
     private javax.swing.JTextField tfPrintSequence;
     // End of variables declaration//GEN-END:variables
@@ -194,11 +202,11 @@ public class CommentLine extends AbstractBikItemLine {
     }
 
     public void updateUiComponents() {
-        tfBody.setEnabled(!getBikComment().getDeleted());
+        taBody.setEnabled(!getBikComment().getDeleted());
         tfPrintSequence.setEnabled(!getBikComment().getDeleted());
         
-        tfBody.setText(getBikComment().getBody());
-        tfBody.setCaretPosition(0);
+        taBody.setText(getBikComment().getBody());
+        taBody.setCaretPosition(0);
         tfPrintSequence.setText(getBikComment().getPrintSequence().toString());
         tfId.setText(getBikComment().getId().toString());
     }
@@ -213,7 +221,7 @@ public class CommentLine extends AbstractBikItemLine {
             return;
         }
 
-        if (getBikComment().getBody().equals(tfBody.getText()) &&
+        if (getBikComment().getBody().equals(taBody.getText()) &&
                 getBikComment().getPrintSequence().equals(printSequence)){
             return ;
         } else {
@@ -233,7 +241,7 @@ public class CommentLine extends AbstractBikItemLine {
                 he.bikSave();
             }
 
-            if (!getBikComment().getBody().equals(tfBody.getText())){
+            if (!getBikComment().getBody().equals(taBody.getText())){
                 HistoryEvent he = new data.HistoryEvent();
                 he.setDate(new Date(System.currentTimeMillis()));
                 he.setObjId(getBikComment().getId());
@@ -241,14 +249,14 @@ public class CommentLine extends AbstractBikItemLine {
                 he.setFieldName("body");
                 he.setMessage("Nomainîts saturs");
                 he.setModifiedBy(getMainWindow(this).getCurrentUser().getFullName());
-                he.setNewVal(tfBody.getText().trim());
+                he.setNewVal(taBody.getText().trim());
                 he.setOldVal(getBikComment().getBody());
                 getBikComment().setNeedProofReading(true);
                 he.bikSave();
             }
             
             getBikComment().setPrintSequence(printSequence);
-            getBikComment().setBody(tfBody.getText());
+            getBikComment().setBody(taBody.getText());
             getBikComment().setDateModified(new Date(System.currentTimeMillis()));
             getBikComment().setModifiedBy(getMainWindow(this).getCurrentUser().getFullName());
             getBikComment().bikSave(getMainWindow(this).getHibernateSession());
@@ -267,25 +275,25 @@ public class CommentLine extends AbstractBikItemLine {
         if (getBikComment().getDeleted()) {
             this.setBackground(deletedItemColor);
             tfPrintSequence.setBackground(deletedItemColor);
-            tfBody.setBackground(deletedItemColor);
+            taBody.setBackground(deletedItemColor);
             return ;
         } else {
             this.setBackground(backgroundColor);
             tfPrintSequence.setBackground(editableFieldBackgroundColor);
-            tfBody.setBackground(editableFieldBackgroundColor);
+            taBody.setBackground(editableFieldBackgroundColor);
         }
         // now let's color selected line
         if (getMainWindow(this)!=null && getMainWindow(this).getSelectedLine().equals(this)){
             this.setBackground(selectedLineBackgroundColor);
             tfPrintSequence.setBackground(editableFieldBackgroundColor);
-            tfBody.setBackground(editableFieldBackgroundColor);
+            taBody.setBackground(editableFieldBackgroundColor);
         }
         
     }
     
     
     public JTextComponent getDefaultFocusComponent() {
-        return tfBody;
+        return taBody;
     }
 
     public void expand() {
