@@ -221,7 +221,7 @@ public class BikSection extends AbstractBikDataObject implements Serializable {
         seqId++;
         output.print("\t<item id=\"");
         output.print(seqId.toString());
-        output.print("\" type=\"1\" motive=\"BIK07:" + this.getCode().trim() +"\""+
+        output.print("\" type=\"1\" motive=\"BIK08:" + this.getCode().trim() +"\""+
                 " code_norms=\""+this.getCode().trim()+"\"");
         output.print(" name=\""+prepareForXMLOutput(this.getName())+"\"");
         output.print(" amount=\"1\"");

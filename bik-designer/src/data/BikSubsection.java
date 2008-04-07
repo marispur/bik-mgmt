@@ -274,7 +274,7 @@ public class BikSubsection extends AbstractBikDataObject implements Serializable
         seqId++;
         output.print("\t\t<item id=\"");
         output.print(seqId.toString());
-        output.print("\" type=\"1\" motive=\"BIK07:" + 
+        output.print("\" type=\"1\" motive=\"BIK08:" + 
                 this.getSection().getCode().trim() +"\""+
                 " code_norms=\""+this.getSection().getCode().trim() + "-" 
                 + this.getCode().trim()+"\"");
