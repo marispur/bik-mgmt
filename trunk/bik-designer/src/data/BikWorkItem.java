@@ -349,46 +349,55 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
         }
         
         // write labour costs
-        seqId++;
-        output.print("\t\t\t\t<subitem id=\""+ seqId.toString() + "\"");
-        output.print(" name=\"Darba alga\"");
-        output.print(" type=\"32\"");
-        output.print(" order=\"0\"");
-        output.print(" price=\"");
-        fmt.format("%.2f",this.getLabourCost());
-        output.print("\"");
-        output.print(" count=\"");
-        fmt.format("%.2f",this.getLabourNorm());
-        output.print("\"");
-        output.print(" unit=\"posma h\"");
-        output.print(" unitid=\"503\"");
-        output.println(" />");
+        if (this.getLabour().compareTo(BigDecimal.ZERO)!=0) {
+            seqId++;
+            output.print("\t\t\t\t<subitem id=\""+ seqId.toString() + "\"");
+            output.print(" name=\"Darba alga\"");
+            output.print(" type=\"32\"");
+            output.print(" order=\"0\"");
+            output.print(" price=\"");
+            fmt.format("%.2f",this.getLabourCost());
+            output.print("\"");
+            output.print(" count=\"");
+            fmt.format("%.2f",this.getLabourNorm());
+            output.print("\"");
+            output.print(" unit=\"cilv. st.\"");
+            output.print(" unitid=\"503\"");
+            output.println(" />");
+        }
         
-        seqId++;
-        output.print("\t\t\t\t<subitem id=\""+ seqId.toString() + "\"");
-        output.print(" name=\"Materiâli\"");
-        output.print(" type=\"64\"");
-        output.print(" order=\"1\"");
-        output.print(" price=\"");
-        fmt.format("%.2f",printMaterialPrice);
-        output.print("\"");
-        output.print(" count=\"");
-        fmt.format("%.2f",printMaterialCount);
-        output.print("\"");
-        output.println(" />");
+        // write material cost
         
-        seqId++;
-        output.print("\t\t\t\t<subitem id=\""+ seqId.toString() + "\"");
-        output.print(" name=\"Nolietojums\"");
-        output.print(" type=\"128\"");
-        output.print(" order=\"2\"");
-        output.print(" price=\"");
-        fmt.format("%.2f",printDepreciationPrice);
-        output.print("\"");
-        output.print(" count=\"");
-        fmt.format("%.2f",printDepreciationCount);
-        output.print("\"");
-        output.println(" />");
+        if (this.getMaterials().compareTo(BigDecimal.ZERO)!=0) {
+            seqId++;
+            output.print("\t\t\t\t<subitem id=\""+ seqId.toString() + "\"");
+            output.print(" name=\"Materiâli\"");
+            output.print(" type=\"64\"");
+            output.print(" order=\"1\"");
+            output.print(" price=\"");
+            fmt.format("%.2f",printMaterialPrice);
+            output.print("\"");
+            output.print(" count=\"");
+            fmt.format("%.2f",printMaterialCount);
+            output.print("\"");
+            output.println(" />");
+        }
+        
+        // write depreciation costs
+        if (this.getDepreciation().compareTo(BigDecimal.ZERO)!=0) {
+            seqId++;
+            output.print("\t\t\t\t<subitem id=\""+ seqId.toString() + "\"");
+            output.print(" name=\"Nolietojums\"");
+            output.print(" type=\"128\"");
+            output.print(" order=\"2\"");
+            output.print(" price=\"");
+            fmt.format("%.2f",printDepreciationPrice);
+            output.print("\"");
+            output.print(" count=\"");
+            fmt.format("%.2f",printDepreciationCount);
+            output.print("\"");
+            output.println(" />");
+        }
         
         return seqId;
     }
@@ -406,7 +415,7 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
         seqId++;
         output.print("\t\t\t<item id=\"");
         output.print(seqId.toString());
-        output.print("\" type=\"0\" motive=\"BIK07:" + 
+        output.print("\" type=\"0\" motive=\"BIK08:" + 
                 this.getSubsection().getSection().getCode().trim() +"\""+
                 " code_norms=\""+this.getSubsection().getSection().getCode().trim() + "-" 
                 + this.getCode().trim()+"\"");
