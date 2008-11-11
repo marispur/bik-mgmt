@@ -245,6 +245,7 @@ public class MainWindow extends javax.swing.JFrame{
         jSeparator1 = new javax.swing.JSeparator();
         exportTypesettingMenuItem = new javax.swing.JMenuItem();
         exportBasicXMLMenuItem = new javax.swing.JMenuItem();
+        exportExtendedXMLMenuItem = new javax.swing.JMenuItem();
         jSeparator6 = new javax.swing.JSeparator();
         exitMenuItem = new javax.swing.JMenuItem();
         viewMenu = new javax.swing.JMenu();
@@ -502,6 +503,15 @@ public class MainWindow extends javax.swing.JFrame{
 
         fileMenu.add(exportBasicXMLMenuItem);
 
+        exportExtendedXMLMenuItem.setText("Eksport\u0113t eBIK (papla\u0161in\u0101t\u0101)...");
+        exportExtendedXMLMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exportExtendedXMLMenuItemActionPerformed(evt);
+            }
+        });
+
+        fileMenu.add(exportExtendedXMLMenuItem);
+
         fileMenu.add(jSeparator6);
 
         exitMenuItem.setText("Beigt darbu");
@@ -655,6 +665,13 @@ public class MainWindow extends javax.swing.JFrame{
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void exportExtendedXMLMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportExtendedXMLMenuItemActionPerformed
+    
+        Integer sq = new Integer(1);
+        ExportForExtendedXML eb = new ExportForExtendedXML(this,this.catalog, sq);
+
+    }//GEN-LAST:event_exportExtendedXMLMenuItemActionPerformed
 
     private void requiresProofreadingStatusMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requiresProofreadingStatusMenuItemActionPerformed
 
@@ -898,6 +915,7 @@ public class MainWindow extends javax.swing.JFrame{
     private javax.swing.JCheckBoxMenuItem deletedStatusMenuItem;
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenuItem exportBasicXMLMenuItem;
+    private javax.swing.JMenuItem exportExtendedXMLMenuItem;
     private javax.swing.JMenuItem exportTypesettingMenuItem;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JCheckBoxMenuItem hideDeletedMenuItem;
