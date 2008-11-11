@@ -252,6 +252,7 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
     /**
      * Returns total cost of a work item consisting of labour, materials and 
      * depreciation costs altogether
+     * @return 
      */
     
     public BigDecimal getCost(){
@@ -311,7 +312,7 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
         }
     }
 
-    private Integer exportToFileForBasicXMLWorkItemComponenets (
+    private Integer exportToFileForBasicXMLWorkItemComponents (
             PrintWriter output, 
             Integer seqId) 
     {
@@ -402,6 +403,119 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
         return seqId;
     }
     
+    private Integer exportToFileForExtendedXMLWorkItemMaterials (
+            PrintWriter output, 
+            Integer seqId, 
+            Formatter fmt)
+    {
+        Double printMaterialPrice, printMaterialCount;
+        int locSeq = 2; // local sequence number starts from 2 as 0 is labour and 1 is depreciation
+        BikWorkItemComponent curMaterial;
+
+        Iterator<BikWorkItemComponent> i=bikWorkItemComponentCollection.iterator();
+        
+        while (i.hasNext()) {
+            curMaterial = i.next();
+            if (curMaterial.getType()==BikObjType.MATERIAL.getId()) 
+            {
+                // set prices correctly
+                printMaterialPrice = curMaterial.getUnitPrice().doubleValue();
+                printMaterialCount = curMaterial.getQty().doubleValue();
+                        
+                        
+                if (printMaterialPrice<0.1) {
+                    printMaterialPrice = printMaterialPrice * 100;
+                    printMaterialCount = printMaterialCount * 0.01;
+                } else if (printMaterialPrice<1) {
+                    printMaterialPrice = printMaterialPrice * 10;
+                    printMaterialCount = printMaterialCount * 0.1;
+                } else if (printMaterialPrice==0){
+                    printMaterialCount = (double)0;
+                }
+            
+                // write material cost
+
+                if (this.getMaterials().compareTo(BigDecimal.ZERO)!=0) {
+                    seqId++;
+                    output.print("\t\t\t\t<subitem id=\""+ seqId.toString() + "\"");
+                    output.print(" name=\""+ curMaterial.getName().trim()+"\"");
+                    output.print(" type=\"64\"");
+                    output.printf(" order=\"%d\"", locSeq);
+                    output.print(" price=\"");
+                    fmt.format("%.2f",printMaterialPrice);
+                    output.print("\"");
+                    output.print(" count=\"");
+                    fmt.format("%.2f",printMaterialCount);
+                    output.print("\"");
+                    output.println(" />");
+                }
+            }
+        }
+        return seqId;
+    }
+            
+    private Integer exportToFileForExtendedXMLWorkItemComponents (
+            PrintWriter output, 
+            Integer seqId) 
+    {
+        Formatter fmt = new Formatter(output);
+        Double printDepreciationPrice, printDepreciationCount;
+        
+
+        if (this.getDepreciation().doubleValue()<0.1) {
+            printDepreciationPrice = this.getDepreciation().doubleValue() * 100;
+            printDepreciationCount = 0.01;
+        } else if (this.getDepreciation().doubleValue()<1) {
+            printDepreciationPrice = this.getDepreciation().doubleValue() * 10;
+            printDepreciationCount = 0.1;
+        } else if (this.getDepreciation().doubleValue()==0) {
+            printDepreciationPrice = (double) 0;
+            printDepreciationCount = (double) 0;
+        } else {
+            printDepreciationPrice = this.getDepreciation().doubleValue();
+            printDepreciationCount = (double) 1;
+        }
+        
+        // write labour costs
+        if (this.getLabour().compareTo(BigDecimal.ZERO)!=0) {
+            seqId++;
+            output.print("\t\t\t\t<subitem id=\""+ seqId.toString() + "\"");
+            output.print(" name=\"Darba alga\"");
+            output.print(" type=\"32\"");
+            output.print(" order=\"0\"");
+            output.print(" price=\"");
+            fmt.format("%.2f",this.getLabourCost());
+            output.print("\"");
+            output.print(" count=\"");
+            fmt.format("%.2f",this.getLabourNorm());
+            output.print("\"");
+            output.print(" unit=\"cilv. st.\"");
+            output.print(" unitid=\"503\"");
+            output.println(" />");
+        }
+        
+        
+        // write depreciation costs
+        if (this.getDepreciation().compareTo(BigDecimal.ZERO)!=0) {
+            seqId++;
+            output.print("\t\t\t\t<subitem id=\""+ seqId.toString() + "\"");
+            output.print(" name=\"Nolietojums\"");
+            output.print(" type=\"128\"");
+            output.print(" order=\"1\"");
+            output.print(" price=\"");
+            fmt.format("%.2f",printDepreciationPrice);
+            output.print("\"");
+            output.print(" count=\"");
+            fmt.format("%.2f",printDepreciationCount);
+            output.print("\"");
+            output.println(" />");
+        }
+        
+        seqId=exportToFileForExtendedXMLWorkItemMaterials(output, seqId, fmt);
+        
+        return seqId;
+    }
+    
     public Integer exportToFileForBasicXML(
             PrintWriter output, 
             ProgressMonitor pm, 
@@ -424,7 +538,38 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
         output.print(" order=\""+localOrder+"\"");
         output.println(" unit=\""+ prepareForXMLOutput(this.getMeasure())+"\">");
         
-        seqId = exportToFileForBasicXMLWorkItemComponenets(output,seqId);
+        seqId = exportToFileForBasicXMLWorkItemComponents(output,seqId);
+        
+        output.println("\t\t\t</item>");
+        return seqId;
+        
+    }
+    
+    public Integer exportToFileForExtendedXML(
+            PrintWriter output, 
+            ProgressMonitor pm, 
+            Integer seqId,
+            Integer localOrder) 
+    {
+        if (this.isNotForPrint() || this.isDeleted()) return seqId;
+        
+        pm.setNote(this.getSubsection().getSection().getCode().trim() + "-" +
+                this.getCode().trim());
+        seqId++;
+        output.print("\t\t\t<item id=\"");
+        output.print(seqId.toString());
+        /* System.out.printf("writing Work item %s (xml id = %d)\n",this.getSubsection().getSection().getCode().trim() + "-" +
+                this.getCode().trim(),seqId.intValue()); */
+        output.print("\" type=\"0\" motive=\"BIK08:" + 
+                this.getSubsection().getSection().getCode().trim() +"\""+
+                " code_norms=\""+this.getSubsection().getSection().getCode().trim() + "-" 
+                + this.getCode().trim()+"\"");
+        output.print(" name=\""+prepareForXMLOutput(this.getName())+"\"");
+        output.print(" amount=\"1\"");
+        output.print(" order=\""+localOrder+"\"");
+        output.println(" unit=\""+ prepareForXMLOutput(this.getMeasure())+"\">");
+        
+        seqId = exportToFileForExtendedXMLWorkItemComponents(output,seqId);
         
         output.println("\t\t\t</item>");
         return seqId;

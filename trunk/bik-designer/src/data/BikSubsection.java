@@ -296,4 +296,38 @@ public class BikSubsection extends AbstractBikDataObject implements Serializable
         return seqId;
         
     }    
+    
+        public Integer exportToFileForExtendedXML(
+            PrintWriter output, 
+            ProgressMonitor pm, 
+            Integer seqId,
+            Integer localOrder) 
+    {
+        if (this.isNotForPrint() || this.isDeleted()) return seqId;
+        
+        seqId++;
+        output.print("\t\t<item id=\"");
+        output.print(seqId.toString());
+        output.print("\" type=\"1\" motive=\"BIK08:" + 
+                this.getSection().getCode().trim() +"\""+
+                " code_norms=\""+this.getSection().getCode().trim() + "-" 
+                + this.getCode().trim()+"\"");
+        output.print(" name=\""+prepareForXMLOutput(this.getName())+"\"");
+        output.print(" amount=\"1\"");
+        output.print(" order=\""+localOrder+"\"");
+
+        output.println(" unit=\"\">");
+        
+        Iterator<BikWorkItem> i = this.getBikWorkItemCollection().iterator();
+        int localWIOrder=0;
+        while (i.hasNext()){
+            BikWorkItem bss = i.next();
+            seqId = bss.exportToFileForExtendedXML(output, pm, seqId, localWIOrder);
+            localWIOrder+=1;
+        }
+        
+        output.println("\t\t</item>");
+        return seqId;
+        
+    }    
 }

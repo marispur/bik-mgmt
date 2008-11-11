@@ -250,6 +250,11 @@ public abstract class AbstractBikDataObject implements IBikDataObject {
         return 0;
     }
     
+    public Integer exportToFileForExtendedXML(java.io.PrintWriter output, javax.swing.ProgressMonitor pm, Integer seqId, Integer localOrder){
+        return exportToFileForBasicXML(output, pm, seqId, localOrder);
+    }
+    
+    
     public static String prepareForXMLOutput(String val){
         String out;
         if (val==null) return null;

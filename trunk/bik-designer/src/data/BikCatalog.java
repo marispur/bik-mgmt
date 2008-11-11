@@ -146,4 +146,30 @@ public class BikCatalog extends AbstractBikDataObject {
         output.println("</item>");
         return seqId;
     }
+    public Integer exportToFileForExtendedXML(PrintWriter output, ProgressMonitor pm, Integer seqId) {
+        
+        output.println("<?xml version=\"1.0\" encoding=\"utf-8\" ?>");
+        output.println("<settings>");
+        // Tagad exportçjam normatîvus (darbu veidus)
+        output.println("<standart>");
+        Iterator<BikSection> i = this.getBikSectionCollection().iterator();
+        pm.setMaximum(this.getBikSectionCollection().size());
+        int progressCounter=0;
+        int localOrder=0;
+        while (i.hasNext()) {
+            progressCounter += 1;
+            BikSection currentSection = i.next();
+            pm.setProgress(progressCounter);
+            pm.setNote("Eksportçju: "+currentSection.getCode()+" "+currentSection.getName());
+            seqId = currentSection.exportToFileForExtendedXML(output, pm, seqId, localOrder);
+            localOrder+=1;
+        }
+        output.println("</standart>");
+        // Tagad exportçjam cenu datu bâzi
+        output.println("<defaults>");
+        
+        output.println("</defaults>");
+        output.println("</settings>");
+        return seqId;
+    }
 }

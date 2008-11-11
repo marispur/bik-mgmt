@@ -240,4 +240,30 @@ public class BikSection extends AbstractBikDataObject implements Serializable {
         return seqId;
         
     }
+    
+        public Integer exportToFileForExtendedXML(PrintWriter output, ProgressMonitor pm, Integer seqId, Integer localOrder) {
+        if (this.isNotForPrint() || this.isDeleted()) return seqId;
+        
+        seqId++;
+        output.print("\t<item id=\"");
+        output.print(seqId.toString());
+        output.print("\" type=\"1\" motive=\"BIK08:" + this.getCode().trim() +"\""+
+                " code_norms=\""+this.getCode().trim()+"\"");
+        output.print(" name=\""+prepareForXMLOutput(this.getName())+"\"");
+        output.print(" amount=\"1\"");
+        output.print(" order=\""+localOrder+"\"");
+        output.println(" unit=\"\">");
+        
+        int localSubOrder=0;
+        Iterator<BikSubsection> i = this.getBikSubsectionCollection().iterator();
+        while (i.hasNext()){
+            BikSubsection bss = i.next();
+            seqId = bss.exportToFileForExtendedXML(output, pm, seqId, localSubOrder);
+            localSubOrder+=1;
+        }
+        
+        output.println("\t</item>");
+        return seqId;
+        
+    }
 }
