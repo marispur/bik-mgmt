@@ -27,38 +27,38 @@ import org.hibernate.annotations.OrderBy;
 
 /**
  * Entity class BikWorkItem
- * 
+ *
  * @author mpurins
  */
 @Entity
 @Table(name = "sys_wi")
 @NamedQueries( {
-        @NamedQuery(name = "BikWorkItem.findById", query = "SELECT b FROM BikWorkItem b WHERE b.id = :id"),
-        @NamedQuery(name = "BikWorkItem.findByCode", query = "SELECT b FROM BikWorkItem b WHERE b.code = :code"),
-        @NamedQuery(name = "BikWorkItem.findByDateCreated", query = "SELECT b FROM BikWorkItem b WHERE b.dateCreated = :dateCreated"),
-        @NamedQuery(name = "BikWorkItem.findByDateModified", query = "SELECT b FROM BikWorkItem b WHERE b.dateModified = :dateModified"),
-        @NamedQuery(name = "BikWorkItem.findByModifiedBy", query = "SELECT b FROM BikWorkItem b WHERE b.modifiedBy = :modifiedBy"),
-        @NamedQuery(name = "BikWorkItem.findByName", query = "SELECT b FROM BikWorkItem b WHERE b.name = :name"),
-        @NamedQuery(name = "BikWorkItem.findByDeleted", query = "SELECT b FROM BikWorkItem b WHERE b.deleted = :deleted"),
-        @NamedQuery(name = "BikWorkItem.findByDateDeleted", query = "SELECT b FROM BikWorkItem b WHERE b.dateDeleted = :dateDeleted"),
-        @NamedQuery(name = "BikWorkItem.findByDeletedBy", query = "SELECT b FROM BikWorkItem b WHERE b.deletedBy = :deletedBy"),
-        @NamedQuery(name = "BikWorkItem.findByMeasure", query = "SELECT b FROM BikWorkItem b WHERE b.measure = :measure")
-    })
+    @NamedQuery(name = "BikWorkItem.findById", query = "SELECT b FROM BikWorkItem b WHERE b.id = :id"),
+    @NamedQuery(name = "BikWorkItem.findByCode", query = "SELECT b FROM BikWorkItem b WHERE b.code = :code"),
+    @NamedQuery(name = "BikWorkItem.findByDateCreated", query = "SELECT b FROM BikWorkItem b WHERE b.dateCreated = :dateCreated"),
+    @NamedQuery(name = "BikWorkItem.findByDateModified", query = "SELECT b FROM BikWorkItem b WHERE b.dateModified = :dateModified"),
+    @NamedQuery(name = "BikWorkItem.findByModifiedBy", query = "SELECT b FROM BikWorkItem b WHERE b.modifiedBy = :modifiedBy"),
+    @NamedQuery(name = "BikWorkItem.findByName", query = "SELECT b FROM BikWorkItem b WHERE b.name = :name"),
+    @NamedQuery(name = "BikWorkItem.findByDeleted", query = "SELECT b FROM BikWorkItem b WHERE b.deleted = :deleted"),
+    @NamedQuery(name = "BikWorkItem.findByDateDeleted", query = "SELECT b FROM BikWorkItem b WHERE b.dateDeleted = :dateDeleted"),
+    @NamedQuery(name = "BikWorkItem.findByDeletedBy", query = "SELECT b FROM BikWorkItem b WHERE b.deletedBy = :deletedBy"),
+    @NamedQuery(name = "BikWorkItem.findByMeasure", query = "SELECT b FROM BikWorkItem b WHERE b.measure = :measure")
+})
 public class BikWorkItem extends AbstractBikDataObject implements Serializable {
-
+    
     @Column(name = "code")
     private String code = "";
-
+    
     @Column(name = "name")
     private String name="";
-
+    
     @Column(name = "measure")
     private String measure="";
-
+    
     @JoinColumn(name = "subsection", referencedColumnName = "id")
     @ManyToOne
     private BikSubsection subsection;
-
+    
     @OneToMany(mappedBy = "wi")
     @OrderBy(clause="type, id")
     private Collection<BikWorkItemComponent> bikWorkItemComponentCollection;
@@ -68,7 +68,7 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
         needProofReading = true;
         notForPrint = false;
     }
-
+    
     /**
      * Creates a new instance of BikWorkItem with the specified values.
      * @param id the id of the BikWorkItem
@@ -76,7 +76,7 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
     public BikWorkItem(Integer id) {
         this.id = id;
     }
-
+    
     /**
      * Gets the code of this BikWorkItem.
      * @return the code
@@ -85,7 +85,7 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
         if (this.code==null) return "";
         return this.code;
     }
-
+    
     /**
      * Sets the code of this BikWorkItem to the specified value.
      * @param code the new code
@@ -93,7 +93,7 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
     public void setCode(String code) {
         this.code = code;
     }
-
+    
     /**
      * Gets the name of this BikWorkItem.
      * @return the name
@@ -102,7 +102,7 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
         if (this.name==null) return "";
         return this.name;
     }
-
+    
     /**
      * Sets the name of this BikWorkItem to the specified value.
      * @param name the new name
@@ -110,7 +110,7 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-
+    
     /**
      * Gets the measure of this BikWorkItem.
      * @return the measure
@@ -119,7 +119,7 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
         if (this.measure==null) return new String("");
         return this.measure;
     }
-
+    
     /**
      * Sets the measure of this BikWorkItem to the specified value.
      * @param measure the new measure
@@ -127,7 +127,7 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
     public void setMeasure(String measure) {
         this.measure = measure;
     }
-
+    
     /**
      * Gets the subsection of this BikWorkItem.
      * @return the subsection
@@ -135,7 +135,7 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
     public BikSubsection getSubsection() {
         return this.subsection;
     }
-
+    
     /**
      * Sets the subsection of this BikWorkItem to the specified value.
      * @param subsection the new subsection
@@ -143,7 +143,7 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
     public void setSubsection(BikSubsection subsection) {
         this.subsection = subsection;
     }
-
+    
     /**
      * Gets the bikWorkItemComponentCollection of this BikWorkItem.
      * @return the bikWorkItemComponentCollection
@@ -151,7 +151,7 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
     public Collection<BikWorkItemComponent> getBikWorkItemComponentCollection() {
         return this.bikWorkItemComponentCollection;
     }
-
+    
     /**
      * Sets the bikWorkItemComponentCollection of this BikWorkItem to the specified value.
      * @param bikWorkItemComponentCollection the new bikWorkItemComponentCollection
@@ -159,9 +159,9 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
     public void setBikWorkItemComponentCollection(Collection<BikWorkItemComponent> bikWorkItemComponentCollection) {
         this.bikWorkItemComponentCollection = bikWorkItemComponentCollection;
     }
-
+    
     /**
-     * Returns a hash code value for the object.  This implementation computes 
+     * Returns a hash code value for the object.  This implementation computes
      * a hash code value based on the id fields in this object.
      * @return a hash code value for this object.
      */
@@ -171,10 +171,10 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
         hash += (this.id != null ? this.id.hashCode() : 0);
         return hash;
     }
-
+    
     /**
-     * Determines whether another object is equal to this BikWorkItem.  The result is 
-     * <code>true</code> if and only if the argument is not null and is a BikWorkItem object that 
+     * Determines whether another object is equal to this BikWorkItem.  The result is
+     * <code>true</code> if and only if the argument is not null and is a BikWorkItem object that
      * has the same id field values as this object.
      * @param object the reference object with which to compare
      * @return <code>true</code> if this object is the same as the argument;
@@ -190,9 +190,9 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
         if (this.id != other.id && (this.id == null || !this.id.equals(other.id))) return false;
         return true;
     }
-
+    
     /**
-     * Returns a string representation of the object.  This implementation constructs 
+     * Returns a string representation of the object.  This implementation constructs
      * that representation based on the id fields.
      * @return a string representation of the object.
      */
@@ -200,11 +200,11 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
     public String toString() {
         return "data.BikWorkItem[id=" + id + "]";
     }
-
+    
     public BikObjType getObjType() {
         return BikObjType.WORK_ITEM;
     }
-
+    
     public BigDecimal getMaterials(){
         BigDecimal rv = new BigDecimal(0);
         BikWorkItemComponent curWic;
@@ -236,9 +236,9 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
         return rv;
     }
     public BigDecimal getLabourNorm(){
-        // TODO: mathematics is not corect here in case there is more than one 
-        // labour work component 
-
+        // TODO: mathematics is not corect here in case there is more than one
+        // labour work component
+        
         BigDecimal rv = new BigDecimal(0);
         BikWorkItemComponent curWic;
         Iterator wicIt = getBikWorkItemComponentCollection().iterator();
@@ -250,20 +250,20 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
     }
     
     /**
-     * Returns total cost of a work item consisting of labour, materials and 
+     * Returns total cost of a work item consisting of labour, materials and
      * depreciation costs altogether
-     * @return 
+     * @return
      */
     
     public BigDecimal getCost(){
         return getLabour().add(getMaterials().add(getDepreciation()));
-
-   }
+        
+    }
     
     
     public BigDecimal getLabourCost(){
-        // TODO: mathematics is not corect here in case there is more than one 
-        // labour work component 
+        // TODO: mathematics is not corect here in case there is more than one
+        // labour work component
         BigDecimal rv = new BigDecimal(0);
         BikWorkItemComponent curWic;
         Iterator wicIt = getBikWorkItemComponentCollection().iterator();
@@ -273,7 +273,7 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
         }
         return rv;
     }
-
+    
     public Boolean isDeleted() {
         Boolean retValue=false;
         if (getSubsection().getDeleted()) return true;
@@ -291,31 +291,30 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
         } else {
             try {
                 output.printf("%s-%s%c%s%c%s%c%.3f%c%.3f%c%.2f%c%.2f%c%.2f%c%.2f%n",
-                       this.getSubsection().getSection().getCode().trim(),
-                       this.getCode().trim(),
-                       9,
-                       this.getName().trim(),
-                       9,
-                       this.getMeasure().trim(),
-                       9,
-                       this.getLabourNorm().floatValue(),9,
-                       this.getLabourCost().floatValue(),9,
+                        this.getSubsection().getSection().getCode().trim(),
+                        this.getCode().trim(),
+                        9,
+                        this.getName().trim(),
+                        9,
+                        this.getMeasure().trim(),
+                        9,
+                        this.getLabourNorm().floatValue(),9,
+                        this.getLabourCost().floatValue(),9,
                         this.getLabour().floatValue(),9,
                         this.getMaterials().floatValue(),9,
                         this.getDepreciation().floatValue(),9,
                         this.getCost().floatValue()
-                       );
+                        );
             } catch (java.lang.IllegalArgumentException e) {
                 e.printStackTrace(System.out);
             }
-
+            
         }
     }
-
-    private Integer exportToFileForBasicXMLWorkItemComponents (
-            PrintWriter output, 
-            Integer seqId) 
-    {
+    
+    private Integer exportToFileForBasicXMLWorkItemComponents(
+            PrintWriter output,
+            Integer seqId) {
         Formatter fmt = new Formatter(output);
         Double printMaterialPrice, printMaterialCount;
         Double printDepreciationPrice, printDepreciationCount;
@@ -334,7 +333,7 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
             printMaterialPrice = this.getMaterials().doubleValue();
             printMaterialCount = (double) 1;
         }
-
+        
         if (this.getDepreciation().doubleValue()<0.1) {
             printDepreciationPrice = this.getDepreciation().doubleValue() * 100;
             printDepreciationCount = 0.01;
@@ -403,26 +402,24 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
         return seqId;
     }
     
-    private Integer exportToFileForExtendedXMLWorkItemMaterials (
-            PrintWriter output, 
-            Integer seqId, 
-            Formatter fmt)
-    {
+    private Integer exportToFileForExtendedXMLWorkItemMaterials(
+            PrintWriter output,
+            Integer seqId,
+            Formatter fmt,
+            Integer locSeq) {
         Double printMaterialPrice, printMaterialCount;
-        int locSeq = 2; // local sequence number starts from 2 as 0 is labour and 1 is depreciation
         BikWorkItemComponent curMaterial;
-
+        
         Iterator<BikWorkItemComponent> i=bikWorkItemComponentCollection.iterator();
         
         while (i.hasNext()) {
             curMaterial = i.next();
-            if (curMaterial.getType()==BikObjType.MATERIAL.getId()) 
-            {
+            if (curMaterial.getType()==BikObjType.MATERIAL.getId()) {
                 // set prices correctly
                 printMaterialPrice = curMaterial.getUnitPrice().doubleValue();
                 printMaterialCount = curMaterial.getQty().doubleValue();
-                        
-                        
+                
+                
                 if (printMaterialPrice<0.1) {
                     printMaterialPrice = printMaterialPrice * 100;
                     printMaterialCount = printMaterialCount * 0.01;
@@ -432,13 +429,13 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
                 } else if (printMaterialPrice==0){
                     printMaterialCount = (double)0;
                 }
-            
+                
                 // write material cost
-
+                
                 if (this.getMaterials().compareTo(BigDecimal.ZERO)!=0) {
                     seqId++;
                     output.print("\t\t\t\t<subitem id=\""+ seqId.toString() + "\"");
-                    output.print(" name=\""+ curMaterial.getName().trim()+"\"");
+                    output.print(" name=\""+ prepareForXMLOutput(curMaterial.getName().trim())+"\"");
                     output.print(" type=\"64\"");
                     output.printf(" order=\"%d\"", locSeq);
                     output.print(" price=\"");
@@ -447,21 +444,25 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
                     output.print(" count=\"");
                     fmt.format("%.2f",printMaterialCount);
                     output.print("\"");
+                    if (curMaterial.getPriceDef()!=null){
+                        output.printf(" id_db_exp=\"%d\"", curMaterial.getPriceDef().getId());  // material id
+                        output.printf(" id_db=\"-%d\"", curMaterial.getPriceDef().getId());     // material id with minus sign               
+                    }
                     output.println(" />");
+                    locSeq++;
                 }
             }
         }
         return seqId;
     }
-            
-    private Integer exportToFileForExtendedXMLWorkItemComponents (
-            PrintWriter output, 
-            Integer seqId) 
-    {
+    
+    private Integer exportToFileForExtendedXMLWorkItemComponents(
+            PrintWriter output,
+            Integer seqId) {
         Formatter fmt = new Formatter(output);
         Double printDepreciationPrice, printDepreciationCount;
         
-
+        
         if (this.getDepreciation().doubleValue()<0.1) {
             printDepreciationPrice = this.getDepreciation().doubleValue() * 100;
             printDepreciationCount = 0.01;
@@ -476,13 +477,15 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
             printDepreciationCount = (double) 1;
         }
         
+        Integer localOrder = new Integer(0);
+        
         // write labour costs
         if (this.getLabour().compareTo(BigDecimal.ZERO)!=0) {
             seqId++;
             output.print("\t\t\t\t<subitem id=\""+ seqId.toString() + "\"");
             output.print(" name=\"Darba alga\"");
             output.print(" type=\"32\"");
-            output.print(" order=\"0\"");
+            output.printf(" order=\"%d\"",localOrder);
             output.print(" price=\"");
             fmt.format("%.2f",this.getLabourCost());
             output.print("\"");
@@ -492,36 +495,34 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
             output.print(" unit=\"cilv. st.\"");
             output.print(" unitid=\"503\"");
             output.println(" />");
+            localOrder++;
         }
+        Integer seqIdMemory = new Integer(seqId);
         
-        
+        seqId=exportToFileForExtendedXMLWorkItemMaterials(output, seqId, fmt, localOrder);
+
         // write depreciation costs
         if (this.getDepreciation().compareTo(BigDecimal.ZERO)!=0) {
             seqId++;
             output.print("\t\t\t\t<subitem id=\""+ seqId.toString() + "\"");
             output.print(" name=\"Nolietojums\"");
             output.print(" type=\"128\"");
-            output.print(" order=\"1\"");
-            output.print(" price=\"");
-            fmt.format("%.2f",printDepreciationPrice);
-            output.print("\"");
+            output.printf(" order=\"%d\"",localOrder+(seqId-seqIdMemory)-1);
+            output.printf(" price=\"%.2f\"", printDepreciationPrice);
             output.print(" count=\"");
             fmt.format("%.2f",printDepreciationCount);
             output.print("\"");
             output.println(" />");
         }
         
-        seqId=exportToFileForExtendedXMLWorkItemMaterials(output, seqId, fmt);
-        
         return seqId;
     }
     
     public Integer exportToFileForBasicXML(
-            PrintWriter output, 
-            ProgressMonitor pm, 
+            PrintWriter output,
+            ProgressMonitor pm,
             Integer seqId,
-            Integer localOrder) 
-    {
+            Integer localOrder) {
         if (this.isNotForPrint() || this.isDeleted()) return seqId;
         
         pm.setNote(this.getSubsection().getSection().getCode().trim() + "-" +
@@ -529,9 +530,9 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
         seqId++;
         output.print("\t\t\t<item id=\"");
         output.print(seqId.toString());
-        output.print("\" type=\"0\" motive=\"BIK08:" + 
+        output.print("\" type=\"0\" motive=\"BIK08:" +
                 this.getSubsection().getSection().getCode().trim() +"\""+
-                " code_norms=\""+this.getSubsection().getSection().getCode().trim() + "-" 
+                " code_norms=\""+this.getSubsection().getSection().getCode().trim() + "-"
                 + this.getCode().trim()+"\"");
         output.print(" name=\""+prepareForXMLOutput(this.getName())+"\"");
         output.print(" amount=\"1\"");
@@ -546,11 +547,10 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
     }
     
     public Integer exportToFileForExtendedXML(
-            PrintWriter output, 
-            ProgressMonitor pm, 
+            PrintWriter output,
+            ProgressMonitor pm,
             Integer seqId,
-            Integer localOrder) 
-    {
+            Integer localOrder) {
         if (this.isNotForPrint() || this.isDeleted()) return seqId;
         
         pm.setNote(this.getSubsection().getSection().getCode().trim() + "-" +
@@ -560,9 +560,9 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
         output.print(seqId.toString());
         /* System.out.printf("writing Work item %s (xml id = %d)\n",this.getSubsection().getSection().getCode().trim() + "-" +
                 this.getCode().trim(),seqId.intValue()); */
-        output.print("\" type=\"0\" motive=\"BIK08:" + 
+        output.print("\" type=\"0\" motive=\"BIK08:" +
                 this.getSubsection().getSection().getCode().trim() +"\""+
-                " code_norms=\""+this.getSubsection().getSection().getCode().trim() + "-" 
+                " code_norms=\""+this.getSubsection().getSection().getCode().trim() + "-"
                 + this.getCode().trim()+"\"");
         output.print(" name=\""+prepareForXMLOutput(this.getName())+"\"");
         output.print(" amount=\"1\"");
