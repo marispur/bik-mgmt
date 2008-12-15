@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<settings>
+  <standart>
+    <item id="469678256" type="1" name="eBIK DB" custom="1">
+      <item id="1903328296" name="Darbs" amount_ex="1" unit="vien." motive="" amount="1" order="0" type="0">
+        <subitem id="2015646220" name="Mat1" id_db_exp="-1457121231" price="15" price_group="1" unit="m3" order="0" count="1" type="64" code="Kods1" id_db="1989592101" unit_id="-1" />
+      </item>
+    </item>
+  </standart>
+  <defaults>
+    <item id="752570761" name="Sadaļa (eBIK materiāli)" order="0" type="64" code="" comment="" provider_id="999" provider_root="1">
+      <subitem id="-1457121231" name="Mat1" order="0" type="64" code="Kods1" comment="komentārs" unit="m3" provider_id="999">
+        <price id="1989592101" order="0" amount="15" date_modified="39757" source="eBIK" price_group="1" provider_id="999" />
+      </subitem>
+    </item>
+  </defaults>
+</settings>

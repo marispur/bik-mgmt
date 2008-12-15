@@ -150,6 +150,7 @@ public class BikCatalog extends AbstractBikDataObject {
     public Integer exportToFileForExtendedXML(PrintWriter output, ProgressMonitor pm, Integer seqId) {
         
         String priceProviderId = new String("999");
+        Double printMaterialPrice;
         
         output.println("<?xml version=\"1.0\" encoding=\"utf-8\" ?>");
         output.println("<settings>");
@@ -171,16 +172,6 @@ public class BikCatalog extends AbstractBikDataObject {
         // Tagad exportçjam cenu datu bâzi
         output.println("<defaults>");
         
-        seqId++;
-        output.print("\t<item id=\""+ seqId.toString() + "\"");
-        output.print(" name=\"Sadaïa (eBIK materiâli\"");
-        output.print(" type=\"64\"");
-        output.printf(" order=\"%d\"", 0);
-        output.print(" code=\"\"");
-        output.print(" comment=\"\"");
-        output.printf(" provider_id=\"%s\"", priceProviderId);
-        output.print(" provider_root=\"1\"");
-        output.println(" />");
 
         Iterator<PriceDef> priceIterator = HibernateUtil.getCurrentSession().createQuery("from data.PriceDef pd order by pd.category, pd.name").list().iterator();
         PriceDef curPrice;
@@ -190,21 +181,60 @@ public class BikCatalog extends AbstractBikDataObject {
         pm.setMaximum(10);
         pm.setProgress(9);
         
+        String previousCategory = new String("");
+        Integer categoryOrder = 0;
+        
         while (priceIterator.hasNext())
         {
             curPrice = priceIterator.next();
 
             //System.out.printf("Price id:%d\n",curPrice.getId());
             pm.setNote("Eksportçju cenu ar ID:"+curPrice.getId().toString());
+            
+            // New category starts have to write new Item level tags
+            if ( ! previousCategory.equals(curPrice.getCategory().trim()))
+            {
+                // if this is not first category encounter, have to close last Item level tag
+                // don't forget to close last Item after last SubItem outside loop !
+                if(categoryOrder!=0) {
+                    output.println("\t</item>");
+                }
+                
+                seqId++;
+                output.print("\t<item id=\""+ seqId.toString() + "\"");
+                output.printf(" name=\"%s\"", prepareForXMLOutput(curPrice.getCategory().trim()));
+                output.print(" type=\"64\"");
+                output.printf(" order=\"%d\"", categoryOrder);
+                output.print(" code=\"\"");
+                output.print(" comment=\"\"");
+                output.printf(" provider_id=\"%s\"", priceProviderId);
+                output.print(" provider_root=\"1\"");
+                output.println(">");
+               
+                categoryOrder++; // next category encountered
+            }
+            
+            // set prices correctly
+            printMaterialPrice = curPrice.getUnitPrice().doubleValue();
+            String prefixStr = new String("");
 
+            if (printMaterialPrice<0.1) {
+                printMaterialPrice = printMaterialPrice * 100;
+                prefixStr = new String("100 ");
+            } else if (printMaterialPrice<1) {
+                printMaterialPrice = printMaterialPrice * 10;
+                prefixStr = new String("10 ");
+            }
+            
+            
             seqId++;
             output.print("\t\t<subitem id=\""+ curPrice.getId().toString() + "\"");
-            output.printf(" name=\"%s: %s\"",prepareForXMLOutput(curPrice.getCategory().trim()),prepareForXMLOutput(curPrice.getName().trim()));
+            output.printf(" name=\"%s\"",prepareForXMLOutput(curPrice.getName().trim()));
             output.print(" type=\"64\"");
             output.printf(" order=\"%d\"", priceOrder);
             output.print(" code=\"\"");
             output.printf(" comment=\"%s\"",prepareForXMLOutput(curPrice.getSource()));
-            output.printf(" unit=\"%s\"",prepareForXMLOutput(curPrice.getMeasure()));
+            output.printf(" unit=\"%s\"",prepareForXMLOutput(prefixStr + curPrice.getMeasure()));
             output.printf(" provider_id=\"%s\"", prepareForXMLOutput(priceProviderId));
             output.println(">");
 
@@ -215,13 +245,16 @@ public class BikCatalog extends AbstractBikDataObject {
             output.printf(" date_modified=\"%d\"", curPrice.getDateModified().getTime());
             output.printf(" provider_id=\"%s\"", prepareForXMLOutput(priceProviderId));
             output.printf(" source=\"eBIK\"");
-            output.printf(" amount=\"%.4f\"",curPrice.getUnitPrice().floatValue());
+            output.printf(" amount=\"%.4f\"",printMaterialPrice.floatValue());
             output.println(" />");
             
             output.println("\t\t</subitem>");
             priceOrder++;
+            
+            previousCategory = curPrice.getCategory().trim();
         }
         
+        output.println("\t</item>"); // close item after last price
         output.println("</defaults>");
         output.println("</settings>");
         return seqId;
