@@ -418,14 +418,16 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
                 // set prices correctly
                 printMaterialPrice = curMaterial.getUnitPrice().doubleValue();
                 printMaterialCount = curMaterial.getQty().doubleValue();
-                
+                String prefixStr = new String("");
                 
                 if (printMaterialPrice<0.1) {
                     printMaterialPrice = printMaterialPrice * 100;
                     printMaterialCount = printMaterialCount * 0.01;
+                    prefixStr = new String("100 ");
                 } else if (printMaterialPrice<1) {
                     printMaterialPrice = printMaterialPrice * 10;
                     printMaterialCount = printMaterialCount * 0.1;
+                    prefixStr = new String("10 ");
                 } else if (printMaterialPrice==0){
                     printMaterialCount = (double)0;
                 }
@@ -436,6 +438,7 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
                     seqId++;
                     output.print("\t\t\t\t<subitem id=\""+ seqId.toString() + "\"");
                     output.print(" name=\""+ prepareForXMLOutput(curMaterial.getName().trim())+"\"");
+                    output.print(" unit=\""+ prefixStr + prepareForXMLOutput(curMaterial.getMeasure().trim())+"\"");
                     output.print(" type=\"64\"");
                     output.printf(" order=\"%d\"", locSeq);
                     output.print(" price=\"");
@@ -492,7 +495,7 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
             output.print(" count=\"");
             fmt.format("%.2f",this.getLabourNorm());
             output.print("\"");
-            output.print(" unit=\"cilv. st.\"");
+            output.print(" unit=\"c/h\"");
             output.print(" unitid=\"503\"");
             output.println(" />");
             localOrder++;
@@ -506,6 +509,7 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
             seqId++;
             output.print("\t\t\t\t<subitem id=\""+ seqId.toString() + "\"");
             output.print(" name=\"Nolietojums\"");
+            output.print(" unit=\"vien.\"");
             output.print(" type=\"128\"");
             output.printf(" order=\"%d\"",localOrder+(seqId-seqIdMemory)-1);
             output.printf(" price=\"%.2f\"", printDepreciationPrice);

@@ -111,7 +111,7 @@ public class BikWorkItemComponent extends AbstractBikDataObject implements Seria
 
     /**
      * Gets the measure of this BikWorkItemComponent.
-     * @return the measure
+     * @return the measure stored within BikWorkItemComponent or from PriceDef if such is set
      */
     public String getMeasure() {
         if (getPriceDef()!=null && 
