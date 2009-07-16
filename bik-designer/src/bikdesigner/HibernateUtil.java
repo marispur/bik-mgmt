@@ -38,6 +38,7 @@ public class HibernateUtil {
         .addAnnotatedClass(data.PriceDef.class)
         .addAnnotatedClass(data.BikUser.class)
         .addAnnotatedClass(data.BikComment.class)
+        .addAnnotatedClass(data.PriceDefUsage.class)
     	.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect")
     	.setProperty("hibernate.connection.driver_class", "org.postgresql.Driver")
     	.setProperty("hibernate.connection.url", "jdbc:postgresql://srv01.mvproject.local:5432/bik")
