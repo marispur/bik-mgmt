@@ -100,7 +100,24 @@ public class BikWorkItemComponent extends AbstractBikDataObject implements Seria
             else return getPriceDef().getName();
         else return this.name;
     }
-
+    
+    /**
+     * Gets the name of this BikWorkItemComponent for extended XML export. 
+     * Output does not contain category string if WIcomponent is a defined price.
+     * @return the name of component without category
+     */
+    public String getNameForExtendedXML() {
+        if (getPriceDef()!=null && 
+                getObjType()!=BikObjType.DEPRECIATION_PERCENT &&
+                getObjType()!=BikObjType.LABOUR) {
+            
+            return getPriceDef().getName();
+        }
+        else {
+            return this.name;
+        }
+    }
+    
     /**
      * Sets the name of this BikWorkItemComponent to the specified value.
      * @param name the new name

@@ -318,6 +318,7 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
         Formatter fmt = new Formatter(output);
         Double printMaterialPrice, printMaterialCount;
         Double printDepreciationPrice, printDepreciationCount;
+        Integer localOrder = new Integer(0);
         
         // set prices correctly
         if (this.getMaterials().doubleValue()<0.1) {
@@ -351,17 +352,18 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
         // write labour costs
         if (this.getLabour().compareTo(BigDecimal.ZERO)!=0) {
             seqId++;
+            localOrder++;
             output.print("\t\t\t\t<subitem id=\""+ seqId.toString() + "\"");
             output.print(" name=\"Darba alga\"");
             output.print(" type=\"32\"");
-            output.print(" order=\"0\"");
+            output.printf(" order=\"%d\"", localOrder);
             output.print(" price=\"");
             fmt.format("%.2f",this.getLabourCost());
             output.print("\"");
             output.print(" count=\"");
             fmt.format("%.2f",this.getLabourNorm());
             output.print("\"");
-            output.print(" unit=\"cilv. st.\"");
+            output.print(" unit=\"c/h\"");
             output.print(" unitid=\"503\"");
             output.println(" />");
         }
@@ -370,10 +372,11 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
         
         if (this.getMaterials().compareTo(BigDecimal.ZERO)!=0) {
             seqId++;
+            localOrder++;
             output.print("\t\t\t\t<subitem id=\""+ seqId.toString() + "\"");
             output.print(" name=\"Materiâli\"");
             output.print(" type=\"64\"");
-            output.print(" order=\"1\"");
+            output.printf(" order=\"%d\"",localOrder);
             output.print(" price=\"");
             fmt.format("%.2f",printMaterialPrice);
             output.print("\"");
@@ -386,10 +389,11 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
         // write depreciation costs
         if (this.getDepreciation().compareTo(BigDecimal.ZERO)!=0) {
             seqId++;
+            localOrder++;
             output.print("\t\t\t\t<subitem id=\""+ seqId.toString() + "\"");
             output.print(" name=\"Nolietojums\"");
             output.print(" type=\"128\"");
-            output.print(" order=\"2\"");
+            output.printf(" order=\"%d\"", localOrder);
             output.print(" price=\"");
             fmt.format("%.2f",printDepreciationPrice);
             output.print("\"");
@@ -437,7 +441,7 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
                 if (this.getMaterials().compareTo(BigDecimal.ZERO)!=0) {
                     seqId++;
                     output.print("\t\t\t\t<subitem id=\""+ seqId.toString() + "\"");
-                    output.print(" name=\""+ prepareForXMLOutput(curMaterial.getName().trim())+"\"");
+                    output.print(" name=\""+ prepareForXMLOutput(curMaterial.getNameForExtendedXML().trim())+"\"");
                     output.print(" unit=\""+ prefixStr + prepareForXMLOutput(curMaterial.getMeasure().trim())+"\"");
                     output.print(" type=\"64\"");
                     output.printf(" order=\"%d\"", locSeq);
@@ -534,7 +538,7 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
         seqId++;
         output.print("\t\t\t<item id=\"");
         output.print(seqId.toString());
-        output.print("\" type=\"0\" motive=\"BIK08:" +
+        output.print("\" type=\"0\" motive=\"BIK:" +
                 this.getSubsection().getSection().getCode().trim() +"\""+
                 " code_norms=\""+this.getSubsection().getSection().getCode().trim() + "-"
                 + this.getCode().trim()+"\"");
@@ -564,7 +568,7 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
         output.print(seqId.toString());
         /* System.out.printf("writing Work item %s (xml id = %d)\n",this.getSubsection().getSection().getCode().trim() + "-" +
                 this.getCode().trim(),seqId.intValue()); */
-        output.print("\" type=\"0\" motive=\"BIK08:" +
+        output.print("\" type=\"0\" motive=\"BIK:" +
                 this.getSubsection().getSection().getCode().trim() +"\""+
                 " code_norms=\""+this.getSubsection().getSection().getCode().trim() + "-"
                 + this.getCode().trim()+"\"");
