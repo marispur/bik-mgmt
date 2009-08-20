@@ -318,7 +318,7 @@ public class BikWorkItem extends AbstractBikDataObject implements Serializable {
         Formatter fmt = new Formatter(output);
         Double printMaterialPrice, printMaterialCount;
         Double printDepreciationPrice, printDepreciationCount;
-        Integer localOrder = new Integer(0);
+        Integer localOrder = new Integer(-1);
         
         // set prices correctly
         if (this.getMaterials().doubleValue()<0.1) {
