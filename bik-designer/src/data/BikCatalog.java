@@ -253,6 +253,9 @@ public class BikCatalog extends AbstractBikDataObject {
                 output.printf(" source=\"eBIK\"");
                 output.printf(" amount=\"%.4f\"",printMaterialPrice.floatValue());
                 output.println(" />");
+                if (curPrice.getId().equals(46283)) {
+                    System.out.printf("amount=\"%.4f\"",printMaterialPrice.floatValue());
+                }
 
                 output.println("\t\t</subitem>");
                 priceOrder++;
